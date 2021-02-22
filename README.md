@@ -8,7 +8,7 @@ dole skip tlacitko<h6>
 tlacitko na vytvorenie tournamentu ---> meno tournamentu, menu na vyber sportov, vyber formatu tournamentu<h6>
 
 <h2>Team Page:</h2>
->tlacitko na vytvorenie teamu ---> meno teamu, logo teamu + page na pridavanie hracov ---> firstName a lastName hraca (prezyvka), cislo dresu, win rate teamu/hraca<h6>
+tlacitko na vytvorenie teamu ---> meno teamu, logo teamu + page na pridavanie hracov ---> firstName a lastName hraca (prezyvka), cislo dresu, win rate teamu/hraca<h6>
 
 <h2>History Page:</h2>
 historia zapasov <h6>
