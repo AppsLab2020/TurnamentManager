@@ -19,20 +19,14 @@ namespace TurnamentManager
             bool isEmailEmpty = string.IsNullOrEmpty(EmailEntry.Text);
             bool isPasswordEmpty = string.IsNullOrEmpty(PasswordEntry.Text);
 
-            if (isEmailEmpty)
+            if (isEmailEmpty != true && isPasswordEmpty != true)
             {
-                DisplayAlert("false ALERT", "PLEASE ENTER EMAIL", "OK");
-            }
-            
-               
-            else if (isPasswordEmpty)
-            {
-                DisplayAlert("", "PLEASE ENTER PASSWORD", "OK");
+                DisplayAlert("TRUE ALERT", "it worked", "OK");
             }
 
             else
             {
-                Navigation.PushAsync(new HomePage());
+                DisplayAlert("FALSE ALERT", "it worked", "OK");
             }
         }
     }
