@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:TurnamentManager;assembly=TurnamentManager"
              x:Class="TurnamentManager.HomePage">
-    <local:TournamentPage></local:TournamentPage>
-    <local:TeamPage></local:TeamPage>
-    <local:HistoryPage></local:HistoryPage>
+    
+    <local:TournamentPage Title="Tournament"></local:TournamentPage>
+    <local:TeamPage Title="Teams"></local:TeamPage>
+    <local:HistoryPage Title="History"></local:HistoryPage>
        
 </TabbedPage>
