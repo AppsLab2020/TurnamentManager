@@ -12,3 +12,7 @@ tlacitko na vytvorenie teamu ---> meno teamu, logo teamu + page na pridavanie hr
 
 <h2>History Page:</h2>
 historia zapasov <h6>
+
+
+<h2>Navrh vo figme:</h2>
+TODO ulohy v trello:</h2>
