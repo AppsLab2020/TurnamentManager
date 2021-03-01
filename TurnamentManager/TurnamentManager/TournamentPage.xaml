@@ -15,6 +15,7 @@
                     VerticalOptions="Center"
                     BackgroundColor="DodgerBlue"
                     TextColor="White"
+                    Clicked="Button_OnClicked"
                     Text="+"></Button>
         </StackLayout>
         
