@@ -13,6 +13,8 @@ namespace TurnamentManager
         public MainPage()
         {
             InitializeComponent();
+           
+            
         }
         private void LogInButton_OnClicked(object sender, EventArgs e)
         {
@@ -21,13 +23,13 @@ namespace TurnamentManager
 
             if (isEmailEmpty)
             {
-                DisplayAlert("false ALERT", "PLEASE ENTER EMAIL", "OK");
+                DisplayAlert("", "Please enter Email", "OK");
             }
             
                
             else if (isPasswordEmpty)
             {
-                DisplayAlert("", "PLEASE ENTER PASSWORD", "OK");
+                DisplayAlert("", "Please enter Password", "OK");
             }
 
             else

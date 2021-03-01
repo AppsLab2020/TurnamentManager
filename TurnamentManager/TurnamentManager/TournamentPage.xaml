@@ -7,6 +7,16 @@
             <Label Text="Welcome to Tournament Page"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+            
+            <Button CornerRadius="60"
+                    HeightRequest="60"
+                    WidthRequest="60"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center"
+                    BackgroundColor="DodgerBlue"
+                    TextColor="White"
+                    Text="+"></Button>
         </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>

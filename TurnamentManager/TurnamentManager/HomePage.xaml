@@ -7,5 +7,5 @@
     <local:TournamentPage Title="Tournament"></local:TournamentPage>
     <local:TeamPage Title="Teams"></local:TeamPage>
     <local:HistoryPage Title="History"></local:HistoryPage>
-       
+    
 </TabbedPage>
