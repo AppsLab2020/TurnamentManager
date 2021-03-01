@@ -18,8 +18,8 @@ namespace TurnamentManager
         }
         private void LogInButton_OnClicked(object sender, EventArgs e)
         {
-            bool isEmailEmpty = string.IsNullOrEmpty(EmailEntry.Text);
-            bool isPasswordEmpty = string.IsNullOrEmpty(PasswordEntry.Text);
+            var isEmailEmpty = string.IsNullOrEmpty(EmailEntry.Text);
+            var isPasswordEmpty = string.IsNullOrEmpty(PasswordEntry.Text);
 
             if (isEmailEmpty)
             {
