@@ -11,7 +11,7 @@
                     <Button Text="Sport"/>
                 </StackLayout>
                 <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
-                    <Button Text="Format"/>
+                    <Button Text="TFormat"/>
                 </StackLayout>
             </StackLayout>
         </StackLayout>
