@@ -14,5 +14,5 @@ tlacitko na vytvorenie teamu ---> meno teamu, logo teamu + page na pridavanie hr
 historia zapasov <h6>
 
 
-<h2>Navrh vo figme: https://www.figma.com/file/wXcaY8IhOOqnsfR2M1YWz9/Untitled?node-id=0%3A1</h2>
-<h2>TODO ulohy v trello: https://trello.com/b/o34FIUnO/todo</h2> 
+<h3>Navrh vo figme: https://www.figma.com/file/wXcaY8IhOOqnsfR2M1YWz9/Untitled?node-id=0%3A1</h3>
+<h3>TODO ulohy v trello: https://trello.com/b/o34FIUnO/todo</h3> 
