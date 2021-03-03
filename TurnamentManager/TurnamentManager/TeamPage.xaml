@@ -9,6 +9,8 @@
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
             <Image x:Name="selectedImage"></Image>
+            <ImageButton Clicked="MenuItem_OnClicked"
+                         Source="uploadImg.png"></ImageButton>
         </StackLayout>
         
     </ContentPage.Content>

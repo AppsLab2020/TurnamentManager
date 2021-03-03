@@ -6,16 +6,24 @@
    
     <ContentPage.Content>
         <StackLayout Margin="10">
-            <Button Text="Select Tournament image"
-                    Clicked="MenuItem_OnClicked"></Button>
-            <Image x:Name="selectedImage"></Image>
+            <Image Source="cup.jpg"></Image>
+            
+            
             <Entry Placeholder="Tournament name"></Entry>
             <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
                 <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
-                    <Button Text="Sport"/>
+                    <Label Text="Choose Sport"></Label>
+                    <Picker x:Name="Sports"><Picker.Items>
+                        <x:String>Football</x:String>
+                        <x:String>Basketball</x:String>
+                    </Picker.Items></Picker>
                 </StackLayout>
                 <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
-                    <Button Text="TFormat"/>
+                    <Label Text="Choose Format"></Label>
+                    <Picker x:Name="Format"><Picker.Items>
+                        <x:String>League</x:String>
+                        <x:String>Knockout</x:String>
+                    </Picker.Items></Picker>
                 </StackLayout>
             </StackLayout>
         </StackLayout>
