@@ -17,17 +17,33 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="HistoryPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="HomePage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="TeamPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="TournamentPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
+    <Folder Include="Models" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\CreateTournamentPage.xaml.cs">
+      <DependentUpon>CreateTournamentPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\HistoryPage.xaml.cs">
+      <DependentUpon>HistoryPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\TeamPage.xaml.cs">
+      <DependentUpon>TeamPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\TournamentPage.xaml.cs">
+      <DependentUpon>TournamentPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

@@ -1,21 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace TurnamentManager
+namespace TurnamentManager.Views
 {
     public partial class MainPage : ContentPage
     {
         public MainPage()
         {
             InitializeComponent();
-           
-            
         }
+        
         private void LogInButton_OnClicked(object sender, EventArgs e)
         {
             var isEmailEmpty = string.IsNullOrEmpty(EmailEntry.Text);
@@ -25,13 +19,10 @@ namespace TurnamentManager
             {
                 DisplayAlert("", "Please enter Email", "OK");
             }
-            
-               
             else if (isPasswordEmpty)
             {
                 DisplayAlert("", "Please enter Password", "OK");
             }
-
             else
             {
                 Navigation.PushAsync(new HomePage());

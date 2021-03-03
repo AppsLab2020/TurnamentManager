@@ -1,17 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TurnamentManager.TeamPage">
-   
+             x:Class="TurnamentManager.Views.HistoryPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Team Page"
+            <Label Text="Welcome to History Page"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-            <Image x:Name="selectedImage"></Image>
-            <ImageButton Clicked="MenuItem_OnClicked"
-                         Source="uploadImg.png"></ImageButton>
         </StackLayout>
-        
     </ContentPage.Content>
 </ContentPage>

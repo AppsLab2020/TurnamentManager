@@ -1,4 +1,5 @@
 ﻿using System;
+using TurnamentManager.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
