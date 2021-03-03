@@ -15,13 +15,9 @@ namespace TurnamentManager.Views
             var isEmailEmpty = string.IsNullOrEmpty(EmailEntry.Text);
             var isPasswordEmpty = string.IsNullOrEmpty(PasswordEntry.Text);
 
-            if (isEmailEmpty)
+            if (isEmailEmpty || isPasswordEmpty)
             {
-                DisplayAlert("", "Please enter Email", "OK");
-            }
-            else if (isPasswordEmpty)
-            {
-                DisplayAlert("", "Please enter Password", "OK");
+                DisplayAlert("", "Please enter email and password", "OK");
             }
             else
             {
