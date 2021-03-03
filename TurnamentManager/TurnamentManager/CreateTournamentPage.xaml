@@ -26,6 +26,14 @@
                     </Picker.Items></Picker>
                 </StackLayout>
             </StackLayout>
+            <StackLayout Orientation="Horizontal" VerticalOptions="End">
+            <Button x:Name="SaveButton"
+                    Text="SAVE"
+                    TextColor="White"
+                    BackgroundColor="DodgerBlue"
+                HorizontalOptions="CenterAndExpand">
+                </Button>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
