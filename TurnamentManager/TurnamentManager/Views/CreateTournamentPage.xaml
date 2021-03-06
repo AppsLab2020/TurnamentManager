@@ -6,7 +6,7 @@
    
     <ContentPage.Content>
         <StackLayout Margin="10">
-            <Image Source="cup.jpg"></Image>
+            <Image Source="Cup2.png"></Image>
             
             
             <Entry Placeholder="Tournament name"></Entry>
@@ -31,7 +31,9 @@
                     Text="SAVE"
                     TextColor="White"
                     BackgroundColor="DodgerBlue"
-                HorizontalOptions="CenterAndExpand">
+                HorizontalOptions="CenterAndExpand"
+                    CornerRadius="5"
+                    BorderWidth="2">
                 </Button>
             </StackLayout>
         </StackLayout>

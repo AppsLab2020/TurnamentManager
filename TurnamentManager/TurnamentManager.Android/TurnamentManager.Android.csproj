@@ -69,7 +69,10 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\cup.jpg" />
+    <AndroidResource Include="Resources\drawable\Cup2.png" />
+    <AndroidResource Include="Resources\drawable\History.png" />
+    <AndroidResource Include="Resources\drawable\Team1.png" />
+    <AndroidResource Include="Resources\drawable\Tournament.png" />
     <AndroidResource Include="Resources\layout\Tabbar.xml" />
     <AndroidResource Include="Resources\layout\Toolbar.xml" />
     <AndroidResource Include="Resources\values\styles.xml" />
