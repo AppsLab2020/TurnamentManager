@@ -7,6 +7,7 @@
     
     <views:TournamentPage Title="Tournament" IconImageSource="Tournament.png"></views:TournamentPage>
     <views:TeamPage Title="Teams" IconImageSource="Team1.png"></views:TeamPage>
+    <views:PlayerPage Title="Players"></views:PlayerPage>
     <views:HistoryPage Title="History" IconImageSource="History.png"></views:HistoryPage>
     
 </TabbedPage>
