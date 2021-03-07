@@ -5,7 +5,13 @@
              x:Class="TurnamentManager.Views.CreatePlayerPage">
     <ContentPage.Content>
         <StackLayout>
-           
+            <Grid >
+                <Image x:Name="selectedImage"></Image>
+                <ImageButton Clicked="MenuItem_OnClicked"
+                             Source="Upic.png"
+                             HorizontalOptions="Center"></ImageButton>
+            </Grid>
+            
         </StackLayout>
         
     </ContentPage.Content>

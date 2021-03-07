@@ -8579,7 +8579,10 @@ namespace TurnamentManager.Droid
 			public const int Tournament = 2131165305;
 			
 			// aapt resource value: 0x7F07007A
-			public const int uploadImg = 2131165306;
+			public const int Upic = 2131165306;
+			
+			// aapt resource value: 0x7F07007B
+			public const int uploadImg = 2131165307;
 			
 			static Drawable()
 			{
