@@ -6,7 +6,7 @@
              xmlns:views="clr-namespace:TurnamentManager.Views;assembly=TurnamentManager"
              x:Class="TurnamentManager.Views.TournamentSetupPage">
     
-    <views:PlayerOrTeamAddPage Title="Player add"></views:PlayerOrTeamAddPage>
-    <views:TournamentFormatPage Title="Format"></views:TournamentFormatPage>
+    <views:PlayerOrTeamAddPage Title="Player Add"></views:PlayerOrTeamAddPage>
+    <views:DrawPage Title="Draw Matches"></views:DrawPage>
    <views:MatchPage Title="Matches"></views:MatchPage>
 </TabbedPage>
