@@ -36,6 +36,10 @@ namespace TurnamentManager.Views
                     Text = player.Name,
                     TextColor = Color.Black,
                 };
+                var imageButton = new ImageButton
+                {
+                    Source = "binTest.png",
+                };
                 var st = new StackLayout { };
                 var frame = new Frame
                 {
@@ -47,6 +51,7 @@ namespace TurnamentManager.Views
                     Padding = 0,
                 };
                 st.Children.Add(label);
+                st.Children.Add(imageButton);
                 frame.Content = st;
 
                 
