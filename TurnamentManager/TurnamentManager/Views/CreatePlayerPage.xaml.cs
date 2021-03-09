@@ -69,7 +69,6 @@ namespace TurnamentManager.Views
             using var conn = new SQLiteConnection(Path.Combine(App.FolderPath, "players.db3"));
             conn.CreateTable<Player>();
             conn.Insert(player);
-            var a = 0;
         }
     }
 }

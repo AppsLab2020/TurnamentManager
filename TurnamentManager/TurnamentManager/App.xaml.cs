@@ -7,11 +7,14 @@ namespace TurnamentManager
 {
     public partial class App : Application
     {
-        public App()
+
+        public static string FolderPath;
+        public App(string folderPath)
         {
             InitializeComponent();
 
             MainPage = new NavigationPage(new MainPage());
+            FolderPath = folderPath;
         }
 
         protected override void OnStart()
