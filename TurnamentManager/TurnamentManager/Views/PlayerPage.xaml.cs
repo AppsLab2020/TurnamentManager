@@ -34,11 +34,11 @@ namespace TurnamentManager.Views
                 var label = new Label
                 {
                     Text = player.Name,
+                    TextColor = Color.Black,
                 };
                 var st = new StackLayout { };
                 var frame = new Frame
                 {
-                    
                     CornerRadius = 20,
                     HorizontalOptions = LayoutOptions.Center,
                     VerticalOptions = LayoutOptions.Start,
@@ -46,8 +46,9 @@ namespace TurnamentManager.Views
                     IsClippedToBounds = true,
                     Padding = 0,
                 };
-                frame.Content = st;
                 st.Children.Add(label);
+                frame.Content = st;
+
                 
                 PlayerStackLayout.Children.Add(frame);
             }
