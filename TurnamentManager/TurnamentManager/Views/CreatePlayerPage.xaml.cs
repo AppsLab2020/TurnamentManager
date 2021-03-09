@@ -43,7 +43,7 @@ namespace TurnamentManager.Views
             
             selectedImage.Source = ImageSource.FromStream(()=> selectedImageFile.GetStream());
         }
-
+        
         private void SaveButton_OnClicked(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(_imagePath))
@@ -64,6 +64,7 @@ namespace TurnamentManager.Views
                 _ => Player.PlayerQuality.Flexible
                 
             };
+
             var player = new Player(name, pathToImage, playerQuality);
 
             using var conn = new SQLiteConnection(Path.Combine(App.FolderPath, "players.db3"));

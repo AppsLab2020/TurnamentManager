@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using SQLite;
 using TurnamentManager.Classes.Tournament;
@@ -30,8 +31,8 @@ namespace TurnamentManager.Views
 
             foreach (var player in players)
             {
-                Console.WriteLine(player.Name);
             }
+
         }
     }
 }

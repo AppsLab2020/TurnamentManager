@@ -9,6 +9,9 @@
                    VerticalOptions="CenterAndExpand"
                    HorizontalOptions="CenterAndExpand" />
             
+            <StackLayout x:Name="playerss">
+                
+            </StackLayout>
             
             <Button CornerRadius="60"
                     HeightRequest="60"
