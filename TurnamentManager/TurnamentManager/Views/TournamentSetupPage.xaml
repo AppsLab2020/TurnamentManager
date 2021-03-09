@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TurnamentManager;assembly=TurnamentManager"
+             xmlns:views="clr-namespace:TurnamentManager.Views;assembly=TurnamentManager"
+             x:Class="TurnamentManager.Views.TournamentSetupPage">
+    
+    <views:PlayerOrTeamAddPage Title="Player add"></views:PlayerOrTeamAddPage>
+    <views:TournamentFormatPage Title="Format"></views:TournamentFormatPage>
+   <views:MatchPage Title="Matches"></views:MatchPage>
+</TabbedPage>
