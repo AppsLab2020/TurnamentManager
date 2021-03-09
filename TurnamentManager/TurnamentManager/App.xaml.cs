@@ -11,7 +11,7 @@ namespace TurnamentManager
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new HomePage());
+            MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()

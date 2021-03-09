@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Environment = System.Environment;
 
 namespace TurnamentManager.Droid
 {
@@ -21,7 +22,9 @@ namespace TurnamentManager.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            LoadApplication(new App());
+
+            var folderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            LoadApplication(new App(folderPath));
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
