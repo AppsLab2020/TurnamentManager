@@ -4,7 +4,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TurnamentManager.Views.PlayerPage">
     <ContentPage.Content>
-       
+       <ScrollView>
         <StackLayout x:Name="PlayerStackLayout" Padding="20" >
             <Button CornerRadius="60"
                     HeightRequest="60"
@@ -17,6 +17,6 @@
                     Clicked="Button_OnClicked">
                 </Button>
         </StackLayout>
-        
+       </ScrollView>
     </ContentPage.Content>
 </ContentPage>
