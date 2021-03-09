@@ -22,5 +22,9 @@
             ImagePath = imagePath;
             CurrPlayerQuality = currPlayerQuality;
         }
+
+        public Player()
+        {
+        }
     }
 }

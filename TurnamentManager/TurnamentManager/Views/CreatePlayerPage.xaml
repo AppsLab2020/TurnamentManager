@@ -11,9 +11,9 @@
                              Source="Upic.png"
                              HorizontalOptions="Center"></ImageButton>
             </Grid>
-            <Label Text="Nickname"
-                   x:Name="Name"></Label>
-            <Entry Placeholder="Player1"></Entry>
+            <Label Text="Nickname"></Label>
+            <Entry Placeholder="Player1"
+                   x:Name="Name"></Entry>
             <Label Text="Choose Player Quality"></Label>
             <Picker x:Name="Quality"><Picker.Items>
                 <x:String>Flexible</x:String>
