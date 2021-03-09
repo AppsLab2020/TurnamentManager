@@ -4,17 +4,12 @@
              x:Class="TurnamentManager.Views.TeamPage">
    
     <ContentPage.Content>
-        <StackLayout Padding="20">
-            <Label Text="Hello, TeamPage"
-                   VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="CenterAndExpand" />
-            
-            
+        <StackLayout  Padding="20">
             <Button CornerRadius="60"
                     HeightRequest="60"
                     WidthRequest="60"
-                    HorizontalOptions="End"
-                    VerticalOptions="Center"
+                    HorizontalOptions="EndAndExpand"
+                    VerticalOptions="EndAndExpand"
                     BackgroundColor="DodgerBlue"
                     TextColor="White"
                     Text="+"

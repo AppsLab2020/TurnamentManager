@@ -4,15 +4,11 @@
              x:Class="TurnamentManager.Views.TournamentPage">
     <ContentPage.Content>
         <StackLayout Padding="20">
-            <Label Text="Welcome to Tournament Page"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            
             <Button CornerRadius="60"
                     HeightRequest="60"
                     WidthRequest="60"
-                    HorizontalOptions="End"
-                    VerticalOptions="Center"
+                    HorizontalOptions="EndAndExpand"
+                    VerticalOptions="EndAndExpand"
                     BackgroundColor="DodgerBlue"
                     TextColor="White"
                     Clicked="Button_OnClicked"

@@ -19,5 +19,7 @@ namespace TurnamentManager.Views
         {
             Navigation.PushAsync(new CreateTeamPage());
         }
+        
+       
     }
 }

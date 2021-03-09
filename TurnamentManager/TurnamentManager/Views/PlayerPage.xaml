@@ -4,25 +4,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TurnamentManager.Views.PlayerPage">
     <ContentPage.Content>
-        <StackLayout Padding="20">
-            <Label Text="Hello, PlayerPage"
-                   VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="CenterAndExpand" />
-            
-            <StackLayout x:Name="playerss">
-                
-            </StackLayout>
-            
+       
+        <StackLayout x:Name="PlayerStackLayout" Padding="20" >
             <Button CornerRadius="60"
                     HeightRequest="60"
                     WidthRequest="60"
-                    HorizontalOptions="End"
-                    VerticalOptions="Center"
+                    HorizontalOptions="EndAndExpand"
+                    VerticalOptions="EndAndExpand"
                     BackgroundColor="DodgerBlue"
                     TextColor="White"
                     Text="+"
                     Clicked="Button_OnClicked">
-            </Button>
+                </Button>
         </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>

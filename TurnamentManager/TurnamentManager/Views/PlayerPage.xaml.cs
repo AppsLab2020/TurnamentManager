@@ -31,8 +31,28 @@ namespace TurnamentManager.Views
 
             foreach (var player in players)
             {
+                var label = new Label
+                {
+                    Text = player.Name,
+                };
+                var st = new StackLayout { };
+                var frame = new Frame
+                {
+                    
+                    CornerRadius = 20,
+                    HorizontalOptions = LayoutOptions.Center,
+                    VerticalOptions = LayoutOptions.Start,
+                    HasShadow = true,
+                    IsClippedToBounds = true,
+                    Padding = 0,
+                };
+                frame.Content = st;
+                st.Children.Add(label);
+                
+                PlayerStackLayout.Children.Add(frame);
             }
-
+            
+          
         }
     }
 }
