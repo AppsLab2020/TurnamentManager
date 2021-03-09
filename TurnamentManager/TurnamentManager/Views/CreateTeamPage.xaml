@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TurnamentManager.Views.CreateTeamPage">
+    <ContentPage.Content>
+        <StackLayout>
+           <Image Source="teamm.jpg"></Image>
+            <Label Text="Team Name"></Label>
+            <Entry Placeholder="Team1"></Entry>
+            <Button x:Name="AddPlayerButton"
+                    Text="Add Player"
+                    TextColor="White"
+                    BackgroundColor="DodgerBlue"
+                    CornerRadius="5"
+                    BorderWidth="2"></Button>
+            <StackLayout Orientation="Horizontal" VerticalOptions="End">
+                <Button x:Name="SaveButton"
+                        Text="SAVE"
+                        TextColor="White"
+                        BackgroundColor="DodgerBlue"
+                        HorizontalOptions="CenterAndExpand"
+                        CornerRadius="5"
+                        BorderWidth="2">
+                </Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
