@@ -6,8 +6,22 @@
              xmlns:controls1="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
              x:Class="TurnamentManager.Views.PlayerOrTeamAddPage">
     <ContentPage.Content>
+        <ScrollView>
         <StackLayout x:Name="testS">
-          <Label Text="Add Players" FontSize="Large"></Label>
+          <Label Text="Add Players" FontSize="Large"
+                 VerticalOptions="Center"
+                 HorizontalOptions="Center"></Label>
+            <StackLayout Orientation="Horizontal" VerticalOptions="End">
+                <Button x:Name="SaveButton"
+                        Text="SAVE"
+                        TextColor="White"
+                        BackgroundColor="DodgerBlue"
+                        HorizontalOptions="CenterAndExpand"
+                        CornerRadius="5"
+                        BorderWidth="2">
+                </Button>
+            </StackLayout>
         </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

@@ -40,8 +40,10 @@ namespace TurnamentManager.Views
                     TextColor = Color.Black,
                 };
                 
+                
                 testS.Children.Add(checkBox);
             }
+            
         }
 
       
