@@ -2,12 +2,12 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:XLabs;assembly=XLabs.Forms"
+             xmlns:controls1="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
              x:Class="TurnamentManager.Views.PlayerOrTeamAddPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Hello, world!"
-                   VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="CenterAndExpand" />
+        <StackLayout x:Name="testS">
+          <Label Text="Add Players" FontSize="Large"></Label>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
