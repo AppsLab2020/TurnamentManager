@@ -71,7 +71,7 @@ namespace TurnamentManager.Views
             conn.CreateTable<Player>();
             conn.Insert(player);
 
-            Navigation.PushAsync(new HomePage());
+            Navigation.PopAsync();
         }
     }
 }

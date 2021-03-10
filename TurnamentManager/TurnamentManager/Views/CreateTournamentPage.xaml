@@ -22,7 +22,6 @@
                     <Label Text="Choose Format"></Label>
                     <Picker x:Name="Format"><Picker.Items>
                         <x:String>League</x:String>
-                        <x:String>Knockout</x:String>
                     </Picker.Items></Picker>
                 </StackLayout>
             </StackLayout>
