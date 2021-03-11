@@ -1,4 +1,6 @@
-﻿namespace TurnamentManager.Classes.Tournament
+﻿using SQLite;
+
+namespace TurnamentManager.Classes.Tournament
 {
     public class Player
     {
@@ -15,6 +17,9 @@
         public Team Team;
 
         public PlayerQuality CurrPlayerQuality;
+        
+        [AutoIncrement]
+        public int ID { get; set; }
         
         public Player(string name, string imagePath, PlayerQuality currPlayerQuality)
         {
