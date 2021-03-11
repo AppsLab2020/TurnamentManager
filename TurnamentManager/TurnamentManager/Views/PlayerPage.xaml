@@ -5,7 +5,10 @@
              x:Class="TurnamentManager.Views.PlayerPage">
     <ContentPage.Content>
        <ScrollView>
-        <StackLayout x:Name="PlayerStackLayout" Padding="20" >
+        <StackLayout Padding="20" >
+            <StackLayout x:Name="PlayerStackLayout">
+                
+            </StackLayout>
             <Button CornerRadius="60"
                     HeightRequest="60"
                     WidthRequest="60"
