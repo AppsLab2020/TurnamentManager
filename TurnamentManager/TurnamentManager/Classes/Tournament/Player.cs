@@ -18,7 +18,7 @@ namespace TurnamentManager.Classes.Tournament
 
         public PlayerQuality CurrPlayerQuality;
         
-        [AutoIncrement]
+        [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
         
         public Player(string name, string imagePath, PlayerQuality currPlayerQuality)

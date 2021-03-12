@@ -29,7 +29,10 @@ namespace TurnamentManager.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-
+            if (!File.Exists(Path.Combine(App.FolderPath, "players.db3")))
+            {
+                return;
+            }
             using var conn = new SQLiteConnection(Path.Combine(App.FolderPath, "players.db3"));
             conn.CreateTable<Player>();
             var players = conn.Table<Player>().ToList();
