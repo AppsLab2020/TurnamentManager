@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using SQLite;
 using TurnamentManager.Classes.Tournament;
 using Xamarin.Forms;
@@ -13,6 +14,7 @@ namespace TurnamentManager.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PlayerPage : ContentPage
     {
+        private static ICommand RemoveCommand => new Command<int>(RemovePlayer);
         private List<Player> _players;
         public PlayerPage()
         {
@@ -65,6 +67,8 @@ namespace TurnamentManager.Views
             var imageButton = new ImageButton
             {
                 Source = "binTest.png",
+                Command = RemoveCommand,
+                CommandParameter = player.ID
             };
             var st = new StackLayout { };
             var frame = new Frame
@@ -81,6 +85,12 @@ namespace TurnamentManager.Views
             frame.Content = st;
 
             return frame;
+        }
+
+        private static void RemovePlayer(int id)
+        {
+            using var conn = new SQLiteConnection(Path.Combine(App.FolderPath, "players.db3"));
+            conn.Query<Player>("DELETE FROM Player Where ID=?", id);
         }
     }
 }
