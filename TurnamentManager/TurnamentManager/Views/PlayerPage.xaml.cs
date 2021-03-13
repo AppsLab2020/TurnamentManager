@@ -41,19 +41,21 @@ namespace TurnamentManager.Views
             _players.Clear();
             _players.AddRange(players);
             
-            /*foreach (var player in players)
+            foreach (var player in players)
             {
                 var frame = await Task.Run(() => MakeFrameAsync(player)); //slower but appears one by one
                 PlayerStackLayout.Children.Add(frame);
-            }*/
+            }
             
             
+            /*
              var tasks = players.Select(player => Task.Run(() => MakeFrameAsync(player))).ToList(); //faster but appears all at once
              var frames = await Task.WhenAll(tasks);
              foreach(var frame in frames)
              {
                 PlayerStackLayout.Children.Add(frame);
              }
+            */
              
         }
 
@@ -63,14 +65,26 @@ namespace TurnamentManager.Views
             {
                 Text = player.Name,
                 TextColor = Color.Black,
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                VerticalOptions = LayoutOptions.Center,
             };
+            
             var imageButton = new ImageButton
             {
                 Source = "binTest.png",
                 Command = RemoveCommand,
-                CommandParameter = player.ID
+                CommandParameter = player.ID,
+                VerticalOptions = LayoutOptions.Center,
+                HorizontalOptions = LayoutOptions.EndAndExpand
             };
-            var st = new StackLayout { };
+            
+            var st = new StackLayout
+            {
+                Orientation = StackOrientation.Horizontal,
+                WidthRequest = 300,
+                HeightRequest = 100,
+            };
+            
             var frame = new Frame
             {
                 CornerRadius = 20,
@@ -80,6 +94,7 @@ namespace TurnamentManager.Views
                 IsClippedToBounds = true,
                 Padding = 0,
             };
+            
             st.Children.Add(label);
             st.Children.Add(imageButton);
             frame.Content = st;
