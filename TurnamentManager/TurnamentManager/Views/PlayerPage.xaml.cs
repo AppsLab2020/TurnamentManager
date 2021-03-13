@@ -73,6 +73,7 @@ namespace TurnamentManager.Views
             {
                 Source = "binTest.png",
                 Command = RemoveCommand,
+                Padding = 20,
                 CommandParameter = player.ID,
                 VerticalOptions = LayoutOptions.Center,
                 HorizontalOptions = LayoutOptions.EndAndExpand
