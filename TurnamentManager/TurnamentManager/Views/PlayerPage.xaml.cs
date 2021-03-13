@@ -30,11 +30,6 @@ namespace TurnamentManager.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            if (!File.Exists(Path.Combine(App.FolderPath, "players.db3")))
-            {
-                return;
-            }
-            
             DrawPlayers();
             
         }
@@ -79,7 +74,6 @@ namespace TurnamentManager.Views
                 CommandParameter = player.ID,
                 VerticalOptions = LayoutOptions.Center,
                 HorizontalOptions = LayoutOptions.EndAndExpand,
-                
             };
             
             var st = new StackLayout
@@ -113,3 +107,5 @@ namespace TurnamentManager.Views
         }
     }
 }
+
+//Add removing data from database at one point 
