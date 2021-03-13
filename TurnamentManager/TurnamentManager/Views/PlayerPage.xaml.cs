@@ -19,8 +19,7 @@ namespace TurnamentManager.Views
         public PlayerPage()
         {
             InitializeComponent();
-
-            _players = new List<Player>();
+            
         }
 
         private void Button_OnClicked(object sender, EventArgs e)
@@ -35,18 +34,22 @@ namespace TurnamentManager.Views
             {
                 return;
             }
+            
+            DrawPlayers();
+            
+        }
+
+        private async void DrawPlayers()
+        {
             using var conn = new SQLiteConnection(Path.Combine(App.FolderPath, "players.db3"));
             conn.CreateTable<Player>();
             var players = conn.Table<Player>().ToList();
-            _players.Clear();
-            _players.AddRange(players);
-            
+            PlayerStackLayout.Children.Clear();
             foreach (var player in players)
             {
                 var frame = await Task.Run(() => MakeFrameAsync(player)); //slower but appears one by one
                 PlayerStackLayout.Children.Add(frame);
             }
-            
             
             /*
              var tasks = players.Select(player => Task.Run(() => MakeFrameAsync(player))).ToList(); //faster but appears all at once
@@ -56,7 +59,6 @@ namespace TurnamentManager.Views
                 PlayerStackLayout.Children.Add(frame);
              }
             */
-             
         }
 
         private static async Task<Frame> MakeFrameAsync(Player player)
@@ -76,14 +78,15 @@ namespace TurnamentManager.Views
                 Padding = 20,
                 CommandParameter = player.ID,
                 VerticalOptions = LayoutOptions.Center,
-                HorizontalOptions = LayoutOptions.EndAndExpand
+                HorizontalOptions = LayoutOptions.EndAndExpand,
+                
             };
             
             var st = new StackLayout
             {
                 Orientation = StackOrientation.Horizontal,
                 WidthRequest = 300,
-                HeightRequest = 100,
+                HeightRequest = 80,
             };
             
             var frame = new Frame
@@ -93,7 +96,7 @@ namespace TurnamentManager.Views
                 VerticalOptions = LayoutOptions.Start,
                 HasShadow = true,
                 IsClippedToBounds = true,
-                Padding = 0,
+                Padding = 15,
             };
             
             st.Children.Add(label);
