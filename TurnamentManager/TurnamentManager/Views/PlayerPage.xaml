@@ -9,6 +9,7 @@
             <StackLayout x:Name="PlayerStackLayout">
                 
             </StackLayout>
+            
             <Button CornerRadius="60"
                     HeightRequest="60"
                     WidthRequest="60"
@@ -17,8 +18,8 @@
                     BackgroundColor="DodgerBlue"
                     TextColor="White"
                     Text="+"
-                    Clicked="Button_OnClicked">
-                </Button>
+                    Clicked="Button_OnClicked" />
+            
         </StackLayout>
        </ScrollView>
     </ContentPage.Content>
