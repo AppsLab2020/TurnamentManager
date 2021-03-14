@@ -27,6 +27,7 @@ namespace TurnamentManager.Views
                 Padding = 0,
                 HeightRequest = 450,
                 WidthRequest = 300,
+                BackgroundColor = Color.Black,
                 
             };
 
