@@ -20,7 +20,7 @@ namespace TurnamentManager.Views
 
         private static void OpenPage(int id)
         {
-            App.Current.MainPage = new NavigationPage(new TournamentSetupPage(id));
+            App.Current.MainPage = new NavigationPage(new PlayerOrTeamAddPage(id));
         }
 
         public TournamentPage()

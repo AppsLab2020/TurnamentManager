@@ -7,18 +7,20 @@
              x:Class="TurnamentManager.Views.PlayerOrTeamAddPage">
     <ContentPage.Content>
         <ScrollView>
-        <StackLayout x:Name="testS">
+        <StackLayout>
           <Label Text="Add Players" FontSize="Large"
                  VerticalOptions="Center"
                  HorizontalOptions="Center"></Label>
-            <StackLayout Orientation="Horizontal" VerticalOptions="End">
+            <StackLayout VerticalOptions="End">
+                <StackLayout x:Name="Players"></StackLayout>
                 <Button x:Name="SaveButton"
-                        Text="SAVE"
+                        Text="Next"
                         TextColor="White"
                         BackgroundColor="DodgerBlue"
                         HorizontalOptions="CenterAndExpand"
                         CornerRadius="5"
-                        BorderWidth="2">
+                        BorderWidth="2"
+                        Clicked="SaveButton_OnClicked">
                 </Button>
             </StackLayout>
         </StackLayout>

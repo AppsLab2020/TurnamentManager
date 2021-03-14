@@ -20,6 +20,11 @@ namespace TurnamentManager.Views
         {
             InitializeComponent();
         }
+        
+        public PlayerOrTeamAddPage(int id)
+        {
+            InitializeComponent();
+        }
 
         protected override void OnAppearing()
         {
@@ -28,22 +33,23 @@ namespace TurnamentManager.Views
             using var conn = new SQLiteConnection(Path.Combine(App.FolderPath, "players.db3"));
             conn.CreateTable<Player>();
             var players = conn.Table<Player>().ToList();
-            
-            
-            foreach (var player in players)
+            Players.Children.Clear();
+
+            foreach (var checkBox in players.Select(player => new CheckBox
             {
-                var checkBox = new CheckBox
-                {
-                    DefaultText = player.Name,
-                    TextColor = Color.Black,
-                };
-                
-                
-                testS.Children.Add(checkBox);
+                DefaultText = player.Name,
+                TextColor = Color.Black,
+            }))
+            {
+                Players.Children.Add(checkBox);
             }
             
         }
 
-      
+
+        private void SaveButton_OnClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new DrawPage());
+        }
     }
 }
