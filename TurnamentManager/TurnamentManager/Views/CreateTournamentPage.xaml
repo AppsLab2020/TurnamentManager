@@ -26,15 +26,25 @@
                     </Picker.Items></Picker>
                 </StackLayout>
             </StackLayout>
+            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                <Label Text="Select Teams or Players"
+                       HorizontalOptions="Center"></Label>
+                <Picker>
+                    <Picker.Items>
+                        <x:String>Teams</x:String>
+                        <x:String>Players</x:String>
+                    </Picker.Items>
+                </Picker>
+            </StackLayout>
             <StackLayout Orientation="Horizontal" VerticalOptions="End">
-            <Button x:Name="SaveButton"
-                    Text="SAVE"
-                    TextColor="White"
-                    BackgroundColor="DodgerBlue"
-                HorizontalOptions="CenterAndExpand"
-                    CornerRadius="5"
-                    BorderWidth="2"
-                    Clicked="SaveButton_OnClicked">
+                <Button x:Name="SaveButton"
+                        Text="SAVE"
+                        TextColor="White"
+                        BackgroundColor="DodgerBlue"
+                        HorizontalOptions="CenterAndExpand"
+                        CornerRadius="5"
+                        BorderWidth="2"
+                        Clicked="SaveButton_OnClicked">
                 </Button>
             </StackLayout>
         </StackLayout>

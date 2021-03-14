@@ -4,6 +4,7 @@
              x:Class="TurnamentManager.Views.TeamPage">
    
     <ContentPage.Content>
+       
         <StackLayout  Padding="20">
             <Button CornerRadius="60"
                     HeightRequest="60"

@@ -14,12 +14,12 @@ namespace TurnamentManager.Views
             InitializeComponent();
         }
 
+        
 
         private void Button_OnClicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new CreateTeamPage());
         }
         
-       
     }
 }
