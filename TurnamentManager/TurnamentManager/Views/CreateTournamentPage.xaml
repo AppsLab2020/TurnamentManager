@@ -8,8 +8,8 @@
         <StackLayout Margin="10">
             <Image Source="Cup2.png"></Image>
             
-            
-            <Entry Placeholder="Tournament name"
+            <Label Text="Tournament Name" HorizontalOptions="Center"></Label>
+            <Entry Placeholder="Tournament1"
                    x:Name="Name"
                    HorizontalTextAlignment="Center"></Entry>
             <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
