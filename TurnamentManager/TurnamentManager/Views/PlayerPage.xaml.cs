@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using SQLite;
@@ -20,7 +16,6 @@ namespace TurnamentManager.Views
         private static ICommand RemoveCommand => new Command<int>(RemovePlayer);
         private static List<Player> _players;
 
-        private bool InPage = true;
         public PlayerPage()
         {
             InitializeComponent();
