@@ -14,12 +14,14 @@ namespace TurnamentManager.Views
     public partial class PlayerPage : ContentPage
     {
         private static ICommand RemoveCommand => new Command<int>(RemovePlayer);
+        
         private static List<Player> _players;
 
         public PlayerPage()
         {
             InitializeComponent();
             _players = new List<Player>();
+            
         }
         
         private void Button_OnClicked(object sender, EventArgs e)

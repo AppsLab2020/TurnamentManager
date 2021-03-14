@@ -19,8 +19,6 @@ namespace TurnamentManager.Views
         public PlayerOrTeamAddPage()
         {
             InitializeComponent();
-            
-            
         }
 
         protected override void OnAppearing()

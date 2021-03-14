@@ -12,6 +12,13 @@ namespace TurnamentManager.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TournamentSetupPage : TabbedPage
     {
+        private int tournamentID;
+        public TournamentSetupPage(int tournamentID)
+        {
+            InitializeComponent();
+
+            this.tournamentID = tournamentID;
+        }
         public TournamentSetupPage()
         {
             InitializeComponent();
