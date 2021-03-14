@@ -4,14 +4,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TurnamentManager.Views.DrawPage">
     <ContentPage.Content>
-        <StackLayout x:Name="Layout" VerticalOptions="Center">
+        <StackLayout VerticalOptions="Center">
+            <StackLayout x:Name="Layout" Padding="30"></StackLayout>
             <Button x:Name="SaveButton"
-                    Text="SAVE"
+                    Text="Save"
                     TextColor="White"
                     BackgroundColor="DodgerBlue"
                     HorizontalOptions="CenterAndExpand"
                     CornerRadius="5"
-                    BorderWidth="2">
+                    BorderWidth="2"
+                    Clicked="SaveButton_OnClicked">
             </Button>
         </StackLayout>
     </ContentPage.Content>

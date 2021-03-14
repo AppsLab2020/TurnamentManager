@@ -60,6 +60,10 @@ namespace TurnamentManager.Views
             Layout.Children.Add(frame);
         }
 
-        
+
+        private void SaveButton_OnClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new MatchPage());
+        }
     }
 }
