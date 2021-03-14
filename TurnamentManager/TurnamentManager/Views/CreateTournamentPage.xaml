@@ -9,10 +9,13 @@
             <Image Source="Cup2.png"></Image>
             
             <Label Text="Tournament Name" HorizontalOptions="Center"></Label>
+            
             <Entry Placeholder="Tournament1"
                    x:Name="Name"
                    HorizontalTextAlignment="Center"></Entry>
+            
             <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                
                 <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
                     <Label Text="Choose Sport" HorizontalOptions="Center"></Label>
                     <Picker x:Name="Sports" HorizontalTextAlignment="Center"><Picker.Items>
@@ -20,21 +23,27 @@
                         <x:String>Basketball</x:String>
                     </Picker.Items></Picker>
                 </StackLayout>
+                
                 <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
                     <Label Text="Choose Format" HorizontalOptions="Center"></Label>
                     <Picker x:Name="Format" HorizontalTextAlignment="Center"><Picker.Items>
                         <x:String>Knockout</x:String>
                     </Picker.Items></Picker>
                 </StackLayout>
+                
             </StackLayout>
+            
             <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
                 <Label Text="Select Teams or Players"
                        HorizontalOptions="Center"></Label>
-                <Picker HorizontalTextAlignment="Center"><Picker.Items>
+                
+                <Picker HorizontalTextAlignment="Center"
+                        x:Name="Type"><Picker.Items>
                         <x:String>Teams</x:String>
                         <x:String>Players</x:String>
                     </Picker.Items>
                 </Picker></StackLayout>
+            
             <StackLayout Orientation="Horizontal" VerticalOptions="End">
                 <Button x:Name="SaveButton"
                         Text="SAVE"
@@ -45,6 +54,7 @@
                         BorderWidth="2"
                         Clicked="SaveButton_OnClicked">
                 </Button>
+                
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

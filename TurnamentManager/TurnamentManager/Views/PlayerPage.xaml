@@ -18,7 +18,8 @@
                     BackgroundColor="DodgerBlue"
                     TextColor="White"
                     Text="+"
-                    Clicked="Button_OnClicked" />
+                    Clicked="Button_OnClicked"
+                    />
             
         </StackLayout>
        </ScrollView>

@@ -13,11 +13,25 @@ namespace TurnamentManager.Classes.Tournament
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
 
+        [Ignore]
         public List<int> PlayersID { get; set; }
+
+        public string PlayersIDString { get; set; }
         
         public Tournament()
         {
             PlayersID = new List<int>();
+            GetPlayerIDs();
+        }
+
+        public void CreatePlayerIDString()
+        {
+            
+        }
+
+        public void GetPlayerIDs()
+        {
+            
         }
     }
 }

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using SQLite;
@@ -15,13 +18,15 @@ namespace TurnamentManager.Views
     public partial class PlayerPage : ContentPage
     {
         private static ICommand RemoveCommand => new Command<int>(RemovePlayer);
-        private List<Player> _players;
+        private static List<Player> _players;
+
+        private bool InPage = true;
         public PlayerPage()
         {
             InitializeComponent();
-            
+            _players = new List<Player>();
         }
-
+        
         private void Button_OnClicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new CreatePlayerPage());
@@ -30,15 +35,18 @@ namespace TurnamentManager.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            DrawPlayers();
             
+            await DrawPlayers();
         }
 
-        private async void DrawPlayers()
+        private async Task DrawPlayers()
         {
             using var conn = new SQLiteConnection(Path.Combine(App.FolderPath, "players.db3"));
             conn.CreateTable<Player>();
             var players = conn.Table<Player>().ToList();
+            _players.Clear();
+            _players.AddRange(players);
+
             PlayerStackLayout.Children.Clear();
             foreach (var player in players)
             {

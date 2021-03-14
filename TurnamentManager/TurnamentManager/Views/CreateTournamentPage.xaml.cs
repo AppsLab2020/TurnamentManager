@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using SQLite;
 using TurnamentManager.Classes.Tournament;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -19,12 +21,17 @@ namespace TurnamentManager.Views
             {
                 Format = Format.SelectedIndex switch
                 {
-                    0 => "League",
+                    0 => "Knockout",
                     1 => "Groups",
                     //....
                     _ => throw new ArgumentOutOfRangeException()
                 },
-                IsTeamBased = false,//Add button to choose
+                IsTeamBased = Type.SelectedIndex switch
+                {
+                    0 => true,
+                    1 => false,
+                    _ => throw new ArgumentOutOfRangeException()
+                },//Add button to choose
                 Name = Name.Text,
                 Style = Sports.SelectedIndex switch
                 {
@@ -33,6 +40,12 @@ namespace TurnamentManager.Views
                     _ => throw new ArgumentOutOfRangeException()
                 }
             };
+            
+            using var conn = new SQLiteConnection(Path.Combine(App.FolderPath, "tournaments.db3"));
+            conn.CreateTable<Tournament>();
+            conn.Insert(tournament);
+
+            Navigation.PopAsync();
         }
     }
 }
