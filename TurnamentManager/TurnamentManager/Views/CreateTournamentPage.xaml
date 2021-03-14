@@ -10,32 +10,31 @@
             
             
             <Entry Placeholder="Tournament name"
-                   x:Name="Name"></Entry>
+                   x:Name="Name"
+                   HorizontalTextAlignment="Center"></Entry>
             <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
                 <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
-                    <Label Text="Choose Sport"></Label>
-                    <Picker x:Name="Sports"><Picker.Items>
+                    <Label Text="Choose Sport" HorizontalOptions="Center"></Label>
+                    <Picker x:Name="Sports" HorizontalTextAlignment="Center"><Picker.Items>
                         <x:String>Football</x:String>
                         <x:String>Basketball</x:String>
                     </Picker.Items></Picker>
                 </StackLayout>
                 <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
-                    <Label Text="Choose Format"></Label>
-                    <Picker x:Name="Format"><Picker.Items>
-                        <x:String>League</x:String>
+                    <Label Text="Choose Format" HorizontalOptions="Center"></Label>
+                    <Picker x:Name="Format" HorizontalTextAlignment="Center"><Picker.Items>
+                        <x:String>Knockout</x:String>
                     </Picker.Items></Picker>
                 </StackLayout>
             </StackLayout>
             <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
                 <Label Text="Select Teams or Players"
                        HorizontalOptions="Center"></Label>
-                <Picker>
-                    <Picker.Items>
+                <Picker HorizontalTextAlignment="Center"><Picker.Items>
                         <x:String>Teams</x:String>
                         <x:String>Players</x:String>
                     </Picker.Items>
-                </Picker>
-            </StackLayout>
+                </Picker></StackLayout>
             <StackLayout Orientation="Horizontal" VerticalOptions="End">
                 <Button x:Name="SaveButton"
                         Text="SAVE"
