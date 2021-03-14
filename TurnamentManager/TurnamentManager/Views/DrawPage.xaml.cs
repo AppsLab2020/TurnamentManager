@@ -39,7 +39,8 @@ namespace TurnamentManager.Views
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
                 CornerRadius = 5,
                 BorderWidth = 2,
-                BackgroundColor = Color.White
+                BackgroundColor = Color.White,
+                TextColor = Color.Black
             };
             
             var button2 = new Button
@@ -49,7 +50,8 @@ namespace TurnamentManager.Views
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
                 CornerRadius = 5,
                 BorderWidth = 2,
-                BackgroundColor = Color.White
+                BackgroundColor = Color.White,
+                TextColor = Color.Black
             };
             
             st.Children.Add(button1);

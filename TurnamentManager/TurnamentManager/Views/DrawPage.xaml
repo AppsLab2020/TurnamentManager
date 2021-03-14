@@ -5,6 +5,14 @@
              x:Class="TurnamentManager.Views.DrawPage">
     <ContentPage.Content>
         <StackLayout x:Name="Layout" VerticalOptions="Center">
+            <Button x:Name="SaveButton"
+                    Text="SAVE"
+                    TextColor="White"
+                    BackgroundColor="DodgerBlue"
+                    HorizontalOptions="CenterAndExpand"
+                    CornerRadius="5"
+                    BorderWidth="2">
+            </Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
