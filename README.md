@@ -1,4 +1,6 @@
 <h1> TurnamentManager</h1>
+<h3>(SPRÁVCA TURNAJOV)</h3>
+<h2>Aplikácia slúži na tvorenie organizovanie a vyhodnocovanie Turnajov</h2>
 
 <h2>Login Page:</h2>
 prihlasovanie pomocou google,facebook/vytvorenie uctu pomocou emailu
