@@ -1,9 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              x:Class="TurnamentManager.Views.HistoryPage">
     <ContentPage.Content>
         <StackLayout Padding="20">
+            <forms:AnimationView x:Name="lottie" Animation="testL.json"
+                                 AutoPlay="True" VerticalOptions="FillAndExpand" 
+                                 HorizontalOptions="FillAndExpand"
+                                 RepeatCount="1"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

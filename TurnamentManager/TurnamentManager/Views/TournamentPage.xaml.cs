@@ -43,11 +43,13 @@ namespace TurnamentManager.Views
         
         private void SwitchOnClick(object sender, EventArgs e)
         {
+            lottie.PlayAnimation();
             Navigation.PushAsync(new TournamentSetupPage());
         }
 
         private void Button_OnClicked(object sender, EventArgs e)
         {
+            
             Navigation.PushAsync(new CreateTournamentPage());
         }
         

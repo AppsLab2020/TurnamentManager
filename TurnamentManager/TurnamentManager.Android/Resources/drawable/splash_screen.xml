@@ -5,7 +5,7 @@
 	</item>
 	<item>
 		<bitmap
-			android:src="@drawable/figma"
+			android:src="@drawable/e"
 			android:tileMode="disabled"
 			android:gravity="center"/>
 	</item>
