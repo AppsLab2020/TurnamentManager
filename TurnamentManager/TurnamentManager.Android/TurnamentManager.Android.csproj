@@ -63,6 +63,7 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SplashActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -73,6 +74,7 @@
     <AndroidResource Include="Resources\drawable\AddPlayer.png" />
     <AndroidResource Include="Resources\drawable\binTest.png" />
     <AndroidResource Include="Resources\drawable\Cup2.png" />
+    <AndroidResource Include="Resources\drawable\Figma.png" />
     <AndroidResource Include="Resources\drawable\History.png" />
     <AndroidResource Include="Resources\drawable\playerIcon.png" />
     <AndroidResource Include="Resources\drawable\Team1.png" />
@@ -97,7 +99,6 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\TurnamentManager\TurnamentManager.csproj">
       <Project>{CE15BAA9-3A1B-4D58-AF24-10ABCA236082}</Project>
@@ -106,6 +107,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\uploadImg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\splash_screen.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
