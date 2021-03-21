@@ -6,7 +6,7 @@
    
     <ContentPage.Content>
         <StackLayout Margin="10">
-            <Image Source="Cup2.png"></Image>
+            <Image Source="trophy.png"></Image>
             
             <Label Text="Tournament Name" HorizontalOptions="Center"></Label>
             
@@ -43,18 +43,11 @@
                         <x:String>Players</x:String>
                     </Picker.Items>
                 </Picker></StackLayout>
-            
             <StackLayout Orientation="Horizontal" VerticalOptions="End">
-                <Button x:Name="SaveButton"
-                        Text="SAVE"
-                        TextColor="White"
-                        BackgroundColor="DodgerBlue"
-                        HorizontalOptions="CenterAndExpand"
-                        CornerRadius="5"
-                        BorderWidth="2"
-                        Clicked="SaveButton_OnClicked">
-                </Button>
-                
+                <ImageButton Source="save_bigger"
+                             Clicked="SaveButton_OnClicked"
+                             BackgroundColor="Transparent"
+                             HorizontalOptions="CenterAndExpand"></ImageButton>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

@@ -22,6 +22,5 @@
                     Text="+">
             </Button>
         </StackLayout>
-        
     </ContentPage.Content>
 </ContentPage>

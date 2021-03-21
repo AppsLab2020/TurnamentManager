@@ -73,8 +73,9 @@ namespace TurnamentManager.Views
             
             var imageButton = new ImageButton
             {
-                Source = "binTest.png",
+                Source = "trash_bin.png",
                 Command = RemoveCommand,
+                BackgroundColor = Color.Transparent,
                 CommandParameter = player.ID,
                 VerticalOptions = LayoutOptions.CenterAndExpand,
                 HorizontalOptions = LayoutOptions.EndAndExpand,

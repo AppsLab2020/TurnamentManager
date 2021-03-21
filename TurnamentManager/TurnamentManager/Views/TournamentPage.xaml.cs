@@ -86,9 +86,9 @@ namespace TurnamentManager.Views
             
             var imageButton = new ImageButton
             {
-                Source = "binTest.png",
+                Source = "trash_bin.png",
                 Command = RemoveCommand,
-                Padding = 20,
+                BackgroundColor = Color.Transparent,
                 CommandParameter = tournament.ID,
                 VerticalOptions = LayoutOptions.Center,
                 HorizontalOptions = LayoutOptions.EndAndExpand,
@@ -108,7 +108,7 @@ namespace TurnamentManager.Views
                 VerticalOptions = LayoutOptions.Start,
                 HasShadow = true,
                 IsClippedToBounds = true,
-                Padding = 15,
+                
             };
 
             var tap = new TapGestureRecognizer {Command = TapCommand, CommandParameter = tournament.ID};
