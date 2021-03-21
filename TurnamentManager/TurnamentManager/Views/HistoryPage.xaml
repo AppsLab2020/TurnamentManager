@@ -6,12 +6,6 @@
     <ContentPage.Content>
         <StackLayout Padding="20">
             <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
-                <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
-                   <ImageButton Source="add_player"></ImageButton>
-                </StackLayout>
-                <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
-                    <ImageButton Source="save_bigger"></ImageButton>
-                </StackLayout>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
