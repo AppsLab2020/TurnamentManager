@@ -80,6 +80,7 @@
     <AndroidResource Include="Resources\drawable\binTest.png" />
     <AndroidResource Include="Resources\drawable\Cup2.png" />
     <AndroidResource Include="Resources\drawable\History.png" />
+    <AndroidResource Include="Resources\drawable\history_icon.png" />
     <AndroidResource Include="Resources\drawable\player.png" />
     <AndroidResource Include="Resources\drawable\playerIcon.png" />
     <AndroidResource Include="Resources\drawable\Team1.png" />
