@@ -76,9 +76,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\AddPlayer.png" />
+    <AndroidResource Include="Resources\drawable\app_icon.png" />
     <AndroidResource Include="Resources\drawable\binTest.png" />
     <AndroidResource Include="Resources\drawable\Cup2.png" />
-    <AndroidResource Include="Resources\drawable\e.png" />
     <AndroidResource Include="Resources\drawable\History.png" />
     <AndroidResource Include="Resources\drawable\playerIcon.png" />
     <AndroidResource Include="Resources\drawable\Team1.png" />
@@ -110,13 +110,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\uploadImg.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\splash_screen.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\testL.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Splash.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>

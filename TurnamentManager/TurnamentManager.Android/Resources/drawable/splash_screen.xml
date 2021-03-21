@@ -5,8 +5,8 @@
 	</item>
 	<item>
 		<bitmap
-			android:src="@drawable/e"
+			android:src="@drawable/app_icon"
 			android:tileMode="disabled"
-			android:gravity="center"/>
+			android:gravity="fill"/>
 	</item>
 </layer-list>
