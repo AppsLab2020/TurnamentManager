@@ -13401,37 +13401,34 @@ namespace TurnamentManager.Droid
 			public const int plus_butt = 2131165316;
 			
 			// aapt resource value: 0x7F070085
-			public const int plus_button = 2131165317;
+			public const int save_bigger = 2131165317;
 			
 			// aapt resource value: 0x7F070086
-			public const int save_bigger = 2131165318;
+			public const int splash_screen = 2131165318;
 			
 			// aapt resource value: 0x7F070087
-			public const int splash_screen = 2131165319;
+			public const int team_icon = 2131165319;
 			
 			// aapt resource value: 0x7F070088
-			public const int team_icon = 2131165320;
+			public const int team_pix = 2131165320;
 			
 			// aapt resource value: 0x7F070089
-			public const int team_pix = 2131165321;
+			public const int tooltip_frame_dark = 2131165321;
 			
 			// aapt resource value: 0x7F07008A
-			public const int tooltip_frame_dark = 2131165322;
+			public const int tooltip_frame_light = 2131165322;
 			
 			// aapt resource value: 0x7F07008B
-			public const int tooltip_frame_light = 2131165323;
+			public const int Tournament = 2131165323;
 			
 			// aapt resource value: 0x7F07008C
-			public const int Tournament = 2131165324;
+			public const int trash_bin = 2131165324;
 			
 			// aapt resource value: 0x7F07008D
-			public const int trash_bin = 2131165325;
+			public const int trophy = 2131165325;
 			
 			// aapt resource value: 0x7F07008E
-			public const int trophy = 2131165326;
-			
-			// aapt resource value: 0x7F07008F
-			public const int upload_pic = 2131165327;
+			public const int upload_pic = 2131165326;
 			
 			static Drawable()
 			{

@@ -16,9 +16,11 @@ namespace TurnamentManager.Views
 
         
 
-        private void Button_OnClicked(object sender, EventArgs e)
+       async private void Button_OnClicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new CreateTeamPage());
+            await this.TranslateTo(10, 0, 500, Easing.BounceOut);
+            await this.TranslateTo(0, 0);
+           await Navigation.PushAsync(new CreateTeamPage());
         }
         
     }
