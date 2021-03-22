@@ -47,11 +47,11 @@ namespace TurnamentManager.Views
             Navigation.PushAsync(new TournamentSetupPage());
         }
 
-        private void Button_OnClicked(object sender, EventArgs e)
+       async private void Button_OnClicked(object sender, EventArgs e)
         {
-            /*await this.TranslateTo(10, 0, 500, Easing.BounceOut);
-            await this.TranslateTo(0, 0);*/
-            Navigation.PushAsync(new CreateTournamentPage());
+            await this.TranslateTo(10, 0, 500, Easing.BounceOut);
+            await this.TranslateTo(0, 0);
+            await Navigation.PushAsync(new CreateTournamentPage());
         }
         
         protected override async void OnAppearing()

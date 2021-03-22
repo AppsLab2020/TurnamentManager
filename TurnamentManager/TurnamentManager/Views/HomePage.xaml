@@ -5,8 +5,8 @@
              xmlns:views="clr-namespace:TurnamentManager.Views;assembly=TurnamentManager"
              x:Class="TurnamentManager.Views.HomePage">
     
-    <views:TournamentPage  IconImageSource="Tournament.png"></views:TournamentPage>
-    <views:TeamPage  IconImageSource="team_icon.png"></views:TeamPage>
-    <views:PlayerPage IconImageSource="player.png"></views:PlayerPage>
+    <views:TournamentPage  IconImageSource="tournament_i.png"></views:TournamentPage>
+    <views:TeamPage  IconImageSource="team_i.png"></views:TeamPage>
+    <views:PlayerPage IconImageSource="player_i.png"></views:PlayerPage>
     <views:HistoryPage  IconImageSource="history_icon.png"></views:HistoryPage>
 </TabbedPage>

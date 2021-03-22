@@ -79,11 +79,13 @@
     <AndroidResource Include="Resources\drawable\app_icon.png" />
     <AndroidResource Include="Resources\drawable\history_icon.png" />
     <AndroidResource Include="Resources\drawable\player.png" />
+    <AndroidResource Include="Resources\drawable\player_i.png" />
     <AndroidResource Include="Resources\drawable\plus_butt.png" />
     <AndroidResource Include="Resources\drawable\save_bigger.png" />
+    <AndroidResource Include="Resources\drawable\team_i.png" />
     <AndroidResource Include="Resources\drawable\team_icon.png" />
     <AndroidResource Include="Resources\drawable\team_pix.png" />
-    <AndroidResource Include="Resources\drawable\Tournament.png" />
+    <AndroidResource Include="Resources\drawable\tournament_i.png" />
     <AndroidResource Include="Resources\drawable\trash_bin.png" />
     <AndroidResource Include="Resources\drawable\trophy.png" />
     <AndroidResource Include="Resources\drawable\upload_pic.png" />

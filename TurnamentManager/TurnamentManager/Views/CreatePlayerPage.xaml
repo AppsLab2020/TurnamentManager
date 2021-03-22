@@ -10,6 +10,7 @@
                 <Image x:Name="selectedImage"></Image>
                 <ImageButton Clicked="MenuItem_OnClicked"
                              Source="upload_pic.png"
+                             BackgroundColor="Transparent"
                              HorizontalOptions="Center"></ImageButton>
             </Grid>
             <Label Text="Nickname"></Label>
