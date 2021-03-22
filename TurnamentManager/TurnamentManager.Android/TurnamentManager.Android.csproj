@@ -79,6 +79,7 @@
     <AndroidResource Include="Resources\drawable\app_icon.png" />
     <AndroidResource Include="Resources\drawable\history_icon.png" />
     <AndroidResource Include="Resources\drawable\player.png" />
+    <AndroidResource Include="Resources\drawable\plus_butt.png" />
     <AndroidResource Include="Resources\drawable\save_bigger.png" />
     <AndroidResource Include="Resources\drawable\team_icon.png" />
     <AndroidResource Include="Resources\drawable\team_pix.png" />

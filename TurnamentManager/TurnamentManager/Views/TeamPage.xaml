@@ -6,16 +6,12 @@
     <ContentPage.Content>
        
         <StackLayout  Padding="20">
-            <Button CornerRadius="60"
-                    HeightRequest="60"
-                    WidthRequest="60"
-                    HorizontalOptions="EndAndExpand"
-                    VerticalOptions="EndAndExpand"
-                    BackgroundColor="DodgerBlue"
-                    TextColor="White"
-                    Text="+"
-                    Clicked="Button_OnClicked">
-            </Button>
+            <ImageButton Source="plus_butt.png"
+                         HorizontalOptions="EndAndExpand"
+                         VerticalOptions="EndAndExpand"
+                         BackgroundColor="Transparent"
+                         Clicked="Button_OnClicked"></ImageButton>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

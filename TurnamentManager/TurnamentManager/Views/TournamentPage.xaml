@@ -11,16 +11,11 @@
                                      HorizontalOptions="FillAndExpand"
                                      RepeatCount="1"/>
             </StackLayout>
-            <Button CornerRadius="60"
-                    HeightRequest="60"
-                    WidthRequest="60"
-                    HorizontalOptions="EndAndExpand"
-                    VerticalOptions="EndAndExpand"
-                    BackgroundColor="DodgerBlue"
-                    TextColor="White"
-                    Clicked="Button_OnClicked"
-                    Text="+">
-            </Button>
+            <ImageButton Source="plus_butt.png"
+                         HorizontalOptions="EndAndExpand"
+                         VerticalOptions="EndAndExpand"
+                         BackgroundColor="Transparent"
+                         Clicked="Button_OnClicked"></ImageButton>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
