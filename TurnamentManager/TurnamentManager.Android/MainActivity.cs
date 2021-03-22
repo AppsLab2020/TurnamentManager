@@ -25,6 +25,7 @@ namespace TurnamentManager.Droid
 
             var folderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             LoadApplication(new App(folderPath));
+            
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {

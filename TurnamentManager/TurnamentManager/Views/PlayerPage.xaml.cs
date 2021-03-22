@@ -60,7 +60,7 @@ namespace TurnamentManager.Views
              }
             */
         }
-
+         //Frame specs
         private static async Task<Frame> MakeFrameAsync(Player player)
         {
             var label = new Label

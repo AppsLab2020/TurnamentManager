@@ -9,6 +9,13 @@ namespace TurnamentManager.Views
         public HomePage()
         {
             InitializeComponent();
+            var clr = Color.FromHex("#D7812A");
+            this.BarBackgroundColor = clr;
+       
+        }
+        public interface IStatusBarPlatformSpecific
+        {
+            void SetStatusBarColor(Color color);
         }
     }
 }
