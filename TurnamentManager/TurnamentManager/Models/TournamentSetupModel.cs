@@ -1,6 +1,6 @@
 ﻿namespace TurnamentManager.Models
 {
-    public class TournamentPage
+    public class TournamentSetupModel
     {
         
     }

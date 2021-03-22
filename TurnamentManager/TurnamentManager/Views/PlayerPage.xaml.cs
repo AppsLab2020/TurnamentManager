@@ -31,6 +31,11 @@ namespace TurnamentManager.Views
             await Navigation.PushAsync(new CreatePlayerPage());
         }
 
+        public void PrepniMaNaPagu(ContentPage page)
+        {
+            Navigation.PushAsync(page);
+        }
+
         protected override async void OnAppearing()
         {
             base.OnAppearing();
