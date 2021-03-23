@@ -16,6 +16,7 @@
             </StackLayout>
             <StackLayout Orientation="Horizontal" VerticalOptions="End">
                 <ImageButton Source="save_bigger"
+                             x:Name="SaveButton"
                              Clicked="SaveButton_OnClicked"
                              BackgroundColor="Transparent"
                              HorizontalOptions="CenterAndExpand"></ImageButton>

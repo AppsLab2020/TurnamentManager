@@ -15,8 +15,10 @@ namespace TurnamentManager.Views
             InitializeComponent();
         }
 
-        private void SaveButton_OnClicked(object sender, EventArgs e)
-        {
+       async private void SaveButton_OnClicked(object sender, EventArgs e)
+        { 
+            await SaveButton.ScaleTo(1.2, 500, Easing.SpringOut); 
+            await SaveButton.ScaleTo(1, 300);
             var tournament = new Tournament()
             {
                 Format = Format.SelectedIndex switch
@@ -45,7 +47,7 @@ namespace TurnamentManager.Views
             conn.CreateTable<Tournament>();
             conn.Insert(tournament);
 
-            Navigation.PopAsync();
+           await Navigation.PopAsync();
         }
     }
 }

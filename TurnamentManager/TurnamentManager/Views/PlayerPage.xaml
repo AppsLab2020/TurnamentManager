@@ -11,6 +11,7 @@
             </StackLayout>
             
             <ImageButton Source="plus_butt.png"
+                         x:Name="PlusButton"
                          HorizontalOptions="EndAndExpand"
                          VerticalOptions="EndAndExpand"
                          BackgroundColor="Transparent"

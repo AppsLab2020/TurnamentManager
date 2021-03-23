@@ -44,8 +44,10 @@ namespace TurnamentManager.Views
             selectedImage.Source = ImageSource.FromStream(()=> selectedImageFile.GetStream());
         }
         
-        private void SaveButton_OnClicked(object sender, EventArgs e)
+        private async void SaveButton_OnClicked(object sender, EventArgs e)
         {
+            await SaveButton.ScaleTo(1.2, 500, Easing.SpringOut); 
+            await SaveButton.ScaleTo(1, 300);
             if (string.IsNullOrEmpty(_imagePath))
             {
                 return; //Vypis ze chce obrazek !!!
@@ -71,7 +73,7 @@ namespace TurnamentManager.Views
             conn.CreateTable<Player>();
             conn.Insert(player);
 
-            Navigation.PopAsync();
+          await Navigation.PopAsync();
         }
     }
 }
