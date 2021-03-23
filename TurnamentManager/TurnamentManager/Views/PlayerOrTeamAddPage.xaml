@@ -8,21 +8,19 @@
     <ContentPage.Content>
         <ScrollView>
         <StackLayout>
-          <Label Text="Add Players" FontSize="Large"
-                 VerticalOptions="Center"
-                 HorizontalOptions="Center"></Label>
+            <Image Source="add_p.png"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   BackgroundColor="Transparent"/>
             <StackLayout VerticalOptions="End">
-                <StackLayout x:Name="Players"></StackLayout>
-                <Button x:Name="SaveButton"
-                        Text="Next"
-                        TextColor="White"
-                        BackgroundColor="DodgerBlue"
-                        HorizontalOptions="CenterAndExpand"
-                        CornerRadius="5"
-                        BorderWidth="2"
-                        Clicked="SaveButton_OnClicked">
-                </Button>
-            </StackLayout>
+                <StackLayout x:Name="Players"/>
+                </StackLayout>
+            <ImageButton x:Name="NextButton"
+                         Source="next_button.png"
+                         BackgroundColor="Transparent"
+                         VerticalOptions="EndAndExpand"
+                         HorizontalOptions="CenterAndExpand"
+                         Clicked="NextButton_OnClicked"/>
         </StackLayout>
         </ScrollView>
     </ContentPage.Content>

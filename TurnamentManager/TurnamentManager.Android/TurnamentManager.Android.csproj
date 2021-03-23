@@ -75,12 +75,16 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable\add_p.png" />
     <AndroidResource Include="Resources\drawable\add_player.png" />
     <AndroidResource Include="Resources\drawable\app_icon.png" />
     <AndroidResource Include="Resources\drawable\history_icon.png" />
+    <AndroidResource Include="Resources\drawable\manual_button.png" />
+    <AndroidResource Include="Resources\drawable\next_button.png" />
     <AndroidResource Include="Resources\drawable\player.png" />
     <AndroidResource Include="Resources\drawable\player_i.png" />
     <AndroidResource Include="Resources\drawable\plus_butt.png" />
+    <AndroidResource Include="Resources\drawable\random_button.png" />
     <AndroidResource Include="Resources\drawable\save_bigger.png" />
     <AndroidResource Include="Resources\drawable\team_i.png" />
     <AndroidResource Include="Resources\drawable\team_icon.png" />

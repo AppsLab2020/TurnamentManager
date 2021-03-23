@@ -27,23 +27,21 @@ namespace TurnamentManager.Views
                 Padding = 0,
                 HeightRequest = 450,
                 WidthRequest = 300,
-                BackgroundColor = Color.Black,
+                BackgroundColor = Color.FromHex("#D7812A"),
                 
             };
 
 
-            var button1 = new Button
+            /*var randomButton = new ImageButton
             {
-                Text = "Random",
+                Source = random_button.png,
                 VerticalOptions = LayoutOptions.CenterAndExpand,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
-                CornerRadius = 5,
-                BorderWidth = 2,
                 BackgroundColor = Color.White,
-                TextColor = Color.Black
-            };
+                
+            };*/
             
-            var button2 = new Button
+           /* var button2 = new Button
             {
                 Text = "Manual",
                 VerticalOptions = LayoutOptions.CenterAndExpand,
@@ -52,10 +50,10 @@ namespace TurnamentManager.Views
                 BorderWidth = 2,
                 BackgroundColor = Color.White,
                 TextColor = Color.Black
-            };
+            };*/
             
-            st.Children.Add(button1);
-            st.Children.Add(button2);
+            st.Children.Add(RandomButton);
+            st.Children.Add(ManualButton);
             frame.Content = st;
             Layout.Children.Add(frame);
         }

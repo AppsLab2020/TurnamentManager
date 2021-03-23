@@ -5,16 +5,22 @@
              x:Class="TurnamentManager.Views.DrawPage">
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center">
-            <StackLayout x:Name="Layout" Padding="30"></StackLayout>
-            <Button x:Name="SaveButton"
-                    Text="Save"
-                    TextColor="White"
-                    BackgroundColor="DodgerBlue"
-                    HorizontalOptions="CenterAndExpand"
-                    CornerRadius="5"
-                    BorderWidth="2"
-                    Clicked="SaveButton_OnClicked">
-            </Button>
+            <StackLayout x:Name="Layout" Padding="30"/>
+            <ImageButton x:Name="RandomButton"
+                         Source="random_button.png"
+                         BackgroundColor="Transparent"
+                         VerticalOptions="CenterAndExpand"
+                         HorizontalOptions="CenterAndExpand"/>
+            <ImageButton x:Name="ManualButton"
+                         Source="manual_button.png"
+                         BackgroundColor="Transparent"
+                         VerticalOptions="CenterAndExpand"
+                         HorizontalOptions="CenterAndExpand"/>
+            <ImageButton x:Name="SaveButton"
+                         Source="save_bigger.png"
+                         BackgroundColor="Transparent"
+                         HorizontalOptions="CenterAndExpand"
+                         Clicked="SaveButton_OnClicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

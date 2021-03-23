@@ -13,11 +13,13 @@ namespace TurnamentManager
         {
             InitializeComponent();
 
+            
             MainPage = new NavigationPage(new HomePage())
             {
                 BarBackgroundColor = Color.FromHex("#D7812A"),
                 BarTextColor = Color.White,
             };
+        
             FolderPath = folderPath;
         }
 

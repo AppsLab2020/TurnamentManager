@@ -20,7 +20,12 @@ namespace TurnamentManager.Views
 
         private static void OpenPage(int id)
         {
-            App.Current.MainPage = new NavigationPage(new PlayerOrTeamAddPage(id));
+            App.Current.MainPage = new NavigationPage(new PlayerOrTeamAddPage(id))
+            {
+                BarBackgroundColor = Color.FromHex("#D7812A"),
+                    BarTextColor = Color.White,
+                
+            };
         }
 
         public TournamentPage()
@@ -43,7 +48,7 @@ namespace TurnamentManager.Views
         
         private void SwitchOnClick(object sender, EventArgs e)
         {
-            lottie.PlayAnimation();
+           
             Navigation.PushAsync(new TournamentSetupPage());
         }
 
@@ -52,6 +57,7 @@ namespace TurnamentManager.Views
             await PlusButton.TranslateTo(10, 0, 500, Easing.BounceOut);
             await PlusButton.TranslateTo(0, 0);
             await Navigation.PushAsync(new CreateTournamentPage());
+            
         }
         
         protected override async void OnAppearing()

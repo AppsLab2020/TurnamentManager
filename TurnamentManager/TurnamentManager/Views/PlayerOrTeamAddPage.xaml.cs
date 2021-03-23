@@ -47,7 +47,7 @@ namespace TurnamentManager.Views
         }
 
 
-        private void SaveButton_OnClicked(object sender, EventArgs e)
+        private void NextButton_OnClicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new DrawPage());
         }
