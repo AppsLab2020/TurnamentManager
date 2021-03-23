@@ -16,7 +16,7 @@ namespace TurnamentManager.Views
 
         
 
-        async private void Button_OnClicked(object sender, EventArgs e)
+         private async void Button_OnClicked(object sender, EventArgs e)
         {
             await PlusButton.TranslateTo(10, 0, 500, Easing.BounceOut);
             await PlusButton.TranslateTo(0, 0);

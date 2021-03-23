@@ -60,7 +60,7 @@ namespace TurnamentManager.Views
             }
         }
 
-      async  private void SaveButton_OnClicked(object sender, EventArgs e)
+      private async void SaveButton_OnClicked(object sender, EventArgs e)
         {
             await SaveButton.ScaleTo(1.2, 500, Easing.SpringOut); 
             await SaveButton.ScaleTo(1, 300);
