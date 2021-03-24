@@ -12,7 +12,7 @@
             <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
                 <ImageButton Source="add_player"
                              BackgroundColor="Transparent"
-                             Clicked="AddPlayerButton_OnClicked"></ImageButton>
+                             Command="{Binding AddPlayerCommand}"></ImageButton>
             </StackLayout>
             <StackLayout Orientation="Horizontal" VerticalOptions="End">
                 <ImageButton Source="save_bigger"
@@ -22,7 +22,8 @@
                              HorizontalOptions="CenterAndExpand"></ImageButton>
             </StackLayout>
             <ListView  x:Name="PlayersDisplay"
-                       MinimumWidthRequest="0"></ListView>
+                       MinimumWidthRequest="0"
+                       ItemsSource="{Binding PlayerNamesCollection}"></ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
