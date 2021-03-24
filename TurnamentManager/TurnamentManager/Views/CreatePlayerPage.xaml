@@ -8,16 +8,17 @@
         <StackLayout>
             <Grid >
                 <Image x:Name="selectedImage"></Image>
-                <ImageButton Clicked="MenuItem_OnClicked"
-                             Source="upload_pic.png"
+                <ImageButton Command="{Binding PickPhotoCommand}"
+                             Source="{Binding PickedImageSource}"
                              BackgroundColor="Transparent"
                              HorizontalOptions="Center"></ImageButton>
             </Grid>
             <Label Text="Nickname"></Label>
             <Entry Placeholder="Player1"
-                   x:Name="Name"></Entry>
+                   Text="{Binding PlayerName, Mode=OneWayToSource}"></Entry>
             <Label Text="Choose Player Quality"></Label>
-            <Picker x:Name="Quality"><Picker.Items>
+            <Picker SelectedIndex="{Binding SelectedQuality, Mode=OneWayToSource}"
+                    ><Picker.Items>
                 <x:String>Flexible</x:String>
                 <x:String>Strategic</x:String>
                 <x:String>Shares Their Expertise</x:String>
@@ -28,7 +29,7 @@
                 <ImageButton x:Name="SaveButton" 
                              Source="save_bigger.png"
                              HorizontalOptions="CenterAndExpand"
-                             Clicked="SaveButton_OnClicked"
+                             Command="{Binding SaveDataCommand}"
                              BackgroundColor="Transparent"></ImageButton>
             </StackLayout>
         </StackLayout>
