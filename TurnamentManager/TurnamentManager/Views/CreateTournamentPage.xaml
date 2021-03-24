@@ -3,52 +3,61 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TurnamentManager.Views.CreateTournamentPage">
-   
+
     <ContentPage.Content>
         <StackLayout Margin="10">
-            <Image Source="trophy.png"></Image>
-            
-            <Label Text="Tournament Name" HorizontalOptions="Center"></Label>
-            
+            <Image Source="trophy.png" />
+
+            <Label Text="Tournament Name" HorizontalOptions="Center" />
+
             <Entry Placeholder="Tournament1"
-                   x:Name="Name"
-                   HorizontalTextAlignment="Center"></Entry>
-            
-            <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
-                
-                <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
-                    <Label Text="Choose Sport" HorizontalOptions="Center"></Label>
-                    <Picker x:Name="Sports" HorizontalTextAlignment="Center"><Picker.Items>
-                        <x:String>Football</x:String>
-                        <x:String>Basketball</x:String>
-                    </Picker.Items></Picker>
+                   Text="{Binding Name, Mode=OneWayToSource}"
+                   HorizontalTextAlignment="Center" />
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                    <Label Text="Choose Sport" 
+                           HorizontalOptions="Center" />
+                    <Picker SelectedIndex="{Binding Sport, Mode=OneWayToSource}"
+                            HorizontalTextAlignment="Center">
+                        <Picker.Items>
+                            <x:String>Football</x:String>
+                            <x:String>Basketball</x:String>
+                        </Picker.Items>
+                    </Picker>
                 </StackLayout>
-                
-                <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
-                    <Label Text="Choose Format" HorizontalOptions="Center"></Label>
-                    <Picker x:Name="Format" HorizontalTextAlignment="Center"><Picker.Items>
-                        <x:String>Knockout</x:String>
-                    </Picker.Items></Picker>
+
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                    <Label Text="Choose Format" HorizontalOptions="Center" />
+                    <Picker SelectedIndex="{Binding Format, Mode=OneWayToSource}"
+                            HorizontalTextAlignment="Center">
+                        <Picker.Items>
+                            <x:String>Knockout</x:String>
+                        </Picker.Items>
+                    </Picker>
                 </StackLayout>
-                
+
             </StackLayout>
-            
+
             <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
                 <Label Text="Select Teams or Players"
-                       HorizontalOptions="Center"></Label>
-                
+                       HorizontalOptions="Center" />
+
                 <Picker HorizontalTextAlignment="Center"
-                        x:Name="Type"><Picker.Items>
+                        SelectedIndex="{Binding IsTeamBased, Mode=OneWayToSource}">
+                    <Picker.Items>
                         <x:String>Teams</x:String>
                         <x:String>Players</x:String>
                     </Picker.Items>
-                </Picker></StackLayout>
+                </Picker>
+            </StackLayout>
             <StackLayout Orientation="Horizontal" VerticalOptions="End">
                 <ImageButton x:Name="SaveButton"
                              Source="save_bigger"
-                             Clicked="SaveButton_OnClicked"
+                             Command="{Binding SaveDataCommand}"
                              BackgroundColor="Transparent"
-                             HorizontalOptions="CenterAndExpand"></ImageButton>
+                             HorizontalOptions="CenterAndExpand" />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
