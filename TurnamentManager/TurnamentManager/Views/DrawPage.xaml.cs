@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using XLabs.Enums;
 
 namespace TurnamentManager.Views
 {
@@ -31,27 +25,6 @@ namespace TurnamentManager.Views
                 
             };
 
-
-            /*var randomButton = new ImageButton
-            {
-                Source = random_button.png,
-                VerticalOptions = LayoutOptions.CenterAndExpand,
-                HorizontalOptions = LayoutOptions.CenterAndExpand,
-                BackgroundColor = Color.White,
-                
-            };*/
-            
-           /* var button2 = new Button
-            {
-                Text = "Manual",
-                VerticalOptions = LayoutOptions.CenterAndExpand,
-                HorizontalOptions = LayoutOptions.CenterAndExpand,
-                CornerRadius = 5,
-                BorderWidth = 2,
-                BackgroundColor = Color.White,
-                TextColor = Color.Black
-            };*/
-            
             st.Children.Add(RandomButton);
             st.Children.Add(ManualButton);
             frame.Content = st;

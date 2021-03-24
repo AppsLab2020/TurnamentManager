@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using TurnamentManager.Models;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace TurnamentManager.Views
@@ -9,6 +10,7 @@ namespace TurnamentManager.Views
         public HistoryPage()
         {
             InitializeComponent();
+            BindingContext = new HistoryModel();
         }
     }
 }
