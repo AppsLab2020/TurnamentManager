@@ -1,10 +1,7 @@
 ﻿using System;
-using System.IO;
-using System.Threading;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Windows.Input;
-using SQLite;
-using TurnamentManager.Classes.Tournament;
+using TurnamentManager.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,128 +10,48 @@ namespace TurnamentManager.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TournamentPage : ContentPage
     {
-        private static ICommand RemoveCommand => new Command<int>(RemoveTournament);
-        private static ICommand TapCommand => new Command<int>(OpenPage);
-
-        private static int _changeTournamentID = -1;
-
-        private static void OpenPage(int id)
-        {
-            App.Current.MainPage = new NavigationPage(new PlayerOrTeamAddPage(id))
-            {
-                BarBackgroundColor = Color.FromHex("#D7812A"),
-                    BarTextColor = Color.White,
-                
-            };
-        }
-
+        private TournamentModel model;
         public TournamentPage()
         {
             InitializeComponent();
-            
-            var th = new Thread(Switcher);
-            th.Start();
+
+            model = new TournamentModel(Navigation);
+
+            BindingContext = model;
+
+            model.RedrawPlayers += OnRedrawPlayers;
         }
 
-        private void Switcher()
+        protected override async void OnAppearing()
         {
-            while (_changeTournamentID == -1)
-            {
-                
-            }
+            base.OnAppearing();
 
-            SwitchOnClick(this, EventArgs.Empty);
+            await DrawTournaments();
         }
-        
-        private void SwitchOnClick(object sender, EventArgs e)
+
+        private async void OnRedrawPlayers(object sender, EventArgs e)
         {
-           
-            Navigation.PushAsync(new TournamentSetupPage());
+            await DrawTournaments();
         }
 
-       private async void Button_OnClicked(object sender, EventArgs e)
+        private async void Button_OnClicked(object sender, EventArgs e)
         {
             await PlusButton.TranslateTo(10, 0, 500, Easing.BounceOut);
             await PlusButton.TranslateTo(0, 0);
             await Navigation.PushAsync(new CreateTournamentPage());
-            
         }
         
-        protected override async void OnAppearing()
-        {
-            base.OnAppearing();
-            
-            await DrawTournaments();
-        }
-
         private async Task DrawTournaments()
         {
-            using var conn = new SQLiteConnection(Path.Combine(App.FolderPath, "tournaments.db3"));
-            conn.CreateTable<Tournament>();
-            var tournaments = conn.Table<Tournament>().ToList();
-
+            var list = new List<Frame>();
             TournamentLayout.Children.Clear();
-            foreach (var tournament in tournaments)
+
+            await model.GetFrames(list);
+
+            foreach (var frame in list)
             {
-                var frame = await Task.Run(() => MakeFrameAsync(tournament));
                 TournamentLayout.Children.Add(frame);
             }
-        }
-        
-        private static async Task<Frame> MakeFrameAsync(Tournament tournament)
-        {
-            var label = new Label
-            {
-                Text = tournament.Name,
-                TextColor = Color.Black,
-                HorizontalOptions = LayoutOptions.CenterAndExpand,
-                VerticalOptions = LayoutOptions.Center,
-            };
-            
-            var imageButton = new ImageButton
-            {
-                Source = "trash_bin.png",
-                
-                Command = RemoveCommand,
-                BackgroundColor = Color.Transparent,
-                CommandParameter = tournament.ID,
-                VerticalOptions = LayoutOptions.Center,
-                HorizontalOptions = LayoutOptions.EndAndExpand,
-                
-            };
-            
-            var st = new StackLayout
-            {
-                Orientation = StackOrientation.Horizontal,
-                WidthRequest = 300,
-                HeightRequest = 80,
-            };
-
-            var frame = new Frame
-            {
-                CornerRadius = 20,
-                HorizontalOptions = LayoutOptions.Center,
-                VerticalOptions = LayoutOptions.Start,
-                HasShadow = true,
-                IsClippedToBounds = true,
-                
-            };
-
-            var tap = new TapGestureRecognizer {Command = TapCommand, CommandParameter = tournament.ID};
-
-            frame.GestureRecognizers.Add(tap);
-            
-            st.Children.Add(label);
-            st.Children.Add(imageButton);
-            frame.Content = st;
-
-            return frame;
-        }
-        
-        private static void RemoveTournament(int id)
-        {
-            using var conn = new SQLiteConnection(Path.Combine(App.FolderPath, "tournaments.db3"));
-            conn.Query<Player>("DELETE FROM Tournament Where ID=?", id);
         }
     }
 }

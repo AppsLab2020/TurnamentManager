@@ -40,11 +40,6 @@ namespace TurnamentManager.Models
             return;
         }
 
-        protected virtual void OnRedrawPlayers(EventArgs e)
-        {
-
-        }
-
         private void Next()
         {
             _navigation.PushAsync(new CreatePlayerPage());
