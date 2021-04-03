@@ -20,7 +20,7 @@
                          BackgroundColor="Transparent"
                          VerticalOptions="EndAndExpand"
                          HorizontalOptions="CenterAndExpand"
-                         Clicked="NextButton_OnClicked"/>
+                         Command="{Binding NextCommand}"/>
         </StackLayout>
         </ScrollView>
     </ContentPage.Content>

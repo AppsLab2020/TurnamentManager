@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SQLite;
 using TurnamentManager.Classes.Tournament;
+using TurnamentManager.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XLabs.Forms.Controls;
@@ -16,14 +15,19 @@ namespace TurnamentManager.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PlayerOrTeamAddPage : ContentPage
     {
+        private PlayerOrTeamAddModel model;
         public PlayerOrTeamAddPage()
         {
             InitializeComponent();
+            model = new PlayerOrTeamAddModel(Navigation);
+            BindingContext = model;
         }
         
         public PlayerOrTeamAddPage(int id)
         {
             InitializeComponent();
+            model = new PlayerOrTeamAddModel(Navigation);
+            BindingContext = model;
         }
 
         protected override void OnAppearing()
@@ -44,12 +48,6 @@ namespace TurnamentManager.Views
                 Players.Children.Add(checkBox);
             }
             
-        }
-
-
-        private void NextButton_OnClicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new DrawPage());
         }
     }
 }
