@@ -31,5 +31,9 @@ namespace TurnamentManager.Views
             await SaveButton.ScaleTo(1.2, 500, Easing.SpringOut);
             await SaveButton.ScaleTo(1, 300);
         }
+        private void ImageButton_OnClicked(object sender, EventArgs e)
+        {
+            DisplayAlert("nice", "it works i guess", "OK");
+        }
     }
 }

@@ -2,17 +2,51 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:expander="clr-namespace:Syncfusion.XForms.Expander;assembly=Syncfusion.Expander.XForms"
              x:Class="TurnamentManager.Views.CreatePlayerPage">
     <ContentPage.Content>
         
         <StackLayout>
-            <Grid >
-                <Image x:Name="selectedImage"></Image>
-                <ImageButton Command="{Binding PickPhotoCommand}"
-                             Source="{Binding PickedImageSource}"
-                             BackgroundColor="Transparent"
-                             HorizontalOptions="Center"></ImageButton>
-            </Grid>
+            <expander:SfExpander> 
+                <expander:SfExpander.Header> 
+                    <Grid>
+                        <Image Source="upload_pic.png" BackgroundColor="Transparent"></Image>
+                    </Grid>
+                </expander:SfExpander.Header> 
+                <expander:SfExpander.Content> 
+                    <StackLayout>
+                        <Grid  ColumnDefinitions="33.33*,33.33*,33.33*,33.33*,33.33*,33.33*" ColumnSpacing="0">
+                             
+                            <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="150" 
+                                         Grid.Column="0"
+                                         Source="football_player.png" 
+                                         Clicked="ImageButton_OnClicked"
+                                         BackgroundColor="Transparent"/> 
+                        <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="150" 
+                                     Grid.Column="1" 
+                                     Source="rugby_player.png"
+                                     BackgroundColor="Transparent"/> 
+                            <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="150" 
+                                         Grid.Column="2" 
+                                         Source="tennis_player.png"
+                                         BackgroundColor="Transparent"/> 
+                            <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="150" 
+                                         Grid.Column="3" 
+                                         Source="pingpong_player.png"
+                                         BackgroundColor="Transparent"/> 
+                            <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="150"
+                                         Grid.Column="4" 
+                                         Source="basketball_player.png"
+                                         BackgroundColor="Transparent"/>
+                            <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="150"
+                                          Grid.Column="5" 
+                                         Source="girl_img.png"
+                                         BackgroundColor="Transparent"/> 
+                        </Grid>
+                    </StackLayout> 
+                </expander:SfExpander.Content> 
+            </expander:SfExpander> 
+           
             <Label Text="Nickname"></Label>
             <Entry Placeholder="Player1"
                    Text="{Binding PlayerName, Mode=OneWayToSource}"></Entry>

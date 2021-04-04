@@ -13,7 +13,7 @@ namespace TurnamentManager
         {
             InitializeComponent();
 
-            
+            Device.SetFlags(new []{"Expander_Experimental"});
             MainPage = new NavigationPage(new HomePage())
             {
                 BarBackgroundColor = Color.FromHex("#D7812A"),
