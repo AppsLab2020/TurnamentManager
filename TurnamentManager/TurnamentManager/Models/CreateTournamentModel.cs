@@ -14,7 +14,6 @@ namespace TurnamentManager.Models
         public int Format { get; set; }
         public int IsTeamBased { get; set; }
         public int Sport { get; set; }
-
         public string Name { get; set; }
 
         private INavigation _navigation;
@@ -29,6 +28,7 @@ namespace TurnamentManager.Models
         {
             var tournament = new Tournament()
             {
+                
                 Format = Format switch
                 {
                     0 => "Knockout",
