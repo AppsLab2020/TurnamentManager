@@ -80,10 +80,12 @@
     <AndroidResource Include="Resources\drawable\add_player.png" />
     <AndroidResource Include="Resources\drawable\app_icon.png" />
     <AndroidResource Include="Resources\drawable\basketball_player.png" />
+    <AndroidResource Include="Resources\drawable\basket_ball.png" />
+    <AndroidResource Include="Resources\drawable\bronze_trophy.png" />
     <AndroidResource Include="Resources\drawable\football_ball.png" />
     <AndroidResource Include="Resources\drawable\football_player.png" />
     <AndroidResource Include="Resources\drawable\girl_img.png" />
-    <AndroidResource Include="Resources\drawable\history_icon.png" />
+    <AndroidResource Include="Resources\drawable\history_white.png" />
     <AndroidResource Include="Resources\drawable\manual_button.png" />
     <AndroidResource Include="Resources\drawable\next_button.png" />
     <AndroidResource Include="Resources\drawable\pingpong_player.png" />
@@ -93,17 +95,20 @@
     <AndroidResource Include="Resources\drawable\random_button.png" />
     <AndroidResource Include="Resources\drawable\rugby_player.png" />
     <AndroidResource Include="Resources\drawable\save_bigger.png" />
+    <AndroidResource Include="Resources\drawable\silver_trophy.png" />
+    <AndroidResource Include="Resources\drawable\table_football.png" />
     <AndroidResource Include="Resources\drawable\team_i.png" />
     <AndroidResource Include="Resources\drawable\team_icon.png" />
     <AndroidResource Include="Resources\drawable\team_pix.png" />
+    <AndroidResource Include="Resources\drawable\tennis_ball.png" />
     <AndroidResource Include="Resources\drawable\tennis_player.png" />
-    <AndroidResource Include="Resources\drawable\tournament_i.png" />
+    <AndroidResource Include="Resources\drawable\tournament_white.png" />
     <AndroidResource Include="Resources\drawable\trash_bin.png" />
     <AndroidResource Include="Resources\drawable\trophy.png" />
     <AndroidResource Include="Resources\drawable\upload_pic.png" />
     <AndroidResource Include="Resources\layout\Tabbar.xml" />
     <AndroidResource Include="Resources\layout\Toolbar.xml" />
-    <AndroidResource Include="Resources\mipmap-xxxhdpi\app_icon_o.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\App_icon_main.png" />
     <AndroidResource Include="Resources\values\styles.xml" />
     <AndroidResource Include="Resources\values\colors.xml" />
     <AndroidResource Include="Resources\mipmap-anydpi-v26\icon.xml" />
@@ -116,7 +121,6 @@
     <AndroidResource Include="Resources\mipmap-xhdpi\launcher_foreground.png" />
     <AndroidResource Include="Resources\mipmap-xxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxhdpi\launcher_foreground.png" />
-    <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
   <ItemGroup>

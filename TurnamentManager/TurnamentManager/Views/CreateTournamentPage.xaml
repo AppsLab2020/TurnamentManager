@@ -2,11 +2,32 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="http://xamarin.com/schemas/2020/toolkit"
              x:Class="TurnamentManager.Views.CreateTournamentPage">
 
     <ContentPage.Content>
         <StackLayout Margin="10">
-            <Image Source="trophy.png" />
+            <views:Expander>
+                <views:Expander.Header>
+                    <Grid>
+                        <Image Source="trophy.png" BackgroundColor="Transparent" />
+                    </Grid> 
+                </views:Expander.Header> 
+                <Grid ColumnDefinitions="33.33*,33.33*,33.33*" ColumnSpacing="0">
+                    <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="150" 
+                                 Grid.Column="0"
+                                 Source="trophy.png" 
+                                 BackgroundColor="Transparent"/> 
+                    <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="150" 
+                                 Grid.Column="1" 
+                                 Source="silver_trophy.png"
+                                 BackgroundColor="Transparent"/> 
+                    <ImageButton Source="bronze_trophy.png"
+                                 HorizontalOptions="CenterAndExpand" HeightRequest="150" 
+                                 Grid.Column="2"
+                                 BackgroundColor="Transparent"/>
+                </Grid>
+            </views:Expander>
 
             <Label Text="Tournament Name" HorizontalOptions="Center" />
 
@@ -17,38 +38,69 @@
             <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
 
                 <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
-                    <Label Text="Choose Sport" 
-                           HorizontalOptions="Center" />
-                    <Picker SelectedIndex="{Binding Sport, Mode=OneWayToSource}"
-                            HorizontalTextAlignment="Center">
-                        <Picker.Items>
-                            <x:String>Football</x:String>
-                            <x:String>Basketball</x:String>
-                        </Picker.Items>
-                    </Picker>
+                    <Label Text="Choose Sport" HorizontalOptions="Center" />
+                    <views:Expander>
+                        <views:Expander.Header>
+                            <Grid>
+                                <Image Source="football_ball.png" HeightRequest="80" BackgroundColor="Transparent" />
+                            </Grid> 
+                        </views:Expander.Header> 
+                        
+                        <Grid ColumnDefinitions="33.33*,33.33*,33.33*,33.33*" ColumnSpacing="0" Margin="3,0">
+                            <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="80" 
+                                         Grid.Column="0"
+                                         Source="tennis_ball.png" 
+                                         BackgroundColor="Transparent"/> 
+                            <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="80" 
+                                         Grid.Column="1" 
+                                         Source="basket_ball.png"
+                                         BackgroundColor="Transparent"/> 
+                            <ImageButton Source="football_ball.png"
+                                         HorizontalOptions="CenterAndExpand" HeightRequest="80" 
+                                         Grid.Column="2"
+                                         BackgroundColor="Transparent"/>
+                            <ImageButton Source="table_football.png"
+                                         HorizontalOptions="CenterAndExpand" HeightRequest="80" 
+                                         Grid.Column="3"
+                                         BackgroundColor="Transparent"/>
+                        </Grid>
+                        </views:Expander>
+
                 </StackLayout>
 
                 <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
-                    <Label Text="Choose Format" HorizontalOptions="Center" />
-                    <Picker SelectedIndex="{Binding Format, Mode=OneWayToSource}"
-                            HorizontalTextAlignment="Center">
-                        <Picker.Items>
-                            <x:String>Knockout</x:String>
-                        </Picker.Items>
-                    </Picker>
+                    <Label Text="Select Teams or Players"
+                           HorizontalOptions="Center" />
+
+                    <views:Expander>
+                        <views:Expander.Header>
+                            <Grid>
+                                <Image Source="player_i.png" BackgroundColor="Transparent" />
+                            </Grid> 
+                        </views:Expander.Header> 
+                        
+                        <Grid ColumnDefinitions="33.33*,33.33*" ColumnSpacing="0" Margin="3,0">
+                            <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="100" 
+                                         Grid.Column="0"
+                                         Source="team_i.png" 
+                                         BackgroundColor="Transparent"
+                                         /> 
+                            <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="100" 
+                                         Grid.Column="1" 
+                                         Source="player_i.png"
+                                         BackgroundColor="Transparent"/> 
+                        </Grid>
+                    </views:Expander>
                 </StackLayout>
 
             </StackLayout>
 
             <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
-                <Label Text="Select Teams or Players"
-                       HorizontalOptions="Center" />
-
-                <Picker HorizontalTextAlignment="Center"
-                        SelectedIndex="{Binding IsTeamBased, Mode=OneWayToSource}">
+                <Label Text="Choose Format" HorizontalOptions="Center" />
+                <Picker SelectedIndex="{Binding Format, Mode=OneWayToSource}"
+                        HorizontalTextAlignment="Center">
                     <Picker.Items>
-                        <x:String>Teams</x:String>
-                        <x:String>Players</x:String>
+                        <x:String>Knockout</x:String>
                     </Picker.Items>
                 </Picker>
             </StackLayout>
