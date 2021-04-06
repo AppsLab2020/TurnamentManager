@@ -3,18 +3,18 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:expander="clr-namespace:Syncfusion.XForms.Expander;assembly=Syncfusion.Expander.XForms"
+             xmlns:views="http://xamarin.com/schemas/2020/toolkit"
              x:Class="TurnamentManager.Views.CreatePlayerPage">
     <ContentPage.Content>
         
         <StackLayout>
-            <expander:SfExpander> 
-                <expander:SfExpander.Header> 
+            <views:Expander> 
+                <views:Expander.Header> 
                     <Grid>
-                        <Image Source="upload_pic.png" BackgroundColor="Transparent"></Image>
+                        <Image Source="upload_pic.png" BackgroundColor="Transparent"/>
                     </Grid>
-                </expander:SfExpander.Header> 
-                <expander:SfExpander.Content> 
-                    <StackLayout>
+                </views:Expander.Header> 
+                <StackLayout>
                         <Grid  ColumnDefinitions="33.33*,33.33*,33.33*,33.33*,33.33*,33.33*" ColumnSpacing="0">
                              
                             <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="150" 
@@ -44,27 +44,27 @@
                                          BackgroundColor="Transparent"/> 
                         </Grid>
                     </StackLayout> 
-                </expander:SfExpander.Content> 
-            </expander:SfExpander> 
-           
-            <Label Text="Nickname"></Label>
+            </views:Expander>
+            
+            <Label Text="Nickname"/>
             <Entry Placeholder="Player1"
-                   Text="{Binding PlayerName, Mode=OneWayToSource}"></Entry>
-            <Label Text="Choose Player Quality"></Label>
-            <Picker SelectedIndex="{Binding SelectedQuality, Mode=OneWayToSource}"
-                    ><Picker.Items>
+                   Text="{Binding PlayerName, Mode=OneWayToSource}"/>
+            <Label Text="Choose Player Quality"/>
+            <Picker SelectedIndex="{Binding SelectedQuality, Mode=OneWayToSource}">
+                <Picker.Items>
                 <x:String>Flexible</x:String>
                 <x:String>Strategic</x:String>
                 <x:String>Shares Their Expertise</x:String>
                 <x:String>Respectful To Others</x:String>
                 <x:String>Contribute Ideas</x:String>
-            </Picker.Items></Picker>
+            </Picker.Items>
+            </Picker>
             <StackLayout Orientation="Horizontal" VerticalOptions="End">
                 <ImageButton x:Name="SaveButton" 
                              Source="save_bigger.png"
                              HorizontalOptions="CenterAndExpand"
                              Command="{Binding SaveDataCommand}"
-                             BackgroundColor="Transparent"></ImageButton>
+                             BackgroundColor="Transparent"/>
             </StackLayout>
         </StackLayout>
         
