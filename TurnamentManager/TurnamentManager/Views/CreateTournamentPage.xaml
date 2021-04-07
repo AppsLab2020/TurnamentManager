@@ -6,6 +6,7 @@
              x:Class="TurnamentManager.Views.CreateTournamentPage">
 
     <ContentPage.Content>
+        <ScrollView>
         <StackLayout Margin="10">
             <views:Expander>
                 <views:Expander.Header>
@@ -34,38 +35,60 @@
             <Entry Placeholder="Tournament1"
                    Text="{Binding Name, Mode=OneWayToSource}"
                    HorizontalTextAlignment="Center" />
+            
+            
+            
+            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                
+                <Label Text="Choose Sport" HorizontalOptions="Center" />
+                <views:Expander>
+                    <views:Expander.Header>
+                        <Grid>
+                            <Image Source="football_ball.png" HeightRequest="80" BackgroundColor="Transparent" />
+                        </Grid> 
+                    </views:Expander.Header> 
+                    <Grid ColumnDefinitions="33.33*,33.33*,33.33*,33.33*" ColumnSpacing="2" Margin="3,0" >
+                        <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="80" 
+                                     Grid.Column="0"
+                                     Source="tennis_ball.png" 
+                                     BackgroundColor="Transparent"/>
+                        
+                        <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="80" 
+                                     Grid.Column="1" 
+                                     Source="basket_ball.png"
+                                     BackgroundColor="Transparent"/>
+                        
+                        <ImageButton Source="football_ball.png"
+                                     HorizontalOptions="CenterAndExpand" HeightRequest="80" 
+                                     Grid.Column="2"
+                                     BackgroundColor="Transparent"/>
+                        
+                        <ImageButton Source="table_football.png"
+                                     HorizontalOptions="CenterAndExpand" HeightRequest="80" 
+                                     Grid.Column="3"
+                                     BackgroundColor="Transparent"/>
+                    </Grid>
+                </views:Expander>
+            </StackLayout>
 
-            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="0,4">
 
                 <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
-                    <Label Text="Choose Sport" HorizontalOptions="Center" />
+                    
+                    <Label Text="Choose Format" HorizontalOptions="Center" />
                     <views:Expander>
                         <views:Expander.Header>
                             <Grid>
-                                <Image Source="football_ball.png" HeightRequest="80" BackgroundColor="Transparent" />
-                            </Grid> 
-                        </views:Expander.Header> 
-                        
-                        <Grid ColumnDefinitions="33.33*,33.33*,33.33*,33.33*" ColumnSpacing="0" Margin="3,0">
-                            <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="80" 
+                                <Image VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Source="Knockout.png" HeightRequest="80"/>
+                            </Grid>
+                        </views:Expander.Header>
+                        <Grid ColumnDefinitions="33.33*" ColumnSpacing="2">
+                            <ImageButton Source="Knockout.png"
+                                         HorizontalOptions="CenterAndExpand" HeightRequest="80" 
                                          Grid.Column="0"
-                                         Source="tennis_ball.png" 
-                                         BackgroundColor="Transparent"/> 
-                            <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="80" 
-                                         Grid.Column="1" 
-                                         Source="basket_ball.png"
-                                         BackgroundColor="Transparent"/> 
-                            <ImageButton Source="football_ball.png"
-                                         HorizontalOptions="CenterAndExpand" HeightRequest="80" 
-                                         Grid.Column="2"
-                                         BackgroundColor="Transparent"/>
-                            <ImageButton Source="table_football.png"
-                                         HorizontalOptions="CenterAndExpand" HeightRequest="80" 
-                                         Grid.Column="3"
                                          BackgroundColor="Transparent"/>
                         </Grid>
-                        </views:Expander>
-
+                    </views:Expander>
                 </StackLayout>
 
                 <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
@@ -75,35 +98,29 @@
                     <views:Expander>
                         <views:Expander.Header>
                             <Grid>
-                                <Image Source="player_i.png" BackgroundColor="Transparent" />
+                                <Image  Source="player_icon.png" BackgroundColor="Transparent" HeightRequest="80"/>
                             </Grid> 
                         </views:Expander.Header> 
                         
-                        <Grid ColumnDefinitions="33.33*,33.33*" ColumnSpacing="0" Margin="3,0">
-                            <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="100" 
+                        <Grid ColumnDefinitions="33.33*,33.33*" ColumnSpacing="0">
+                            <ImageButton HorizontalOptions="CenterAndExpand" 
                                          Grid.Column="0"
-                                         Source="team_i.png" 
+                                         Source="team_iconn.png" 
                                          BackgroundColor="Transparent"
-                                         /> 
-                            <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="100" 
+                                         HeightRequest="60"/> 
+                            
+                            <ImageButton HorizontalOptions="CenterAndExpand"
                                          Grid.Column="1" 
-                                         Source="player_i.png"
-                                         BackgroundColor="Transparent"/> 
+                                         Source="player_icon.png"
+                                         BackgroundColor="Transparent"
+                                         HeightRequest="60"/> 
                         </Grid>
                     </views:Expander>
                 </StackLayout>
 
             </StackLayout>
 
-            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
-                <Label Text="Choose Format" HorizontalOptions="Center" />
-                <Picker SelectedIndex="{Binding Format, Mode=OneWayToSource}"
-                        HorizontalTextAlignment="Center">
-                    <Picker.Items>
-                        <x:String>Knockout</x:String>
-                    </Picker.Items>
-                </Picker>
-            </StackLayout>
+           
             <StackLayout Orientation="Horizontal" VerticalOptions="End">
                 <ImageButton x:Name="SaveButton"
                              Source="save_bigger"
@@ -112,5 +129,6 @@
                              HorizontalOptions="CenterAndExpand" />
             </StackLayout>
         </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

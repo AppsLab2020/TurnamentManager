@@ -86,11 +86,13 @@
     <AndroidResource Include="Resources\drawable\football_player.png" />
     <AndroidResource Include="Resources\drawable\girl_img.png" />
     <AndroidResource Include="Resources\drawable\history_white.png" />
+    <AndroidResource Include="Resources\drawable\Knockout.png" />
     <AndroidResource Include="Resources\drawable\manual_button.png" />
     <AndroidResource Include="Resources\drawable\next_button.png" />
     <AndroidResource Include="Resources\drawable\pingpong_player.png" />
     <AndroidResource Include="Resources\drawable\player.png" />
     <AndroidResource Include="Resources\drawable\player_i.png" />
+    <AndroidResource Include="Resources\drawable\player_icon.png" />
     <AndroidResource Include="Resources\drawable\plus_butt.png" />
     <AndroidResource Include="Resources\drawable\random_button.png" />
     <AndroidResource Include="Resources\drawable\rugby_player.png" />
@@ -99,6 +101,7 @@
     <AndroidResource Include="Resources\drawable\table_football.png" />
     <AndroidResource Include="Resources\drawable\team_i.png" />
     <AndroidResource Include="Resources\drawable\team_icon.png" />
+    <AndroidResource Include="Resources\drawable\team_iconn.png" />
     <AndroidResource Include="Resources\drawable\team_pix.png" />
     <AndroidResource Include="Resources\drawable\tennis_ball.png" />
     <AndroidResource Include="Resources\drawable\tennis_player.png" />
