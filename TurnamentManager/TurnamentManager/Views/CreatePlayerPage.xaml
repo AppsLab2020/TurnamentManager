@@ -6,7 +6,6 @@
              xmlns:views="http://xamarin.com/schemas/2020/toolkit"
              x:Class="TurnamentManager.Views.CreatePlayerPage">
     <ContentPage.Content>
-        
         <StackLayout>
             <views:Expander> 
                 <views:Expander.Header> 
@@ -46,10 +45,10 @@
                     </StackLayout> 
             </views:Expander>
             
-            <Label Text="Nickname"/>
+            <Label HorizontalOptions="CenterAndExpand" Text="Nickname"/>
             <Entry Placeholder="Player1"
                    Text="{Binding PlayerName, Mode=OneWayToSource}"/>
-            <Label Text="Choose Player Quality"/>
+            <Label HorizontalOptions="CenterAndExpand" Text="Choose Player Quality"/>
             <Picker SelectedIndex="{Binding SelectedQuality, Mode=OneWayToSource}">
                 <Picker.Items>
                 <x:String>Flexible</x:String>
@@ -67,6 +66,5 @@
                              BackgroundColor="Transparent"/>
             </StackLayout>
         </StackLayout>
-        
     </ContentPage.Content>
 </ContentPage>

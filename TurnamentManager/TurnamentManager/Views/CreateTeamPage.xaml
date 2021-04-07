@@ -9,21 +9,23 @@
            <Image Source="team_pix.jpg"></Image>
             <Label Text="Team Name"></Label>
             <Entry Placeholder="Team1"></Entry>
+            <Label HorizontalOptions="CenterAndExpand" Text="Players In Team:" />
+            <ListView  x:Name="PlayersDisplay"
+                       MinimumWidthRequest="0"
+                       ItemsSource="{Binding PlayerNamesCollection}"></ListView>
             <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
                 <ImageButton Source="add_player"
                              BackgroundColor="Transparent"
-                             Command="{Binding AddPlayerCommand}"></ImageButton>
+                             Command="{Binding AddPlayerCommand}"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal" VerticalOptions="End">
                 <ImageButton Source="save_bigger"
                              x:Name="SaveButton"
                              Clicked="SaveButton_OnClicked"
                              BackgroundColor="Transparent"
-                             HorizontalOptions="CenterAndExpand"></ImageButton>
+                             HorizontalOptions="CenterAndExpand"/>
             </StackLayout>
-            <ListView  x:Name="PlayersDisplay"
-                       MinimumWidthRequest="0"
-                       ItemsSource="{Binding PlayerNamesCollection}"></ListView>
+           
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
