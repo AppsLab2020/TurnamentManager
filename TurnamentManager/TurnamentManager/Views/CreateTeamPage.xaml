@@ -25,7 +25,6 @@
                              BackgroundColor="Transparent"
                              HorizontalOptions="CenterAndExpand"/>
             </StackLayout>
-           
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

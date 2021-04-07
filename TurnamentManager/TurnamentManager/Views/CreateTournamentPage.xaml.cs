@@ -3,6 +3,7 @@ using System.IO;
 using SQLite;
 using TurnamentManager.Classes.Tournament;
 using TurnamentManager.Models;
+using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -16,5 +17,6 @@ namespace TurnamentManager.Views
             InitializeComponent();
             BindingContext = new CreateTournamentModel(Navigation);
         }
+        
     }
 }
