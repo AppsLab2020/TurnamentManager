@@ -82,6 +82,8 @@
     <AndroidResource Include="Resources\drawable\basketball_player.png" />
     <AndroidResource Include="Resources\drawable\basket_ball.png" />
     <AndroidResource Include="Resources\drawable\bronze_trophy.png" />
+    <AndroidResource Include="Resources\drawable\choose_player1.png" />
+    <AndroidResource Include="Resources\drawable\choose_sport.png" />
     <AndroidResource Include="Resources\drawable\football_ball.png" />
     <AndroidResource Include="Resources\drawable\football_player.png" />
     <AndroidResource Include="Resources\drawable\girl_img.png" />

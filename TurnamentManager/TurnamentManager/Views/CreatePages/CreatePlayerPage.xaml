@@ -12,8 +12,7 @@
                     <Grid>
                         <Image 
                             Source="{Binding PickedImageSource}" 
-                            BackgroundColor="Transparent"
-                           />
+                            BackgroundColor="Transparent"/>
                     </Grid>
                 </views:Expander.Header>
                 <StackLayout>

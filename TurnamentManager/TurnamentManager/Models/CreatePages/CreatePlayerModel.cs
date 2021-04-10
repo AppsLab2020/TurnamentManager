@@ -59,7 +59,7 @@ namespace TurnamentManager.Models
 
         public CreatePlayerModel(INavigation navigation)
         {
-            _pickImageSource = "upload_pic.png";
+            _pickImageSource = "choose_player1.png";
             SaveDataCommand = new Command(SaveData);
 
             FootballCommand = new Command(Football);

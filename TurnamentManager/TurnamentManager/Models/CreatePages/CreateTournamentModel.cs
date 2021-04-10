@@ -164,7 +164,7 @@ namespace TurnamentManager.Models
             PlayerBasedCommand = new Command(PlayerBased);
 
             CupImageSource = "trophy.png";
-            SportImageSource = "football_ball.png";
+            SportImageSource = "choose_sport.png";
             FormatImageSource = "Knockout.png";
             StyleImageSource = "player_icon.png";
         }
