@@ -16,17 +16,18 @@ namespace TurnamentManager.Views
     public partial class PlayerOrTeamAddPage : ContentPage
     {
         private PlayerOrTeamAddModel model;
+
         public PlayerOrTeamAddPage()
         {
             InitializeComponent();
-            model = new PlayerOrTeamAddModel(Navigation);
+            model = new PlayerOrTeamAddModel(Navigation, -1);
             BindingContext = model;
         }
         
         public PlayerOrTeamAddPage(int id)
         {
             InitializeComponent();
-            model = new PlayerOrTeamAddModel(Navigation);
+            model = new PlayerOrTeamAddModel(Navigation, id);
             BindingContext = model;
         }
 
@@ -39,15 +40,17 @@ namespace TurnamentManager.Views
             var players = conn.Table<Player>().ToList();
             Players.Children.Clear();
 
+            var counter = 0;
             foreach (var checkBox in players.Select(player => new CheckBox
             {
                 DefaultText = player.Name,
                 TextColor = Color.Black,
             }))
             {
+                checkBox.SetBinding(CheckBox.CheckedProperty, $"Players[{counter}]");
                 Players.Children.Add(checkBox);
+                counter++;
             }
-            
         }
     }
 }

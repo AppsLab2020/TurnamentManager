@@ -10,7 +10,7 @@ using Xamarin.Forms;
 
 namespace TurnamentManager.Models
 {
-    public class TournamentModel
+    public class TournamentModel 
     {
         public event EventHandler RedrawPlayers;
 
@@ -93,7 +93,7 @@ namespace TurnamentManager.Models
 
         private void OpenPage(int id)
         {
-            _navigation.PushAsync(new PlayerOrTeamAddPage());
+            _navigation.PushAsync(new PlayerOrTeamAddPage(id));
         }
 
         private void RemoveTournament(int id)

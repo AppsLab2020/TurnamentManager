@@ -26,12 +26,22 @@ namespace TurnamentManager.Classes.Tournament
 
         public void CreatePlayerIDString()
         {
-            
+            foreach (var id in PlayersID)
+            {
+                PlayersIDString += id.ToString() + " ";
+            }
         }
 
         public void GetPlayerIDs()
         {
-            
+            if (string.IsNullOrEmpty(PlayersIDString))
+                return;
+
+            var splitted = PlayersIDString.Split(' ');
+            foreach (var id in splitted)
+            {
+                PlayersID.Add(int.Parse(id));
+            }
         }
     }
 }

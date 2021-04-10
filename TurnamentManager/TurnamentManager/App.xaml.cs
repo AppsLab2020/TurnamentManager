@@ -14,13 +14,12 @@ namespace TurnamentManager
             InitializeComponent();
 
             Device.SetFlags(new []{"Expander_Experimental"});
+            FolderPath = folderPath;
             MainPage = new NavigationPage(new HomePage())
             {
                 BarBackgroundColor = Color.FromHex("#D7812A"),
                 BarTextColor = Color.White,
             };
-        
-            FolderPath = folderPath;
         }
 
         protected override void OnStart()

@@ -9,25 +9,28 @@
         <ScrollView>
         <StackLayout Margin="10">
            
-            <views:Expander>
+            <views:Expander IsExpanded="{Binding IsTypeExpanded, Mode=TwoWay}">
                 <views:Expander.Header>
                     <Grid>
-                        <Image Source="trophy.png" BackgroundColor="Transparent" />
+                        <Image Source="{Binding CupImageSource}" BackgroundColor="Transparent" />
                     </Grid> 
                 </views:Expander.Header> 
                 <Grid ColumnDefinitions="33.33*,33.33*,33.33*" ColumnSpacing="0">
                     <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="150" 
                                  Grid.Column="0"
                                  Source="trophy.png" 
-                                 BackgroundColor="Transparent"/> 
+                                 BackgroundColor="Transparent"
+                                 Command="{Binding GoldTournamentCommand}"/> 
                     <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="150" 
                                  Grid.Column="1" 
                                  Source="silver_trophy.png"
-                                 BackgroundColor="Transparent"/> 
+                                 BackgroundColor="Transparent"
+                                 Command="{Binding SilverTournamentCommand}"/> 
                     <ImageButton Source="bronze_trophy.png"
                                  HorizontalOptions="CenterAndExpand" HeightRequest="150" 
                                  Grid.Column="2"
-                                 BackgroundColor="Transparent"/>
+                                 BackgroundColor="Transparent"
+                                 Command="{Binding BronzeTournamentCommand}"/>
                 </Grid>
             </views:Expander>
 
@@ -36,38 +39,40 @@
             <Entry Placeholder="Tournament1"
                    Text="{Binding Name, Mode=OneWayToSource}"
                    HorizontalTextAlignment="Center" />
-            
-            
-            
+
             <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
                 
                 <Label Text="Choose Sport" HorizontalOptions="Center" />
-                <views:Expander>
+                <views:Expander IsExpanded="{Binding IsSportExpanded, Mode=TwoWay}">
                     <views:Expander.Header>
                         <Grid>
-                            <Image Source="football_ball.png" HeightRequest="80" BackgroundColor="Transparent" />
+                            <Image Source="{Binding SportImageSource}" HeightRequest="80" BackgroundColor="Transparent" />
                         </Grid> 
                     </views:Expander.Header> 
                     <Grid ColumnDefinitions="33.33*,33.33*,33.33*,33.33*" ColumnSpacing="2" Margin="3,0" >
                         <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="80" 
                                      Grid.Column="0"
                                      Source="tennis_ball.png" 
-                                     BackgroundColor="Transparent"/>
+                                     BackgroundColor="Transparent"
+                                     Command="{Binding TennisCommand}"/>
                         
                         <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="80" 
                                      Grid.Column="1" 
                                      Source="basket_ball.png"
-                                     BackgroundColor="Transparent"/>
+                                     BackgroundColor="Transparent"
+                                     Command="{Binding BasketballCommand}"/>
                         
                         <ImageButton Source="football_ball.png"
                                      HorizontalOptions="CenterAndExpand" HeightRequest="80" 
                                      Grid.Column="2"
-                                     BackgroundColor="Transparent"/>
+                                     BackgroundColor="Transparent"
+                                     Command="{Binding FootballCommand}"/>
                         
                         <ImageButton Source="table_football.png"
                                      HorizontalOptions="CenterAndExpand" HeightRequest="80" 
                                      Grid.Column="3"
-                                     BackgroundColor="Transparent"/>
+                                     BackgroundColor="Transparent"
+                                     Command="{Binding KalcetoCommand}"/>
                     </Grid>
                 </views:Expander>
             </StackLayout>
@@ -80,17 +85,18 @@
                 <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
                     
                     <Label Text="Choose Format" HorizontalOptions="Center" />
-                    <views:Expander>
+                    <views:Expander IsExpanded="{Binding IsFormatExpanded}">
                         <views:Expander.Header>
                             <Grid>
-                                <Image VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Source="Knockout.png" HeightRequest="80"/>
+                                    <Image VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Source="{Binding FormatImageSource}" HeightRequest="80"/>
                             </Grid>
                         </views:Expander.Header>
                         <Grid ColumnDefinitions="33.33*" ColumnSpacing="2">
                             <ImageButton Source="Knockout.png"
                                          HorizontalOptions="CenterAndExpand" HeightRequest="80" 
                                          Grid.Column="0"
-                                         BackgroundColor="Transparent"/>
+                                         BackgroundColor="Transparent"
+                                         Command="{Binding KnockoutCommand}"/>
                         </Grid>
                     </views:Expander>
                 </StackLayout>
@@ -98,10 +104,10 @@
                     <Label Text="Select Teams or Players"
                            HorizontalOptions="Center" />
 
-                    <views:Expander>
+                    <views:Expander IsExpanded="{Binding IsStyleExpanded}">
                         <views:Expander.Header>
                             <Grid>
-                                <Image  Source="player_icon.png" BackgroundColor="Transparent" HeightRequest="60"/>
+                                <Image  Source="{Binding StyleImageSource}" BackgroundColor="Transparent" HeightRequest="60"/>
                             </Grid> 
                         </views:Expander.Header> 
                         
@@ -110,13 +116,15 @@
                                          Grid.Column="0"
                                          Source="team_iconn.png" 
                                          BackgroundColor="Transparent"
-                                         HeightRequest="60"/> 
+                                         HeightRequest="60"
+                                         Command="{Binding TeamBasedCommand}"/> 
                             
                             <ImageButton HorizontalOptions="CenterAndExpand"
                                          Grid.Column="1" 
                                          Source="player_icon.png"
                                          BackgroundColor="Transparent"
-                                         HeightRequest="60"/> 
+                                         HeightRequest="60"
+                                         Command="{Binding PlayerBasedCommand}"/> 
                         </Grid>
                     </views:Expander>
                 </StackLayout>
