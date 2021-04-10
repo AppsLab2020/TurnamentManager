@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
-using Xamarin.Forms.Platform.Android;
 using Xamarin.Forms.Xaml;
 
 namespace TurnamentManager.Views

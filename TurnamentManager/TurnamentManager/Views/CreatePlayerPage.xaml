@@ -7,63 +7,72 @@
              x:Class="TurnamentManager.Views.CreatePlayerPage">
     <ContentPage.Content>
         <StackLayout>
-            <views:Expander> 
-                <views:Expander.Header> 
+            <views:Expander IsExpanded="{Binding IsExpanded, Mode=TwoWay}">
+                <views:Expander.Header>
                     <Grid>
-                        <Image Source="upload_pic.png" BackgroundColor="Transparent"/>
+                        <Image 
+                            Source="{Binding PickedImageSource}" 
+                            BackgroundColor="Transparent"
+                           />
                     </Grid>
-                </views:Expander.Header> 
+                </views:Expander.Header>
                 <StackLayout>
-                        <Grid  ColumnDefinitions="33.33*,33.33*,33.33*,33.33*,33.33*,33.33*" ColumnSpacing="0">
-                             
-                            <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="150" 
-                                         Grid.Column="0"
-                                         Source="football_player.png" 
-                                         Clicked="ImageButton_OnClicked"
-                                         BackgroundColor="Transparent"/> 
-                        <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="150" 
-                                     Grid.Column="1" 
+                    <Grid ColumnDefinitions="33.33*,33.33*,33.33*,33.33*,33.33*,33.33*" ColumnSpacing="0">
+
+                        <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="150"
+                                     Grid.Column="0"
+                                     Source="football_player.png"
+                                     BackgroundColor="Transparent"
+                                     Command="{Binding FootballCommand}"/>
+                        <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="150"
+                                     Grid.Column="1"
                                      Source="rugby_player.png"
-                                     BackgroundColor="Transparent"/> 
-                            <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="150" 
-                                         Grid.Column="2" 
-                                         Source="tennis_player.png"
-                                         BackgroundColor="Transparent"/> 
-                            <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="150" 
-                                         Grid.Column="3" 
-                                         Source="pingpong_player.png"
-                                         BackgroundColor="Transparent"/> 
-                            <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="150"
-                                         Grid.Column="4" 
-                                         Source="basketball_player.png"
-                                         BackgroundColor="Transparent"/>
-                            <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="150"
-                                          Grid.Column="5" 
-                                         Source="girl_img.png"
-                                         BackgroundColor="Transparent"/> 
-                        </Grid>
-                    </StackLayout> 
+                                     BackgroundColor="Transparent"
+                                     Command="{Binding RugbyCommand}"/>
+                        <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="150"
+                                     Grid.Column="2"
+                                     Source="tennis_player.png"
+                                     BackgroundColor="Transparent"
+                                     Command="{Binding TennisCommand}"
+                                     />
+                        <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="150"
+                                     Grid.Column="3"
+                                     Source="pingpong_player.png"
+                                     BackgroundColor="Transparent" 
+                                     Command="{Binding PingPongCommand}"/>
+                        <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="150"
+                                     Grid.Column="4"
+                                     Source="basketball_player.png"
+                                     BackgroundColor="Transparent"
+                                     Command="{Binding BasketballCommand}"/>
+                        <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="150"
+                                     Grid.Column="5"
+                                     Source="girl_img.png"
+                                     BackgroundColor="Transparent" 
+                                     Command="{Binding GirlCommand}"/>
+                    </Grid>
+                </StackLayout>
             </views:Expander>
-            
-            <Label HorizontalOptions="CenterAndExpand" Text="Nickname"/>
+
+            <Label HorizontalOptions="CenterAndExpand" Text="Nickname" />
             <Entry Placeholder="Player1"
-                   Text="{Binding PlayerName, Mode=OneWayToSource}"/>
-            <Label HorizontalOptions="CenterAndExpand" Text="Choose Player Quality"/>
+                   Text="{Binding PlayerName, Mode=OneWayToSource}" />
+            <Label HorizontalOptions="CenterAndExpand" Text="Choose Player Quality" />
             <Picker SelectedIndex="{Binding SelectedQuality, Mode=OneWayToSource}">
                 <Picker.Items>
-                <x:String>Flexible</x:String>
-                <x:String>Strategic</x:String>
-                <x:String>Shares Their Expertise</x:String>
-                <x:String>Respectful To Others</x:String>
-                <x:String>Contribute Ideas</x:String>
-            </Picker.Items>
+                    <x:String>Flexible</x:String>
+                    <x:String>Strategic</x:String>
+                    <x:String>Shares Their Expertise</x:String>
+                    <x:String>Respectful To Others</x:String>
+                    <x:String>Contribute Ideas</x:String>
+                </Picker.Items>
             </Picker>
             <StackLayout Orientation="Horizontal" VerticalOptions="End">
-                <ImageButton x:Name="SaveButton" 
+                <ImageButton x:Name="SaveButton"
                              Source="save_bigger.png"
                              HorizontalOptions="CenterAndExpand"
                              Command="{Binding SaveDataCommand}"
-                             BackgroundColor="Transparent"/>
+                             BackgroundColor="Transparent" />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

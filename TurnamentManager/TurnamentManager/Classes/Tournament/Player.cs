@@ -13,7 +13,7 @@ namespace TurnamentManager.Classes.Tournament
             ContributeIdeas
         }
         public string Name { get; set; }
-        public string ImagePath { get; set; }
+        public int ImageId { get; set; }
         public Team Team;
 
         public PlayerQuality CurrPlayerQuality;
@@ -21,10 +21,10 @@ namespace TurnamentManager.Classes.Tournament
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
         
-        public Player(string name, string imagePath, PlayerQuality currPlayerQuality)
+        public Player(string name, int imageId, PlayerQuality currPlayerQuality)
         {
             Name = name;
-            ImagePath = imagePath;
+            ImageId = imageId;
             CurrPlayerQuality = currPlayerQuality;
         }
 
