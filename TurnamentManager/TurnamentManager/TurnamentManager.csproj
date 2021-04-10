@@ -23,27 +23,27 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\CreateTournamentPage.xaml.cs">
+    <Compile Update="Views\CreatePages\CreateTournamentPage.xaml.cs">
       <DependentUpon>CreateTournamentPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\HistoryPage.xaml.cs">
+    <Compile Update="Views\HomePages\HistoryPage.xaml.cs">
       <DependentUpon>HistoryPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\HomePage.xaml.cs">
+    <Compile Update="Views\HomePages\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\MainPage.xaml.cs">
+    <Compile Update="Views\LoginPage\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\TeamPage.xaml.cs">
+    <Compile Update="Views\HomePages\TeamPage.xaml.cs">
       <DependentUpon>TeamPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\TournamentPage.xaml.cs">
+    <Compile Update="Views\HomePages\TournamentPage.xaml.cs">
       <DependentUpon>TournamentPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>

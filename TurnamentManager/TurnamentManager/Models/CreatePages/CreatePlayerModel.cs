@@ -1,28 +1,24 @@
-﻿using System;
+﻿using SQLite;
 using System.ComponentModel;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
-using Plugin.Media;
-using Plugin.Media.Abstractions;
-using SQLite;
 using TurnamentManager.Classes.Tournament;
-using TurnamentManager.Views;
 using Xamarin.Forms;
 
 namespace TurnamentManager.Models
 {
-    public class CreatePlayerModel:INotifyPropertyChanged
+    public class CreatePlayerModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
         public ICommand SaveDataCommand { get; set; }
-        public ICommand FootballCommand     { get; } 
-        public ICommand RugbyCommand        { get; }
-        public ICommand TennisCommand       { get; }
-        public ICommand PingPongCommand     { get; }
-        public ICommand BasketballCommand   { get; }
-        public ICommand GirlCommand         { get; }
+        public ICommand FootballCommand { get; }
+        public ICommand RugbyCommand { get; }
+        public ICommand TennisCommand { get; }
+        public ICommand PingPongCommand { get; }
+        public ICommand BasketballCommand { get; }
+        public ICommand GirlCommand { get; }
 
         public bool IsExpanded
         {
@@ -46,7 +42,7 @@ namespace TurnamentManager.Models
             get => _pickImageSource;
             set
             {
-                if (value == _pickImageSource) 
+                if (value == _pickImageSource)
                     return;
 
                 _pickImageSource = value;
