@@ -48,8 +48,9 @@
                         <Grid>
                             <Image Source="{Binding SportImageSource}" HeightRequest="80" BackgroundColor="Transparent" />
                         </Grid> 
-                    </views:Expander.Header> 
-                    <Grid ColumnDefinitions="33.33*,33.33*,33.33*,33.33*" ColumnSpacing="2" Margin="3,0" >
+                    </views:Expander.Header>
+                    <StackLayout>
+                    <Grid ColumnDefinitions="33.33*,33.33*,33.33*,33.33*,33.33*" ColumnSpacing="0" >
                         <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="80" 
                                      Grid.Column="0"
                                      Source="tennis_ball.png" 
@@ -67,13 +68,26 @@
                                      Grid.Column="2"
                                      BackgroundColor="Transparent"
                                      Command="{Binding FootballCommand}"/>
-                        
-                        <ImageButton Source="table_football.png"
+                        <ImageButton Source="pool_ball.png"
                                      HorizontalOptions="CenterAndExpand" HeightRequest="80" 
                                      Grid.Column="3"
                                      BackgroundColor="Transparent"
-                                     Command="{Binding KalcetoCommand}"/>
+                                     Command="{Binding PoolCommand}"/>
+                        
+                        <ImageButton Source="table_football.png"
+                                     HorizontalOptions="CenterAndExpand" HeightRequest="80" 
+                                     Grid.Column="4"
+                                     BackgroundColor="Transparent"
+                                     Command="{Binding TableFootballCommand}"/>
                     </Grid>
+                    <Grid ColumnDefinitions="33.33*" ColumnSpacing="0.3">
+                        <ImageButton Source="ping_pong_racket.png"
+                                     HorizontalOptions="CenterAndExpand" HeightRequest="80" 
+                                     Grid.Column="0"
+                                     BackgroundColor="Transparent"
+                                     Command="{Binding PingPongRacketCommand}"/>
+                    </Grid>
+                    </StackLayout>
                 </views:Expander>
             </StackLayout>
             <BoxView HeightRequest="1"

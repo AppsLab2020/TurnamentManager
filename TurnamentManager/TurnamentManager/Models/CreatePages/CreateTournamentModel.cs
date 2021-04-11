@@ -21,7 +21,9 @@ namespace TurnamentManager.Models
         public ICommand TennisCommand { get; }
         public ICommand BasketballCommand { get; }
         public ICommand FootballCommand { get; }
-        public ICommand KalcetoCommand { get; }
+        public ICommand TableFootballCommand { get; }
+        public ICommand PoolCommand { get; }
+        public ICommand PingPongRacketCommand { get; }
         public ICommand KnockoutCommand { get; }
         public ICommand TeamBasedCommand { get; }
         public ICommand PlayerBasedCommand { get; }
@@ -158,13 +160,15 @@ namespace TurnamentManager.Models
             TennisCommand = new Command(Tennis);
             BasketballCommand = new Command(Basketball);
             FootballCommand = new Command(Football);
-            KalcetoCommand = new Command(Kalceto);
+            TableFootballCommand = new Command(TableFootball);
+            PoolCommand = new Command(Pool);
+            PingPongRacketCommand = new Command(PingPongRacket);
             KnockoutCommand = new Command(Knockout);
             TeamBasedCommand = new Command(TeamBased);
             PlayerBasedCommand = new Command(PlayerBased);
 
             CupImageSource = "trophy.png";
-            SportImageSource = "choose_sport.png";
+            SportImageSource = "choose_sport1.png";
             FormatImageSource = "Knockout.png";
             StyleImageSource = "player_icon.png";
         }
@@ -191,7 +195,9 @@ namespace TurnamentManager.Models
                     0 => "Tennis",
                     1 => "Basketball",
                     2 => "Football",
-                    3 => "Kalceto",
+                    3 => "TableFootball",
+                    4 => "Pool",
+                    5 => "PingPongRacket",
                     _ => throw new ArgumentOutOfRangeException()
                 }
             };
@@ -245,12 +251,25 @@ namespace TurnamentManager.Models
             _selectedSportId = 2;
         }
 
-        private void Kalceto()
+        private void TableFootball()
         {
             SportImageSource = "table_football.png";
             IsSportExpanded = false;
             _selectedSportId = 3;
         }
+
+        private void Pool()
+        {
+            SportImageSource = "pool_ball.png";
+            IsSportExpanded = false;
+            _selectedSportId = 4;
+        } 
+        private void PingPongRacket()
+        {
+            SportImageSource = "ping_pong_racket.png";
+            IsSportExpanded = false;
+            _selectedSportId = 5;
+        } 
 
         private void Knockout()
         {
