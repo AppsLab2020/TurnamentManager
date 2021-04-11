@@ -18,6 +18,7 @@ namespace TurnamentManager.Models
         public ICommand TennisCommand { get; }
         public ICommand PingPongCommand { get; }
         public ICommand BasketballCommand { get; }
+        public ICommand HockeyCommand { get; }
         public ICommand GirlCommand { get; }
 
         public bool IsExpanded
@@ -67,6 +68,7 @@ namespace TurnamentManager.Models
             TennisCommand = new Command(Tennis);
             PingPongCommand = new Command(PingPong);
             BasketballCommand = new Command(Basketball);
+            HockeyCommand = new Command(Hockey);
             GirlCommand = new Command(Girl);
             _navigation = navigation;
         }
@@ -134,12 +136,18 @@ namespace TurnamentManager.Models
             IsExpanded = false;
             _selectedImageId = 4;
         }
+        private void Hockey()
+        {
+            PickedImageSource = "hockey_player.png";
+            IsExpanded = false;
+            _selectedImageId = 5;
+        }
 
         private void Girl()
         {
             PickedImageSource = "girl_img.png";
             IsExpanded = false;
-            _selectedImageId = 5;
+            _selectedImageId = 6;
         }
     }
 }

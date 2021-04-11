@@ -50,6 +50,13 @@
                                      BackgroundColor="Transparent" 
                                      Command="{Binding GirlCommand}"/>
                     </Grid>
+                    <Grid ColumnDefinitions="33.33*" ColumnSpacing="0">
+                        <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="150"
+                                     Grid.Column="0"
+                                     Source="hockey_player.png"
+                                     BackgroundColor="Transparent"
+                                     Command="{Binding HockeyCommand}"/>
+                    </Grid>
                 </StackLayout>
             </views:Expander>
 
