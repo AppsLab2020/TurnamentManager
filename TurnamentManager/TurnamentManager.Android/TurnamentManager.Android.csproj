@@ -76,6 +76,7 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable\add_button.png" />
     <AndroidResource Include="Resources\drawable\add_p.png" />
     <AndroidResource Include="Resources\drawable\add_player.png" />
     <AndroidResource Include="Resources\drawable\app_icon.png" />
@@ -114,6 +115,7 @@
     <AndroidResource Include="Resources\drawable\trash_bin.png" />
     <AndroidResource Include="Resources\drawable\trophy.png" />
     <AndroidResource Include="Resources\drawable\upload_pic.png" />
+    <AndroidResource Include="Resources\drawable\vs_image.png" />
     <AndroidResource Include="Resources\layout\Tabbar.xml" />
     <AndroidResource Include="Resources\layout\Toolbar.xml" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\App_icon_main.png" />

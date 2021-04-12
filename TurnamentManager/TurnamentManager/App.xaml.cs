@@ -1,5 +1,6 @@
 ﻿using System;
 using TurnamentManager.Views;
+using TurnamentManager.Views.TournamentSetupPages;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,7 +16,7 @@ namespace TurnamentManager
 
             Device.SetFlags(new []{"Expander_Experimental"});
             FolderPath = folderPath;
-            MainPage = new NavigationPage(new HomePage())
+            MainPage = new NavigationPage(new ManualPage())
             {
                 BarBackgroundColor = Color.FromHex("#D7812A"),
                 BarTextColor = Color.White,
