@@ -1,4 +1,5 @@
 ﻿using System;
+using TurnamentManager.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -7,9 +8,14 @@ namespace TurnamentManager.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DrawPage : ContentPage
     {
+        private DrawModel _model;
         public DrawPage()
         {
             InitializeComponent();
+            
+            _model = new DrawModel(Navigation);
+            BindingContext = _model;
+            
             var st = new StackLayout { };
             var frame = new Frame
             {

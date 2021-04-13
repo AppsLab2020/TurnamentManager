@@ -15,7 +15,8 @@
                          Source="manual_button.png"
                          BackgroundColor="Transparent"
                          VerticalOptions="CenterAndExpand"
-                         HorizontalOptions="CenterAndExpand"/>
+                         HorizontalOptions="CenterAndExpand"
+                         Command="{Binding NavigateCommand}"/>
             <ImageButton x:Name="SaveButton"
                          Source="save_bigger.png"
                          BackgroundColor="Transparent"
