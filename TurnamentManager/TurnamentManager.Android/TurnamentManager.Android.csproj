@@ -93,6 +93,7 @@
     <AndroidResource Include="Resources\drawable\football_ball.png" />
     <AndroidResource Include="Resources\drawable\football_player.png" />
     <AndroidResource Include="Resources\drawable\girl_img.png" />
+    <AndroidResource Include="Resources\drawable\history.png" />
     <AndroidResource Include="Resources\drawable\history_white.png" />
     <AndroidResource Include="Resources\drawable\hockey_player.png" />
     <AndroidResource Include="Resources\drawable\Knockout.png" />
