@@ -8,21 +8,21 @@
     <ContentPage.Content>
         <ScrollView>
         <StackLayout>
-            <Image Source="add_p.png"
-                   VerticalOptions="Center"
-                   HorizontalOptions="Center"
-                   BackgroundColor="Transparent"/>
-            <StackLayout VerticalOptions="End">
+                    <Image Source="add_p.png"
+                     VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    BackgroundColor="Transparent"/>
+                <StackLayout VerticalOptions="End">
                 <StackLayout x:Name="Players"/>
              
                 </StackLayout>
-            <ImageButton x:Name="NextButton"
+                        <ImageButton x:Name="NextButton"
                          Source="next_button.png"
                          BackgroundColor="Transparent"
                          VerticalOptions="EndAndExpand"
                          HorizontalOptions="CenterAndExpand"
                          Command="{Binding NextCommand}"/>
-        </StackLayout>
+                </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

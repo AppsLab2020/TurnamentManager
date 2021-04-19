@@ -5,7 +5,7 @@
              x:Class="TurnamentManager.Views.MatchPage">
     <ContentPage.Content>
         <StackLayout>
-            <Picker x:Name="Picker"/>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

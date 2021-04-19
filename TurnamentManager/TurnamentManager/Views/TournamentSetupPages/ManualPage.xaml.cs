@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using TurnamentManager.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,10 +12,15 @@ namespace TurnamentManager.Views.TournamentSetupPages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ManualPage : ContentPage
     {
+        private ManualModel _model;
         public ManualPage()
         {
             InitializeComponent();
 
+            _model = new ManualModel(Navigation);
+            BindingContext = _model;
+            
+            
             var addButton1 = new ImageButton
             {
                 HeightRequest = 50,
@@ -62,6 +67,7 @@ namespace TurnamentManager.Views.TournamentSetupPages
             st.Children.Add(addButton2);
             frame.Content = st;
             Layout.Children.Add(frame);
+            Layout.Children.Add(Button);
         }
     }
 }
