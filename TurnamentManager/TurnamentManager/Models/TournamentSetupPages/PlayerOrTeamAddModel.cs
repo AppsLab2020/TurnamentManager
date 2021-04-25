@@ -54,11 +54,12 @@ namespace TurnamentManager.Models
                     }
                 }
 
+                tournament.PlayersIDString = "";
                 tournament.CreatePlayerIDString();
                 conn.Query<Tournament>($"UPDATE Tournament SET PlayersIDString='{tournament.PlayersIDString}' WHERE ID={tournament.ID}");
             }
 
-            _navigation.PushAsync(new DrawPage());
+            _navigation.PushAsync(new DrawPage(_tournamentId));
         }
     }
 }

@@ -9,11 +9,16 @@ namespace TurnamentManager.Views
     public partial class DrawPage : ContentPage
     {
         private DrawModel _model;
+
         public DrawPage()
+        {
+
+        }
+        public DrawPage(int tournamentID)
         {
             InitializeComponent();
             
-            _model = new DrawModel(Navigation);
+            _model = new DrawModel(Navigation, tournamentID);
             BindingContext = _model;
             
             var st = new StackLayout { };
@@ -36,7 +41,6 @@ namespace TurnamentManager.Views
             frame.Content = st;
             Layout.Children.Add(frame);
         }
-
 
         private void SaveButton_OnClicked(object sender, EventArgs e)
         {

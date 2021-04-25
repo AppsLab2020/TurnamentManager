@@ -17,6 +17,8 @@ namespace TurnamentManager.Classes.Tournament
         public List<int> PlayersID { get; set; }
 
         public string PlayersIDString { get; set; }
+
+        public string MatchesString { get; set; }
         
         public Tournament()
         {

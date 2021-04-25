@@ -10,7 +10,8 @@
                          Source="random_button.png"
                          BackgroundColor="Transparent"
                          VerticalOptions="CenterAndExpand"
-                         HorizontalOptions="CenterAndExpand"/>
+                         HorizontalOptions="CenterAndExpand"
+                         Command="{Binding RandomDrawCommand}"/>
             <ImageButton x:Name="ManualButton"
                          Source="manual_button.png"
                          BackgroundColor="Transparent"
