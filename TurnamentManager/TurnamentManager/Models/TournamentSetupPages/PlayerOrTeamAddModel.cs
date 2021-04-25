@@ -55,7 +55,7 @@ namespace TurnamentManager.Models
                 }
 
                 tournament.CreatePlayerIDString();
-                conn.Query<Tournament>($"UPDATE Tournament SET PlayersIDString={tournament.PlayersIDString} WHERE ID={tournament.ID}");
+                conn.Query<Tournament>($"UPDATE Tournament SET PlayersIDString='{tournament.PlayersIDString}' WHERE ID={tournament.ID}");
             }
 
             _navigation.PushAsync(new DrawPage());
