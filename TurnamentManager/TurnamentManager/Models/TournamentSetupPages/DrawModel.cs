@@ -72,7 +72,7 @@ namespace TurnamentManager.Models
 
             private void Navigate()
             {
-                Navigation.PushAsync(new ManualPage());
+                Navigation.PushAsync(new ManualPage(_tournamentId));
             }
         }
     }

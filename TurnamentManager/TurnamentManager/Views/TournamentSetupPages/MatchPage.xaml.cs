@@ -12,11 +12,12 @@ namespace TurnamentManager.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MatchPage : ContentPage
     {
+
         public MatchPage()
         {
             InitializeComponent();
-            
-           
         }
+
+
     }
 }
