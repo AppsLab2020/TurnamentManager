@@ -19,7 +19,7 @@ namespace TurnamentManager.Models
         private Command RemoveCommand => new Command<int>(RemoveTournament);
         private Command TapCommand => new Command<int>(OpenPage);
 
-        private INavigation _navigation;
+        private readonly INavigation _navigation;
 
         public TournamentModel(INavigation navigation)
         {
