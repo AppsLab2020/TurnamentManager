@@ -1,13 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.IO;
+using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Windows.Input;
+using SQLite;
+using TurnamentManager.Classes;
+using TurnamentManager.Classes.Tournament;
 using TurnamentManager.Views;
 using TurnamentManager.Views.TournamentSetupPages;
 using Xamarin.Forms;
 
 namespace TurnamentManager.Models
 {
-    public class ManualModel
+    public class ManualModel : INotifyPropertyChanged
     {
         public Command NavigateToNextCommand { get; set; }
 
@@ -17,12 +24,44 @@ namespace TurnamentManager.Models
         private ICommand _leftButtonCommand { get; set; }
         private ICommand _rigthButtonCommand { get; set; }
 
-        private List<string> _usedPlayersList;
+        private List<Player> _usablePlayerList;
 
         private string _leftButtonImage;
         private string _rightButtonImage;
 
         private int _tournametId;
+
+        public string LeftButtonImage
+        {
+            get
+            {
+                return _leftButtonImage;
+            }
+            set
+            {
+                if (value == _leftButtonImage)
+                    return;
+
+                _leftButtonImage = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string RightButtonImage
+        {
+            get
+            {
+                return _rightButtonImage;
+            }
+            set
+            {
+                if (value == _rightButtonImage)
+                    return;
+
+                _rightButtonImage = value;
+                OnPropertyChanged();
+            }
+        }
 
         public ManualModel(INavigation navigation, int tournamentId)
         {
@@ -35,10 +74,33 @@ namespace TurnamentManager.Models
             _leftButtonCommand = new Command(LeftButtonCommand);
             _rigthButtonCommand = new Command(RightButtonCommand);
 
-            _leftButtonImage = "add_button.png";
-            _rightButtonImage = "add_button.png";
+            LeftButtonImage = "add_button.png";
+            RightButtonImage = "add_button.png";
 
-            _usedPlayersList = new List<string>();
+            _usablePlayerList = new List<Player>();
+
+            using var conn = new SQLiteConnection(Path.Combine(App.FolderPath, "tournaments.db3"));
+            conn.CreateTable<Tournament>();
+            var tournaments = conn.Table<Tournament>().ToList();
+
+            using var conn2 = new SQLiteConnection(Path.Combine(App.FolderPath, "players.db3"));
+            conn2.CreateTable<Player>();
+            var players = conn2.Table<Player>().ToList();
+
+            foreach (var tournament in tournaments.Where(tournament => tournament.ID == tournamentId))
+            {
+                var playerIds = tournament.PlayersIDString.Split(' ').ToList();
+                playerIds.RemoveAt(playerIds.Count - 1);
+                Console.WriteLine(playerIds[0]);
+                Console.WriteLine();
+
+                foreach (var t in from t in players from t1 in playerIds let compare = t.ID == int.Parse(t1) where compare select t)
+                {
+                    _usablePlayerList.Add(t);
+                }
+            }
+
+            Console.WriteLine("ha");
         }
 
         public Frame GenereateFrame()
@@ -49,9 +111,9 @@ namespace TurnamentManager.Models
                 BackgroundColor = Color.Transparent,
                 HorizontalOptions = LayoutOptions.Start,
                 VerticalOptions = LayoutOptions.CenterAndExpand,
-                Source = _leftButtonImage,
                 Command = _leftButtonCommand
             };
+            addButton1.SetBinding(ImageButton.SourceProperty, new Binding("LeftButtonImage", BindingMode.Default));
             var vsImage = new Image
             {
                 HeightRequest = 65,
@@ -66,9 +128,9 @@ namespace TurnamentManager.Models
                 BackgroundColor = Color.Transparent,
                 HorizontalOptions = LayoutOptions.Start,
                 VerticalOptions = LayoutOptions.CenterAndExpand,
-                Source = _rightButtonImage,
                 Command = _rigthButtonCommand
             };
+            addButton2.SetBinding(ImageButton.SourceProperty, new Binding("RightButtonImage", BindingMode.Default));
             var frame = new Frame
             {
                 CornerRadius = 20,
@@ -144,13 +206,39 @@ namespace TurnamentManager.Models
             return frame;
         }
 
-        private void LeftButtonCommand()
+        private async void LeftButtonCommand()
         {
+            var action = await Application.Current.MainPage.DisplayActionSheet("Choose player", "Cancel", null,
+                _usablePlayerList.Select(player => player.Name).ToArray());
 
+            foreach (var player in _usablePlayerList.Where(player => player.Name == action))
+            {
+                _usablePlayerList.Remove(player);
+                break;
+            }
+
+            LeftButtonImage = action;
+
+            if(LeftButtonImage != "add_button.png" && RightButtonImage != "add_button.png")
+                FullMatchEventHandler?.Invoke(this, new MatchEventArgs(LeftButtonImage, RightButtonImage));
+                
         }
 
-        private void RightButtonCommand()
+        private async void RightButtonCommand()
         {
+            var action = await Application.Current.MainPage.DisplayActionSheet("Choose player", "Cancel", null,
+                _usablePlayerList.Select(player => player.Name).ToArray());
+
+            foreach (var player in _usablePlayerList.Where(player => player.Name == action))
+            {
+                _usablePlayerList.Remove(player);
+                break;
+            }
+
+            RightButtonImage = action;
+
+            if (LeftButtonImage != "add_button.png" && RightButtonImage != "add_button.png")
+                FullMatchEventHandler?.Invoke(this, new MatchEventArgs(LeftButtonImage, RightButtonImage));
 
         }
 
@@ -162,6 +250,13 @@ namespace TurnamentManager.Models
         private void Navigate()
         {
             Navigation.PushAsync(new MatchPage());
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

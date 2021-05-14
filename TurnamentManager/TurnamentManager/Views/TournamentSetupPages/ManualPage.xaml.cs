@@ -25,6 +25,8 @@ namespace TurnamentManager.Views.TournamentSetupPages
             {
                 //Daco
             };
+
+            Layout.Children.Add(_model.GenereateFrame());
         }
     }
 }
