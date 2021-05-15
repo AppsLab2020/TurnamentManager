@@ -16,9 +16,13 @@ namespace TurnamentManager.Models
 {
     public class ManualModel : INotifyPropertyChanged
     {
+        public delegate void MatchEventHandler(
+            object sender,
+            MatchEventArgs args);
+
         public Command NavigateToNextCommand { get; set; }
 
-        public EventHandler FullMatchEventHandler;
+        public event MatchEventHandler FullMatchEventHandler;
 
         public INavigation Navigation;
         private ICommand _leftButtonCommand { get; set; }
@@ -30,6 +34,8 @@ namespace TurnamentManager.Models
         private string _rightButtonImage;
 
         private int _tournametId;
+
+        private string _matches;
 
         public string LeftButtonImage
         {
@@ -63,8 +69,9 @@ namespace TurnamentManager.Models
             }
         }
 
-        public ManualModel(INavigation navigation, int tournamentId)
+        public ManualModel(INavigation navigation, int tournamentId, ref bool allMatchesGenerated)
         {
+            _matches = "";
             Navigation = navigation;
 
             NavigateToNextCommand = new Command(Navigate);
@@ -158,13 +165,13 @@ namespace TurnamentManager.Models
 
         public Frame GenereateFrame(string rightButtonImage, string leftButtonImage)
         {
-            var addButton1 = new ImageButton
+            var addButton1 = new Label
             {
                 HeightRequest = 50,
                 BackgroundColor = Color.Transparent,
                 HorizontalOptions = LayoutOptions.Start,
                 VerticalOptions = LayoutOptions.CenterAndExpand,
-                Source = leftButtonImage,
+                Text = leftButtonImage,
             };
             var vsImage = new Image
             {
@@ -174,13 +181,13 @@ namespace TurnamentManager.Models
                 VerticalOptions = LayoutOptions.CenterAndExpand,
                 Source = "vs_image.png"
             };
-            var addButton2 = new ImageButton
+            var addButton2 = new Label
             {
                 HeightRequest = 50,
                 BackgroundColor = Color.Transparent,
                 HorizontalOptions = LayoutOptions.Start,
                 VerticalOptions = LayoutOptions.CenterAndExpand,
-                Source = rightButtonImage,
+                Text = rightButtonImage,
             };
             var frame = new Frame
             {
@@ -217,11 +224,18 @@ namespace TurnamentManager.Models
                 break;
             }
 
+            if (action == "Cancel")
+                return;
+
             LeftButtonImage = action;
 
-            if(LeftButtonImage != "add_button.png" && RightButtonImage != "add_button.png")
-                FullMatchEventHandler?.Invoke(this, new MatchEventArgs(LeftButtonImage, RightButtonImage));
-                
+            if (LeftButtonImage == "add_button.png" || RightButtonImage == "add_button.png") 
+                return;
+
+            
+            FullMatchEventHandler?.Invoke(this, new MatchEventArgs(LeftButtonImage, RightButtonImage));
+            GenerateMatch();
+
         }
 
         private async void RightButtonCommand()
@@ -235,16 +249,18 @@ namespace TurnamentManager.Models
                 break;
             }
 
+            if (action == "Cancel")
+                return;
+
             RightButtonImage = action;
 
-            if (LeftButtonImage != "add_button.png" && RightButtonImage != "add_button.png")
-                FullMatchEventHandler?.Invoke(this, new MatchEventArgs(LeftButtonImage, RightButtonImage));
+            if (LeftButtonImage == "add_button.png" || RightButtonImage == "add_button.png")
+                return;
 
-        }
+            
+            FullMatchEventHandler?.Invoke(this, new MatchEventArgs(LeftButtonImage, RightButtonImage));
+            GenerateMatch();
 
-        private string GetPopoutAnswer()
-        {
-            return "";
         }
 
         private void Navigate()
@@ -257,6 +273,13 @@ namespace TurnamentManager.Models
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private void GenerateMatch()
+        {
+            _matches += $"{LeftButtonImage} : {RightButtonImage}  \n";
+            LeftButtonImage = "add_button.png";
+            RightButtonImage = "add_button.png";
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TurnamentManager.Classes
 {
-    class MatchEventArgs : EventArgs
+    public class MatchEventArgs : EventArgs
     {
         private readonly string leftSide;
         private readonly string rightSide;

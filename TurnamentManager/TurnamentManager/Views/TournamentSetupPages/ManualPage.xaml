@@ -8,7 +8,8 @@
             <StackLayout x:Name="Layout">
                 
                 <StackLayout  x:Name="StackLayout">
-                <ImageButton 
+                    <StackLayout x:Name="FrameLayout"></StackLayout>
+                    <ImageButton 
                     x:Name="Button"
                     Source="done_button.png"
                     VerticalOptions="EndAndExpand"
