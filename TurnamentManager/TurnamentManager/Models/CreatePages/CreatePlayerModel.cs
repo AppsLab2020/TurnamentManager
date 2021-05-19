@@ -81,7 +81,7 @@ namespace TurnamentManager.Models
 
         private async void SaveData()
         {
-            if (string.IsNullOrEmpty(PlayerName) && _selectedImageId != -1 && SelectedQuality is >= 0 and <= 4)
+            if (!string.IsNullOrEmpty(PlayerName) && _selectedImageId != -1 && SelectedQuality is >= 0 and <= 4)
             {
                 var name = PlayerName;
                 var pathToImage = _selectedImageId;
