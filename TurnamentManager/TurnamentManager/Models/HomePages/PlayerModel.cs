@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using SQLite;
@@ -11,10 +13,26 @@ using Xamarin.Forms.Xaml;
 
 namespace TurnamentManager.Models
 {
-    public class PlayerModel
+    public class PlayerModel : INotifyPropertyChanged
     {
         public event EventHandler RedrawPlayers; 
         public Command NextCommand { get; set; }
+
+        public int Height
+        {
+            get => _height;
+            set
+            {
+                if(value == _height)
+                    return;
+
+                _height = value;
+                OnPropertyChanged();
+            }
+            
+        }
+
+        private int _height = 0;
 
         private INavigation _navigation;
 
@@ -31,6 +49,8 @@ namespace TurnamentManager.Models
             using var conn = new SQLiteConnection(Path.Combine(App.FolderPath, "players.db3"));
             conn.CreateTable<Player>();
             var players = conn.Table<Player>().ToList();
+
+            Height = players.Count * 90 + 150;
 
             foreach (var player in players)
             {
@@ -101,6 +121,13 @@ namespace TurnamentManager.Models
             conn.Query<Player>("DELETE FROM Player Where ID=?", id);
 
             RedrawPlayers?.Invoke(this, EventArgs.Empty);
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

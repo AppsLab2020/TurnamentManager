@@ -5,11 +5,13 @@
              x:Class="TurnamentManager.Views.PlayerPage">
     <ContentPage.Content>
        <ScrollView x:Name="ScrollView">
-        <StackLayout Padding="20" x:Name="Layout">
+        <StackLayout Padding="20" x:Name="Layout"
+                     >
             
             
             
-            <StackLayout x:Name="PlayerStackLayout"/>
+            <StackLayout x:Name="PlayerStackLayout"
+                         HeightRequest="{Binding Height}"/>
             
             <ImageButton Source="plus_butt.png"
                          x:Name="PlusButton"
