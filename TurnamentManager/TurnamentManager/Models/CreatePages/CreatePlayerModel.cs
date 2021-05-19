@@ -1,4 +1,5 @@
-﻿using SQLite;
+﻿using System;
+using SQLite;
 using System.ComponentModel;
 using System.IO;
 using System.Runtime.CompilerServices;
@@ -80,26 +81,33 @@ namespace TurnamentManager.Models
 
         private async void SaveData()
         {
-            var name = PlayerName;
-            var pathToImage = _selectedImageId;
-            var quality = SelectedQuality;
-            var playerQuality = quality switch
+            if (string.IsNullOrEmpty(PlayerName) && _selectedImageId != -1 && SelectedQuality is >= 0 and <= 4)
             {
-                0 => Player.PlayerQuality.Flexible,
-                1 => Player.PlayerQuality.Strategic,
-                2 => Player.PlayerQuality.SharesTheirExpertise,
-                3 => Player.PlayerQuality.RespectfulToOthers,
-                4 => Player.PlayerQuality.ContributeIdeas,
-                _ => Player.PlayerQuality.Flexible
-            };
+                var name = PlayerName;
+                var pathToImage = _selectedImageId;
+                var quality = SelectedQuality;
+                var playerQuality = quality switch
+                {
+                    0 => Player.PlayerQuality.Flexible,
+                    1 => Player.PlayerQuality.Strategic,
+                    2 => Player.PlayerQuality.SharesTheirExpertise,
+                    3 => Player.PlayerQuality.RespectfulToOthers,
+                    4 => Player.PlayerQuality.ContributeIdeas,
+                    _ => throw new NotImplementedException()
+                };
 
-            var player = new Player(name, pathToImage, playerQuality);
+                var player = new Player(name, pathToImage, playerQuality);
 
-            using var conn = new SQLiteConnection(Path.Combine(App.FolderPath, "players.db3"));
-            conn.CreateTable<Player>();
-            conn.Insert(player);
+                using var conn = new SQLiteConnection(Path.Combine(App.FolderPath, "players.db3"));
+                conn.CreateTable<Player>();
+                conn.Insert(player);
 
-            await _navigation.PopAsync();
+                await _navigation.PopAsync();
+            }
+            else
+            {
+                await Application.Current.MainPage.DisplayAlert("Chyba", "Neviplnili ste vsetky parametre", "ok");
+            }
         }
 
         private void Football()
@@ -136,6 +144,7 @@ namespace TurnamentManager.Models
             IsExpanded = false;
             _selectedImageId = 4;
         }
+
         private void Hockey()
         {
             PickedImageSource = "hockey_player.png";
