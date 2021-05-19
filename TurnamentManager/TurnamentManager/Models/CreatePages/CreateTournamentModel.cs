@@ -11,7 +11,7 @@ namespace TurnamentManager.Models
 {
     public class CreateTournamentModel : INotifyPropertyChanged
     {
-        public ICommand SaveDataCommand { get; set; }
+        public ICommand SaveDataCommand { get; }
 
         public string Name { get; set; }
 
@@ -142,10 +142,10 @@ namespace TurnamentManager.Models
         private bool _isFormatExpanded;
         private bool _isStyleExpanded;
 
-        private int _selectedCupId = -1;
+        private int _selectedCupId = 0;
         private int _selectedSportId = -1;
-        private int _selectedFormatId = -1;
-        private int _selectedStyleId = -1;
+        private int _selectedFormatId = 0;
+        private int _selectedStyleId = 0;
 
         private INavigation _navigation;
 
@@ -175,38 +175,45 @@ namespace TurnamentManager.Models
 
         private async void SaveData()
         {
-            var tournament = new Tournament()
+            if (_selectedFormatId == 0 && _selectedStyleId is >= 0 and < 2 && _selectedSportId is >= 0 and <= 5 && !string.IsNullOrEmpty(Name))
             {
-                Format = _selectedFormatId switch
+                var tournament = new Tournament()
                 {
-                    0 => "Knockout",
-                    //....
-                    _ => throw new ArgumentOutOfRangeException()
-                },
-                IsTeamBased = _selectedStyleId switch
-                {
-                    0 => true,
-                    1 => false,
-                    _ => throw new ArgumentOutOfRangeException()
-                }, //Add button to choose
-                Name = Name,
-                Style = _selectedSportId switch
-                {
-                    0 => "Tennis",
-                    1 => "Basketball",
-                    2 => "Football",
-                    3 => "TableFootball",
-                    4 => "Pool",
-                    5 => "PingPongRacket",
-                    _ => throw new ArgumentOutOfRangeException()
-                }
-            };
+                    Format = _selectedFormatId switch
+                    {
+                        0 => "Knockout",
+                        //....
+                        _ => throw new ArgumentOutOfRangeException()
+                    },
+                    IsTeamBased = _selectedStyleId switch
+                    {
+                        0 => true,
+                        1 => false,
+                        _ => throw new ArgumentOutOfRangeException()
+                    }, //Add button to choose
+                    Name = Name,
+                    Style = _selectedSportId switch
+                    {
+                        0 => "Tennis",
+                        1 => "Basketball",
+                        2 => "Football",
+                        3 => "TableFootball",
+                        4 => "Pool",
+                        5 => "PingPongRacket",
+                        _ => throw new ArgumentOutOfRangeException()
+                    }
+                };
 
-            using var conn = new SQLiteConnection(Path.Combine(App.FolderPath, "tournaments.db3"));
-            conn.CreateTable<Tournament>();
-            conn.Insert(tournament);
+                using var conn = new SQLiteConnection(Path.Combine(App.FolderPath, "tournaments.db3"));
+                conn.CreateTable<Tournament>();
+                conn.Insert(tournament);
 
-            await _navigation.PopAsync();
+                await _navigation.PopAsync();
+            }
+            else
+            {
+                 await Application.Current.MainPage.DisplayAlert("Chyba", "Nevyplnili ste vsetky polia", "ok");
+            }
         }
 
         private void Gold()
