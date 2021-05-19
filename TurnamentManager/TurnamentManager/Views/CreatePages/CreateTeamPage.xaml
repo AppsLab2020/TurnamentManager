@@ -8,7 +8,8 @@
         <StackLayout>
            <Image Source="team_pix.jpg"></Image>
             <Label Text="Team Name"></Label>
-            <Entry Placeholder="Team1"></Entry>
+            <Entry Placeholder="Team1"
+                   Text="{Binding Name}"></Entry>
             <Label HorizontalOptions="CenterAndExpand" Text="Players In Team:" />
             <ListView  x:Name="PlayersDisplay"
                        MinimumWidthRequest="0"
@@ -21,7 +22,7 @@
             <StackLayout Orientation="Horizontal" VerticalOptions="End">
                 <ImageButton Source="save_bigger"
                              x:Name="SaveButton"
-                             Clicked="SaveButton_OnClicked"
+                             Command="{Binding SaveCommand}"
                              BackgroundColor="Transparent"
                              HorizontalOptions="CenterAndExpand"/>
             </StackLayout>

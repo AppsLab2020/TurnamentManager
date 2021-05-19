@@ -8,6 +8,7 @@ using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using SQLite;
 using TurnamentManager.Classes.Tournament;
+using TurnamentManager.Views;
 using Xamarin.Forms;
 
 namespace TurnamentManager.Models
@@ -15,18 +16,48 @@ namespace TurnamentManager.Models
     public class CreateTeamModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+        
+        public string Name { get; set; }
 
         public ICommand AddPlayerCommand { get; set; }
+        
+        public ICommand SaveCommand { get; set; }
 
         public ObservableCollection<string> PlayerNamesCollection { get; set; }
 
         private List<Player> _players;
 
-        public CreateTeamModel()
+        private readonly INavigation _navigation;
+
+        public CreateTeamModel(INavigation navigation)
         {
             _players = new List<Player>();
             PlayerNamesCollection = new ObservableCollection<string>();
             AddPlayerCommand = new Command(AddPlayer);
+            SaveCommand = new Command(Save);
+            _navigation = navigation;
+        }
+
+        private async void Save()
+        {
+            if (_players.Count >= 2 && !string.IsNullOrEmpty(Name))
+            {
+                var team = new Team()
+                {
+                    Name = Name,
+                    PlayerIdsString = _players.Aggregate("", (current, player) => current + $"{player.ID} ")
+                };
+                
+                using var conn = new SQLiteConnection(Path.Combine(App.FolderPath, "teams.db3"));
+                conn.CreateTable<Team>();
+                conn.Insert(team);
+                await _navigation.PopAsync();
+            }
+            else
+            {
+                Application.Current.MainPage.DisplayAlert("Chyba",
+                    "Nevyplnili ste vsetky polia alebo ste zadali malo hracov(tym tvoria aspon 2 hraci)", "ok");
+            }
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -59,5 +90,3 @@ namespace TurnamentManager.Models
         }
     }
 }
-
-//TODO: Add removing players, saving
