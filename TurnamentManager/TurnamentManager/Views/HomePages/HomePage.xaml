@@ -6,7 +6,7 @@
              x:Class="TurnamentManager.Views.HomePage">
     
     <views:TournamentPage Title="Tournaments" IconImageSource="vs_image.png"/>
-    <views:TeamPage Title="Teams" IconImageSource="team_i.png"/>
+    <views:TeamPage Title="Teams" IconImageSource="team_i.png" />
     <views:PlayerPage Title="Players" IconImageSource="player_i.png"/>
     <views:HistoryPage Title="History" IconImageSource="history.png"/>
 </TabbedPage>

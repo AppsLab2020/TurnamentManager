@@ -83,7 +83,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\add_button.png" />
-    <AndroidResource Include="Resources\drawable\add_p.png" />
     <AndroidResource Include="Resources\drawable\add_player.png" />
     <AndroidResource Include="Resources\drawable\app_icon.png" />
     <AndroidResource Include="Resources\drawable\basketball_player.png" />
@@ -152,7 +151,6 @@
     <AndroidResource Include="Resources\drawable\splash_screen.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\Minecraft.ttf" />
     <AndroidAsset Include="Assets\trophy.json" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

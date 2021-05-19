@@ -54,6 +54,8 @@
 
   <ItemGroup>
     <EmbeddedResource Remove="ViewModels\**" />
+    <None Remove="Resources\Fonts\Minecraft.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Minecraft.ttf" />
   </ItemGroup>
 
   <ItemGroup>

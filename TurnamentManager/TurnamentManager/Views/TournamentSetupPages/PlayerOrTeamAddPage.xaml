@@ -8,10 +8,12 @@
     <ContentPage.Content>
         <ScrollView>
         <StackLayout>
-                    <Image Source="add_p.png"
+            <Label Text="ADD PLAYERS" FontFamily="PixL" FontSize="Title"
+                   TextColor="Black"
                      VerticalOptions="Center"
                     HorizontalOptions="Center"
-                    BackgroundColor="Transparent"/>
+                     Margin="0,10"/>
+                  
                 <StackLayout VerticalOptions="End">
                 <StackLayout x:Name="Players"/>
              

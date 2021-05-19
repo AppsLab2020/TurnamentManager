@@ -60,13 +60,13 @@
                 </StackLayout>
             </views:Expander>
 
-            <Label HorizontalOptions="CenterAndExpand" Text="Nickname" TextColor="Black" />
+            <Label HorizontalOptions="CenterAndExpand" Text="Nickname" FontFamily="PixL" />
             <Entry Placeholder="Player1"
-                   Text="{Binding PlayerName, Mode=OneWayToSource}" />
-            <Label HorizontalOptions="CenterAndExpand" Text="Choose Player Quality" />
-            <Picker SelectedIndex="{Binding SelectedQuality, Mode=OneWayToSource}">
-                <Picker.Items>
-                    <x:String>Flexible</x:String>
+                   Text="{Binding PlayerName, Mode=OneWayToSource}"  FontFamily="PixL"/>
+            <Label HorizontalOptions="CenterAndExpand" Text="Choose Player Quality" FontFamily="PixL" />
+            <Picker SelectedIndex="{Binding SelectedQuality, Mode=OneWayToSource}" FontFamily="PixL">
+                <Picker.Items >
+                    <x:String >Flexible</x:String>
                     <x:String>Strategic</x:String>
                     <x:String>Shares Their Expertise</x:String>
                     <x:String>Respectful To Others</x:String>
