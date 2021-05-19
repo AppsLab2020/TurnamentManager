@@ -60,7 +60,7 @@
                 </StackLayout>
             </views:Expander>
 
-            <Label HorizontalOptions="CenterAndExpand" Text="Nickname" />
+            <Label HorizontalOptions="CenterAndExpand" Text="Nickname" TextColor="Black" />
             <Entry Placeholder="Player1"
                    Text="{Binding PlayerName, Mode=OneWayToSource}" />
             <Label HorizontalOptions="CenterAndExpand" Text="Choose Player Quality" />

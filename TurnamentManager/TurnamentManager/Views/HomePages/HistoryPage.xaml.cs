@@ -12,9 +12,13 @@ namespace TurnamentManager.Views
         {
             InitializeComponent();
             BindingContext = new HistoryModel();
-
+            
         }
 
-        
+
+        private void Button_OnClicked(object sender, EventArgs e)
+        {
+            View.PlayAnimation();
+        }
     }
 }

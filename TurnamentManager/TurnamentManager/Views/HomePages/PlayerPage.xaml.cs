@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using TurnamentManager.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XLabs;
 
 namespace TurnamentManager.Views
 {
@@ -32,7 +33,7 @@ namespace TurnamentManager.Views
         }
 
 
-
+       public double height = 200;
        protected override async void OnAppearing()
         {
             base.OnAppearing();
@@ -46,7 +47,9 @@ namespace TurnamentManager.Views
 
             await model.GetFrames(lst);
 
+            
             PlayerStackLayout.Children.Clear();
+            
             foreach (var frame in lst)
             {
                 PlayerStackLayout.Children.Add(frame);

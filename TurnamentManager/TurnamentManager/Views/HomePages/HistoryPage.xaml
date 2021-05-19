@@ -1,13 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:expander="clr-namespace:Syncfusion.XForms.Expander;assembly=Syncfusion.Expander.XForms"
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              x:Class="TurnamentManager.Views.HistoryPage">
     <ContentPage.Content>
-        <ScrollView>
         <StackLayout>
+            <forms:AnimationView 
+                x:Name="View"
+                    Animation="trophy.json" 
+                    AutoPlay="True" 
+                    RepeatMode="Infinite"/>
+            
+            <Button Clicked="Button_OnClicked"/>
             
         </StackLayout>
-        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

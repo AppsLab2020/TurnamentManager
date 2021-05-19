@@ -18,6 +18,7 @@ namespace TurnamentManager.Views
             InitializeComponent();
             var clr = Color.FromHex("#D7812A");
             this.BarBackgroundColor = clr;
+            BackgroundColor = Color.White;
             
             this.tournamentID = tournamentID;
         }

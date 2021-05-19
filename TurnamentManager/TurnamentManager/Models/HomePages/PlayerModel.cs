@@ -7,6 +7,7 @@ using SQLite;
 using TurnamentManager.Classes.Tournament;
 using TurnamentManager.Views;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace TurnamentManager.Models
 {
@@ -47,6 +48,11 @@ namespace TurnamentManager.Models
 
         private Frame MakeFrameAsync(Player player)
         {
+           /* var avatar = new Label
+            {
+                Text = player.ImageId.ToString()
+            };*/
+            
             var label = new Label
             {
                 Text = player.Name,

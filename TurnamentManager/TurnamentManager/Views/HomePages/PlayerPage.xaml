@@ -4,11 +4,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TurnamentManager.Views.PlayerPage">
     <ContentPage.Content>
-       <ScrollView>
-        <StackLayout Padding="20" >
-            <StackLayout x:Name="PlayerStackLayout">
-                
-            </StackLayout>
+       <ScrollView x:Name="ScrollView">
+        <StackLayout Padding="20" x:Name="Layout">
+            
+            
+            
+            <StackLayout x:Name="PlayerStackLayout"/>
             
             <ImageButton Source="plus_butt.png"
                          x:Name="PlusButton"
