@@ -68,6 +68,7 @@ namespace TurnamentManager.Models
                 TextColor = Color.Black,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
                 VerticalOptions = LayoutOptions.Center,
+                FontFamily = "PixL",
             };
 
             var imageButton = new ImageButton

@@ -9,12 +9,11 @@
         <Entry Placeholder="Email"
                Keyboard="Email"
                x:Name="EmailEntry"
-               VerticalOptions="Center"
-        ></Entry>
+               VerticalOptions="Center" FontFamily="PixL"/>
         <Entry Placeholder="Password"
                IsPassword="True"
                x:Name="PasswordEntry"
-               VerticalOptions="Center"></Entry>
+               VerticalOptions="Center" FontFamily="PixL"/>
         <Button x:Name="LogInButton" 
                 ImageSource=""
                 Text="Log in"
@@ -22,7 +21,7 @@
                 BackgroundColor="DodgerBlue"
                 TextColor="White"
                 Margin="10.35"
-                VerticalOptions="Center"></Button>
+                VerticalOptions="Center" FontFamily="PixL"/>
     </StackLayout>
 </StackLayout>
 </ContentPage>

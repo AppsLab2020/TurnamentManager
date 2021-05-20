@@ -50,6 +50,7 @@ namespace TurnamentManager.Views
                 checkBox.SetBinding(CheckBox.CheckedProperty, $"Players[{counter}]");
                 Players.Children.Add(checkBox);
                 counter++;
+                checkBox.FontName = "PixL";
             }
         }
     }
