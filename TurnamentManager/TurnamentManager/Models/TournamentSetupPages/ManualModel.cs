@@ -265,7 +265,7 @@ namespace TurnamentManager.Models
 
         private void Navigate()
         {
-            Navigation.PushAsync(new MatchPage());
+            Navigation.PushAsync(new MatchPage(_tournametId));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

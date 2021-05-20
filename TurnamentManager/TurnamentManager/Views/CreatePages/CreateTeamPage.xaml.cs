@@ -15,5 +15,3 @@ namespace TurnamentManager.Views
         }
     }
 }
-
-//List is not refreshing when someone delete item view doesn't refresh after

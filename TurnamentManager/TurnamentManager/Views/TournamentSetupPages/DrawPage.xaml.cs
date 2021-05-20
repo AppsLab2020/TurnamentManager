@@ -9,6 +9,7 @@ namespace TurnamentManager.Views
     public partial class DrawPage : ContentPage
     {
         private DrawModel _model;
+        private int _tournamentID;
 
         public DrawPage()
         {
@@ -16,6 +17,7 @@ namespace TurnamentManager.Views
         }
         public DrawPage(int tournamentID)
         {
+            _tournamentID = tournamentID;
             InitializeComponent();
             
             _model = new DrawModel(Navigation, tournamentID);
@@ -44,7 +46,7 @@ namespace TurnamentManager.Views
 
         private void SaveButton_OnClicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new MatchPage());
+            Navigation.PushAsync(new MatchPage(_tournamentID));
         }
     }
 }
