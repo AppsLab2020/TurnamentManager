@@ -21,5 +21,10 @@ namespace TurnamentManager.Views
 
             Layout.Children.Add(_model.GetSpider());
         }
+
+        public MatchPage()
+        {
+            
+        }
     }
 }

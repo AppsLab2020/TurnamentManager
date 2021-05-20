@@ -43,15 +43,10 @@ namespace TurnamentManager.Views.TournamentSetupPages
 
         private void GetMatch(object sender, MatchEventArgs args)
         {
-            if (_numberOfMatches != 0)
-            {
-                FrameLayout.Children.Add(_model.GenereateFrame(args.LeftSide, args.RightSide));
-                _numberOfMatches--;
-            }
-            else
-            {
-                //TODO: save
-            }
+            if (_numberOfMatches == 0) 
+                return;
+            FrameLayout.Children.Add(_model.GenereateFrame(args.LeftSide, args.RightSide));
+            _numberOfMatches--;
         }
 
     }

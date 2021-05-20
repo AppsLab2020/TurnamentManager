@@ -265,6 +265,8 @@ namespace TurnamentManager.Models
 
         private void Navigate()
         {
+            using var conn = new SQLiteConnection(Path.Combine(App.FolderPath, "tournaments.db3"));
+            conn.Query<Tournament>($"UPDATE Tournament SET MatchesString='{_matches}' WHERE ID={_tournametId}");
             Navigation.PushAsync(new MatchPage(_tournametId));
         }
 
