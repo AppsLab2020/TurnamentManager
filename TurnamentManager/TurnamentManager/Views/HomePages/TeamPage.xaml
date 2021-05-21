@@ -11,7 +11,7 @@
                          HorizontalOptions="EndAndExpand"
                          VerticalOptions="EndAndExpand"
                          BackgroundColor="Transparent"
-                         Command="{Binding NextCommand}"></ImageButton>
+                         Command="{Binding NextCommand}"/>
             
         </StackLayout>
     </ContentPage.Content>

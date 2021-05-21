@@ -34,15 +34,15 @@
                 </Grid>
             </views:Expander>
 
-            <Label Text="Tournament Name" HorizontalOptions="Center" />
+            <Label Text="Tournament Name" HorizontalOptions="Center" FontFamily="PixL"/>
 
             <Entry Placeholder="Tournament1"
                    Text="{Binding Name, Mode=OneWayToSource}"
-                   HorizontalTextAlignment="Center" />
+                   HorizontalTextAlignment="Center" FontFamily="PixL"/>
 
             <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
                 
-                <Label Text="Choose Sport" HorizontalOptions="Center" />
+                <Label Text="Choose Sport" HorizontalOptions="Center" FontFamily="PixL"/>
                 <views:Expander IsExpanded="{Binding IsSportExpanded, Mode=TwoWay}">
                     <views:Expander.Header>
                         <Grid>
@@ -98,7 +98,7 @@
 
                 <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
                     
-                    <Label Text="Choose Format" HorizontalOptions="Center" />
+                    <Label Text="Choose Format" HorizontalOptions="Center" FontFamily="PixL"/>
                     <views:Expander IsExpanded="{Binding IsFormatExpanded}">
                         <views:Expander.Header>
                             <Grid>
@@ -116,7 +116,7 @@
                 </StackLayout>
                 <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
                     <Label Text="Select Teams or Players"
-                           HorizontalOptions="Center" />
+                           HorizontalOptions="Center" FontFamily="PixL" />
 
                     <views:Expander IsExpanded="{Binding IsStyleExpanded}">
                         <views:Expander.Header>

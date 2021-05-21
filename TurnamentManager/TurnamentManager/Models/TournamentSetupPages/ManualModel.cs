@@ -172,6 +172,7 @@ namespace TurnamentManager.Models
                 HorizontalOptions = LayoutOptions.Start,
                 VerticalOptions = LayoutOptions.CenterAndExpand,
                 Text = leftButtonImage,
+                FontFamily = "PixL",
             };
             var vsImage = new Image
             {
@@ -188,6 +189,7 @@ namespace TurnamentManager.Models
                 HorizontalOptions = LayoutOptions.Start,
                 VerticalOptions = LayoutOptions.CenterAndExpand,
                 Text = rightButtonImage,
+                FontFamily = "PixL",
             };
             var frame = new Frame
             {
