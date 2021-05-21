@@ -45,6 +45,8 @@ namespace TurnamentManager.Views.TournamentSetupPages
         {
             if (_numberOfMatches == 0) 
                 return;
+            StackLayout.HeightRequest += 180;
+            FrameLayout.HeightRequest += 150;
             FrameLayout.Children.Add(_model.GenereateFrame(args.LeftSide, args.RightSide));
             _numberOfMatches--;
         }
