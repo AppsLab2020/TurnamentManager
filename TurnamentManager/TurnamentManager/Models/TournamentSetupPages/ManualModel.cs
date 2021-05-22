@@ -169,10 +169,11 @@ namespace TurnamentManager.Models
             {
                 HeightRequest = 50,
                 BackgroundColor = Color.Transparent,
-                HorizontalOptions = LayoutOptions.Start,
+                HorizontalOptions = LayoutOptions.StartAndExpand,
                 VerticalOptions = LayoutOptions.CenterAndExpand,
                 Text = leftButtonImage,
                 FontFamily = "PixL",
+                Padding = new Thickness(0,15,3,0),
             };
             var vsImage = new Image
             {
@@ -186,10 +187,11 @@ namespace TurnamentManager.Models
             {
                 HeightRequest = 50,
                 BackgroundColor = Color.Transparent,
-                HorizontalOptions = LayoutOptions.Start,
+                HorizontalOptions = LayoutOptions.EndAndExpand,
                 VerticalOptions = LayoutOptions.CenterAndExpand,
                 Text = rightButtonImage,
                 FontFamily = "PixL",
+                Padding = new Thickness(0,15,3,0),
             };
             var frame = new Frame
             {
