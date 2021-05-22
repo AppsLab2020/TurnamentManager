@@ -6,14 +6,14 @@
     
     <ContentPage.Content>
         <StackLayout>
-           <Image Source="team_pix.jpg"></Image>
-            <Label Text="Team Name"></Label>
+           <Image Source="team_pix.jpg"/>
+            <Label Text="Team Name"/>
             <Entry Placeholder="Team1"
-                   Text="{Binding Name}"></Entry>
+                   Text="{Binding Name}"/>
             <Label HorizontalOptions="CenterAndExpand" Text="Players In Team:" />
             <ListView  x:Name="PlayersDisplay"
                        MinimumWidthRequest="0"
-                       ItemsSource="{Binding PlayerNamesCollection}"></ListView>
+                       ItemsSource="{Binding PlayerNamesCollection}"/>
             <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
                 <ImageButton Source="add_player"
                              BackgroundColor="Transparent"

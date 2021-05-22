@@ -4,18 +4,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:XLabs;assembly=XLabs.Forms"
              xmlns:controls1="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
              x:Class="TurnamentManager.Views.PlayerOrTeamAddPage">
     <ContentPage.Content>
         <ScrollView>
         <StackLayout>
             <Label Text="ADD PLAYERS" FontFamily="PixL" FontSize="Title"
                    TextColor="Black"
-                     VerticalOptions="Center"
-                    HorizontalOptions="Center"
-                     Margin="0,10"/>
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   Margin="0,10"/>
                   
                 <StackLayout VerticalOptions="End">
-                <StackLayout x:Name="Players"/>
+                <StackLayout x:Name="Players">
+                    
+                </StackLayout>
+                    
              
                 </StackLayout>
                         <ImageButton x:Name="NextButton"

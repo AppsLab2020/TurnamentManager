@@ -14,8 +14,8 @@ namespace TurnamentManager.Models
 
         private ICommand TapCommand;
 
-        private const int _frameWidth = 75;
-        private const int _frameHeight = 20;
+        private const int _frameWidth = 150;
+        private const int _frameHeight = 40;
 
         private const int _xShift = 80;
         private const int _yShift = 80;
@@ -79,17 +79,30 @@ namespace TurnamentManager.Models
             {
                 HeightRequest = 50,
                 BackgroundColor = Color.Transparent,
-                HorizontalOptions = LayoutOptions.Start,
+                HorizontalOptions = LayoutOptions.StartAndExpand,
                 VerticalOptions = LayoutOptions.CenterAndExpand,
                 Text = leftName,
+                FontFamily = "PixL",
+                Padding = new Thickness(0,12),
+                
+            };
+            var vsImage = new Image
+            {
+                Source = "vs_image.png",
+                HeightRequest = 30,
+                BackgroundColor = Color.Transparent,
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                VerticalOptions = LayoutOptions.CenterAndExpand,
             };
             var addButton2 = new Label
             {
                 HeightRequest = 50,
                 BackgroundColor = Color.Transparent,
-                HorizontalOptions = LayoutOptions.Start,
+                HorizontalOptions = LayoutOptions.EndAndExpand,
                 VerticalOptions = LayoutOptions.CenterAndExpand,
                 Text = rightName,
+                FontFamily = "PixL",
+                Padding = new Thickness(0,12),
             };
             var frame = new Frame
             {
@@ -110,7 +123,9 @@ namespace TurnamentManager.Models
             var tap = new TapGestureRecognizer { Command = TapCommand};
 
             st.Children.Add(addButton1);
+            st.Children.Add(vsImage);
             st.Children.Add(addButton2);
+            
             frame.Content = st;
 
             return frame;
