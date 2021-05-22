@@ -29,6 +29,12 @@ namespace TurnamentManager.Views
             InitializeComponent();
             model = new PlayerOrTeamAddModel(Navigation, id);
             BindingContext = model;
+            
+            
+            
+            
+            
+
         }
 
         protected override void OnAppearing()
@@ -40,18 +46,26 @@ namespace TurnamentManager.Views
             var players = conn.Table<Player>().ToList();
             Players.Children.Clear();
 
+            
             var counter = 0;
-            foreach (var checkBox in players.Select(player => new CheckBox
+            foreach ( var box  in players.Select(player => new Plugin.InputKit.Shared.Controls.CheckBox
             {
-                DefaultText = player.Name,
+                Text = player.Name,
                 TextColor = Color.Black,
+                Color = Color.FromHex("#D7812A"),
+                FontFamily = "PixL",
+                Type = Plugin.InputKit.Shared.Controls.CheckBox.CheckType.Box,
+                
             }))
             {
-                checkBox.SetBinding(CheckBox.CheckedProperty, $"Players[{counter}]");
-                Players.Children.Add(checkBox);
+                box.SetBinding(Plugin.InputKit.Shared.Controls.CheckBox.IsCheckedProperty, $"Players[{counter}]");
+                Players.Children.Add(box);
                 counter++;
-                checkBox.FontName = "PixL";
+                
+
             }
+
+            
         }
     }
 }
