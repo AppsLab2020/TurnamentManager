@@ -9,6 +9,8 @@ using SQLite;
 using TurnamentManager.Classes.Tournament;
 using TurnamentManager.Views;
 using Xamarin.Forms;
+using XLabs.Forms.Controls;
+using ImageButton = Xamarin.Forms.ImageButton;
 
 namespace TurnamentManager.Models
 {
@@ -62,6 +64,17 @@ namespace TurnamentManager.Models
 
         private Frame MakeFrameAsync(Tournament tournament)
         {
+            var avatar = new CircleImage
+            {
+                Source = "trophy_avarar.png",
+                Aspect = Aspect.Fill,
+                VerticalOptions = LayoutOptions.CenterAndExpand,
+                HorizontalOptions = LayoutOptions.StartAndExpand,
+                ScaleX = 1,
+                ScaleY = 1,
+            };
+            
+            
             var label = new Label
             {
                 Text = tournament.Name,
@@ -104,6 +117,7 @@ namespace TurnamentManager.Models
 
             frame.GestureRecognizers.Add(tap);
 
+            st.Children.Add(avatar);
             st.Children.Add(label);
             st.Children.Add(imageButton);
             frame.Content = st;

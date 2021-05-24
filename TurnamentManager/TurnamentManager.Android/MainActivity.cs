@@ -7,6 +7,7 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using AndroidX.AppCompat.App;
+
 using Environment = System.Environment;
 
 namespace TurnamentManager.Droid
@@ -21,6 +22,8 @@ namespace TurnamentManager.Droid
             AppCompatDelegate.DefaultNightMode = AppCompatDelegate.ModeNightNo;
             base.OnCreate(savedInstanceState);
             
+            
+            //ImageCircleRenderer.Init();
             
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
