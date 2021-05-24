@@ -64,6 +64,7 @@
     <PackageReference Include="Refractored.GifImageView" Version="2.0.0" />
     <PackageReference Include="Syncfusion.Xamarin.Expander" Version="19.1.0.54" />
     <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
+    <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.1.1.1-beta" />
     <PackageReference Include="Xamarin.Android.Support.v4" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.CommunityToolkit" Version="1.1.0" />
@@ -90,6 +91,7 @@
     <AndroidResource Include="Resources\drawable\add_player.png" />
     <AndroidResource Include="Resources\drawable\app_icon.png" />
     <AndroidResource Include="Resources\drawable\app_splash.png" />
+    <AndroidResource Include="Resources\drawable\basketball_avatar.png" />
     <AndroidResource Include="Resources\drawable\basketball_player.png" />
     <AndroidResource Include="Resources\drawable\basket_ball.png" />
     <AndroidResource Include="Resources\drawable\bronze_trophy.png" />
@@ -98,14 +100,18 @@
     <AndroidResource Include="Resources\drawable\done_button.png" />
     <AndroidResource Include="Resources\drawable\football_ball.png" />
     <AndroidResource Include="Resources\drawable\football_player.png" />
+    <AndroidResource Include="Resources\drawable\football_player_avatar.png" />
     <AndroidResource Include="Resources\drawable\girl_img.png" />
+    <AndroidResource Include="Resources\drawable\girl_pic_avatar.png" />
     <AndroidResource Include="Resources\drawable\history.png" />
     <AndroidResource Include="Resources\drawable\history_white.png" />
     <AndroidResource Include="Resources\drawable\hockey_player.png" />
+    <AndroidResource Include="Resources\drawable\hockey_player_avatar.png" />
     <AndroidResource Include="Resources\drawable\Knockout.png" />
     <AndroidResource Include="Resources\drawable\manual_button.png" />
     <AndroidResource Include="Resources\drawable\next_button.png" />
     <AndroidResource Include="Resources\drawable\pingpong_player.png" />
+    <AndroidResource Include="Resources\drawable\pingpong_player_avatar.png" />
     <AndroidResource Include="Resources\drawable\ping_pong_racket.png" />
     <AndroidResource Include="Resources\drawable\player.png" />
     <AndroidResource Include="Resources\drawable\player_i.png" />
@@ -114,6 +120,7 @@
     <AndroidResource Include="Resources\drawable\pool_ball.png" />
     <AndroidResource Include="Resources\drawable\random_button.png" />
     <AndroidResource Include="Resources\drawable\rugby_player.png" />
+    <AndroidResource Include="Resources\drawable\rugby_player_avatar.png" />
     <AndroidResource Include="Resources\drawable\save_bigger.png" />
     <AndroidResource Include="Resources\drawable\silver_trophy.png" />
     <AndroidResource Include="Resources\drawable\table_football.png" />
@@ -123,9 +130,11 @@
     <AndroidResource Include="Resources\drawable\team_pix.png" />
     <AndroidResource Include="Resources\drawable\tennis_ball.png" />
     <AndroidResource Include="Resources\drawable\tennis_player.png" />
+    <AndroidResource Include="Resources\drawable\tennis_player_avatar.png" />
     <AndroidResource Include="Resources\drawable\tournament_white.png" />
     <AndroidResource Include="Resources\drawable\trash_bin.png" />
     <AndroidResource Include="Resources\drawable\trophy.png" />
+    <AndroidResource Include="Resources\drawable\trophy_avarar.png" />
     <AndroidResource Include="Resources\drawable\trophy_gif.gif" />
     <AndroidResource Include="Resources\drawable\upload_pic.png" />
     <AndroidResource Include="Resources\drawable\vs_image.png" />

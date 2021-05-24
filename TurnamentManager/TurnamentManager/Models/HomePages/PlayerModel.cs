@@ -10,26 +10,29 @@ using TurnamentManager.Classes.Tournament;
 using TurnamentManager.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XLabs.Forms.Controls;
+using ImageButton = Xamarin.Forms.ImageButton;
 
 namespace TurnamentManager.Models
 {
     public class PlayerModel : INotifyPropertyChanged
     {
-        public event EventHandler RedrawPlayers; 
+        public event EventHandler RedrawPlayers;
         public Command NextCommand { get; set; }
+
+        public ImageSource TestImage;
 
         public int Height
         {
             get => _height;
             set
             {
-                if(value == _height)
+                if (value == _height)
                     return;
 
                 _height = value;
                 OnPropertyChanged();
             }
-            
         }
 
         private int _height = 0;
@@ -66,13 +69,60 @@ namespace TurnamentManager.Models
             _navigation.PushAsync(new CreatePlayerPage());
         }
 
+
+       
+        
         private Frame MakeFrameAsync(Player player)
         {
-           /* var avatar = new Label
-            {
-                Text = player.ImageId.ToString()
-            };*/
             
+            ImageSource SetAvatar()
+            {
+                if (player.ImageId == 0)
+                {
+                    return TestImage = "football_player_avatar.png";
+                }
+
+                if (player.ImageId == 1)
+                {
+                    return  TestImage = "rugby_player_avatar.png";
+                }
+                if (player.ImageId == 2)
+                {
+                    return  TestImage = "tennis_player_avatar.png";
+                }
+                if (player.ImageId == 3)
+                {
+                    return  TestImage = "pingpong_player_avatar.png";
+                }
+                if (player.ImageId == 4)
+                {
+                    return  TestImage = "basketball_avatar.png";
+                }
+                if (player.ImageId == 5)
+                {
+                    return  TestImage = "hockey_player_avatar.png";
+                }
+                if (player.ImageId == 6)
+                {
+                    return  TestImage = "girl_pic_avatar.png";
+                }
+
+                return TestImage;
+            }
+            
+
+            
+            var avatar = new CircleImage
+            {
+                Source = SetAvatar(),
+                Aspect = Aspect.Fill,
+                VerticalOptions = LayoutOptions.CenterAndExpand,
+                HorizontalOptions = LayoutOptions.StartAndExpand,
+                ScaleY = 1,
+                ScaleX = 1,
+            };
+            
+
             var label = new Label
             {
                 Text = player.Name,
@@ -109,6 +159,10 @@ namespace TurnamentManager.Models
                 Padding = 15,
             };
 
+            
+            
+            
+            st.Children.Add(avatar);
             st.Children.Add(label);
             st.Children.Add(imageButton);
             frame.Content = st;
