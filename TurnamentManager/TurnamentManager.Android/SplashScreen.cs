@@ -46,7 +46,7 @@ namespace TurnamentManager.Droid
 
         private byte[] ConvertFileToByteArray(Stream input)
         {
-            byte[] buffer = new byte[16 * 2048];
+            byte[] buffer = new byte[16 * 1024];
             using (MemoryStream ms = new MemoryStream())
             {
                 int read;
