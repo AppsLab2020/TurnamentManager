@@ -83,12 +83,22 @@ namespace TurnamentManager.Models
 
             while (!doneGenerating)
             {
+                if (_frames[stage].Count < 2)
+                {
+                    doneGenerating = true;
+                    continue;
+                }
+                
+                var linesList = new List<List<Line>>();
                 for (var i = 0; i < _frames[stage].Count; i++)
                 {
                     var top = _frames[stage][i];
                     var bot = _frames[stage][i + 1];
 
-                    foreach (var line in GenerateLine(new[] {top.X, top.Y}, new[] {bot.X, bot.Y}))
+                    var lines = GenerateLine(new[] {top.X, top.Y}, new[] {bot.X, bot.Y});
+                    linesList.Add(lines);
+                    
+                    foreach (var line in lines)
                     {
                         layout.Children.Add(line);
                     }
@@ -96,15 +106,18 @@ namespace TurnamentManager.Models
                     i++;
                 }
 
-                /*foreach () //for a pre kazde dva turnaje sa urobi jeden frame
+                var frames = new List<Position>();
+
+                foreach (var lines in linesList)
                 {
-                    GetFrame();
+                    var frame = GetFrame("", "");
+                    
+                    layout.Children.Add(frame, new Point(lines[3].X2, lines[3].Y2 - 50));
+                    
+                    frames.Add(new Position(){ X=lines[3].X2, Y=lines[3].Y2 - 50 });
                 }
-
-                if (all)
-                    doneGenerating = true;*/
-
-                doneGenerating = true;
+                _frames.Add(frames);
+                stage++;
             }
 
             var scroll = new ScrollView
