@@ -1,33 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Windows.Input;
 using SQLite;
+using TurnamentManager.Classes;
 using TurnamentManager.Classes.Tournament;
 using Xamarin.Forms;
+using Xamarin.Forms.Shapes;
+using Path = System.IO.Path;
 
 namespace TurnamentManager.Models
 {
     public class MatchModel
     {
+        private int stage = 0;
 
         private ICommand TapCommand;
 
         private const int _frameWidth = 150;
-        private const int _frameHeight = 40;
+        private const int _frameHeight = 60;
 
-        private const int _xShift = 80;
-        private const int _yShift = 80;
+        private const int _xShift = 90;
+        private const int _yShift = 150;
+
+        private const int _lineWidth = 60;
 
         private readonly int _tournamentId;
 
         private List<string> _matchesList;
 
+        private List<List<Position>> _frames;
+
         public MatchModel(INavigation navigation, int tournamentId)
         {
             _matchesList = new List<string>();
             _tournamentId = tournamentId;
+            _frames = new List<List<Position>>();
         }
 
         public ScrollView GetSpider()
@@ -52,12 +60,51 @@ namespace TurnamentManager.Models
 
             _matchesList.RemoveAt(_matchesList.Count - 1);
 
+            var framesList = new List<Position>();
+
             for (var i = 0; i < _matchesList.Count; i++ )
             {
                 var match = _matchesList[i];
                 var names = match.Split(' ');
                 
-                layout.Children.Add(GetFrame(names[0], names[2]), new Point(15, 15 + (_yShift * i)));
+                var frame = GetFrame(names[0], names[2]);
+                layout.Children.Add(frame, new Point(15, 15 + (_yShift * i)));
+                var position = new Position()
+                {
+                    X = 15,
+                    Y = 15 + (_yShift * i)
+                };
+                framesList.Add(position);
+            }
+            
+            _frames.Add(framesList);
+
+            var doneGenerating = false;
+
+            while (!doneGenerating)
+            {
+                for (var i = 0; i < _frames[stage].Count; i++)
+                {
+                    var top = _frames[stage][i];
+                    var bot = _frames[stage][i + 1];
+
+                    foreach (var line in GenerateLine(new[] {top.X, top.Y}, new[] {bot.X, bot.Y}))
+                    {
+                        layout.Children.Add(line);
+                    }
+
+                    i++;
+                }
+
+                /*foreach ()
+                {
+                    GetFrame();
+                }
+
+                if (all)
+                    doneGenerating = true;*/
+
+                doneGenerating = true;
             }
 
             var scroll = new ScrollView
@@ -107,11 +154,10 @@ namespace TurnamentManager.Models
             var frame = new Frame
             {
                 CornerRadius = 20,
-                HorizontalOptions = LayoutOptions.Center,
-                VerticalOptions = LayoutOptions.Start,
                 HasShadow = true,
                 IsClippedToBounds = true,
-                Margin = 15,
+                WidthRequest = _frameWidth,
+                HeightRequest = _frameHeight,
             };
             var st = new StackLayout
             {
@@ -129,6 +175,55 @@ namespace TurnamentManager.Models
             frame.Content = st;
 
             return frame;
+        }
+
+        private List<Line> GenerateLine(double[] top, double[] bot)
+        {
+            var lines = new List<Line>();
+            var topLine = new Line
+            {
+                X1 = top[0] + _frameWidth + 40,
+                X2 = top[0] + _frameWidth + _lineWidth,
+                Y1 = top[1] + (_frameHeight / 2) + 20,
+                Y2 = top[1] + (_frameHeight / 2) + 20,
+                Stroke = Brush.Aqua
+            };
+            
+            var botLine = new Line
+            {
+                X1 = bot[0] + _frameWidth + 40,
+                X2 = bot[0] + _frameWidth + _lineWidth,
+                Y1 = bot[1] + (_frameHeight / 2) + 20,
+                Y2 = bot[1] + (_frameHeight / 2) + 20,
+                Stroke = Brush.Aqua
+            };
+
+            var connectingLine = new Line
+            {
+                X1 = top[0] + _frameWidth + _lineWidth,
+                X2 = bot[0] + _frameWidth + _lineWidth,
+                Y1 = top[1] + (_frameHeight / 2) + 20,
+                Y2 = bot[1] + (_frameHeight / 2) + 20,
+                Stroke = Brush.Aqua
+            };
+
+            var lenght = (top[1] + (_frameHeight / 2) + 20 + bot[1] + (_frameHeight / 2) + 20) / 2;
+
+            var middleLine = new Line
+            {
+                X1 = top[0] + _frameWidth + _lineWidth,
+                X2 = top[0] + _frameWidth + _lineWidth * 3,
+                Y1 = lenght,
+                Y2 = lenght,
+                Stroke = Brush.Aqua
+            };
+
+            lines.Add(topLine);
+            lines.Add(botLine);
+            lines.Add(connectingLine);
+            lines.Add(middleLine);
+
+            return lines;
         }
     }
 }
