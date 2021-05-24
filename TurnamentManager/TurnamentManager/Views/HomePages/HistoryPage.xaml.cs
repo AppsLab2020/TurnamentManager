@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using TurnamentManager.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -20,5 +21,7 @@ namespace TurnamentManager.Views
         {
             View.PlayAnimation();
         }
+
+       
     }
 }
