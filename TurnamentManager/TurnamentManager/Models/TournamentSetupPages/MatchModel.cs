@@ -96,7 +96,7 @@ namespace TurnamentManager.Models
                     i++;
                 }
 
-                /*foreach ()
+                /*foreach () //for a pre kazde dva turnaje sa urobi jeden frame
                 {
                     GetFrame();
                 }
