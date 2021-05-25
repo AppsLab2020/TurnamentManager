@@ -29,12 +29,6 @@ namespace TurnamentManager.Views
             InitializeComponent();
             model = new PlayerOrTeamAddModel(Navigation, id);
             BindingContext = model;
-            
-            
-            
-            
-            
-
         }
 
         protected override void OnAppearing()

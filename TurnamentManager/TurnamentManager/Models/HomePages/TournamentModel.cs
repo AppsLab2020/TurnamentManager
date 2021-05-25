@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
+using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using SQLite;
@@ -127,7 +129,23 @@ namespace TurnamentManager.Models
 
         private void OpenPage(int id)
         {
-            _navigation.PushAsync(new PlayerOrTeamAddPage(id));
+            using var conn = new SQLiteConnection(Path.Combine(App.FolderPath, "tournaments.db3"));
+            conn.CreateTable<Tournament>();
+            var tournaments = conn.Table<Tournament>().ToList();
+            foreach (var tournament in tournaments.Where(tournament => tournament.ID == id))
+            {
+                if (string.IsNullOrEmpty(tournament.MatchesString))
+                {
+                    _navigation.PushAsync(new PlayerOrTeamAddPage(id));
+                }
+                else
+                {
+                    _navigation.PushAsync(new MatchPage(id));
+                }
+            }
+            
+            
+            
         }
 
         private void RemoveTournament(int id)
