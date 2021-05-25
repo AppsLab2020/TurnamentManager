@@ -53,7 +53,7 @@ namespace TurnamentManager.Models
             conn.CreateTable<Player>();
             var players = conn.Table<Player>().ToList();
 
-            Height = players.Count * 90 + 150;
+            Height = players.Count * 110 + 170;
 
             foreach (var player in players)
             {
@@ -69,9 +69,6 @@ namespace TurnamentManager.Models
             _navigation.PushAsync(new CreatePlayerPage());
         }
 
-
-       
-        
         private Frame MakeFrameAsync(Player player)
         {
             
