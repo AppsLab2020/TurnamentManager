@@ -60,7 +60,9 @@ namespace TurnamentManager.Models
 
             _matchesList.RemoveAt(_matchesList.Count - 1);
 
-            var framesList = new List<Position>();
+            if (_matchesList.Count >= 2)
+            {
+                var framesList = new List<Position>();
 
             for (var i = 0; i < _matchesList.Count; i++ )
             {
@@ -131,6 +133,22 @@ namespace TurnamentManager.Models
             };
 
             return scroll;
+            }
+            else
+            {
+                var scroll = new ScrollView
+                {
+                    Orientation = ScrollOrientation.Vertical,
+                    Content = new ScrollView
+                    {
+                        Orientation = ScrollOrientation.Horizontal,
+                         //TODO: add error message not enought players to generate spider or idk...
+                    }
+                };
+
+                return scroll;
+            }
+            
         }
 
         private Frame GetFrame(string leftName, string rightName)
