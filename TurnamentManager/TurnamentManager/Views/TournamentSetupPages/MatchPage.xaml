@@ -7,7 +7,6 @@
         <StackLayout>
             <StackLayout x:Name="Layout">
             </StackLayout>
-            <Button Clicked="Button_OnClicked"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

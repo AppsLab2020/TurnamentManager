@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
+using Rg.Plugins.Popup.Extensions;
+using Rg.Plugins.Popup.Services;
 using SQLite;
 using TurnamentManager.Classes;
 using TurnamentManager.Classes.Tournament;
+using TurnamentManager.Views.PopOutPages;
 using Xamarin.Forms;
 using Xamarin.Forms.Shapes;
 using Path = System.IO.Path;
@@ -13,9 +16,9 @@ namespace TurnamentManager.Models
 {
     public class MatchModel
     {
-        private int stage = 0;
+        private Command TapCommand => new Command<string>(OpenPopup);
 
-        private ICommand TapCommand;
+        private int stage = 0;
 
         private const int _frameWidth = 150;
         private const int _frameHeight = 60;
@@ -30,9 +33,12 @@ namespace TurnamentManager.Models
 
         private List<List<Position>> _frames;
 
+        private INavigation _navigation;
+
         public MatchModel(INavigation navigation, int tournamentId)
         {
             _matchesList = new List<string>();
+            _navigation = navigation;
             _tournamentId = tournamentId;
             _frames = new List<List<Position>>();
         }
@@ -61,6 +67,10 @@ namespace TurnamentManager.Models
 
             if (_matchesList.Count >= 2)
             {
+                while (!IsNumberPowerOf2(_matchesList.Count))
+                {
+                    _matchesList.Add("test : test \n");
+                }
                 var framesList = new List<Position>();
 
                 for (var i = 0; i < _matchesList.Count; i++)
@@ -195,13 +205,14 @@ namespace TurnamentManager.Models
                 HeightRequest = _frameHeight,
             };
 
-            var tap = new TapGestureRecognizer {Command = TapCommand};
+            var tap = new TapGestureRecognizer {Command = TapCommand, CommandParameter = $"{leftName} : {rightName} \n"};
 
             st.Children.Add(addButton1);
             st.Children.Add(vsImage);
             st.Children.Add(addButton2);
 
             frame.Content = st;
+            frame.GestureRecognizers.Add(tap);
 
             return frame;
         }
@@ -253,6 +264,26 @@ namespace TurnamentManager.Models
             lines.Add(middleLine);
 
             return lines;
+        }
+        
+        private void OpenPopup(string matchString)
+        {
+            _navigation.PushPopupAsync(new MatchResultsPage());
+        }
+
+        private bool IsNumberPowerOf2(int num)
+        {
+            if (num is 0 or 1)
+                return false;
+
+            while (num != 1)
+            {
+                if (num % 2 != 0)
+                    return false;
+                
+                num /= 2;
+            }
+            return true;
         }
     }
 }

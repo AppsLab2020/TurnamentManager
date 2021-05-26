@@ -28,10 +28,5 @@ namespace TurnamentManager.Views
         {
             
         }
-
-        private void Button_OnClicked(object sender, EventArgs e)
-        {
-            PopupNavigation.Instance.PushAsync(new MatchResultsPage());
-        }
     }
 }
