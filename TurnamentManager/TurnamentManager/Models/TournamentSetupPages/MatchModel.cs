@@ -20,7 +20,6 @@ namespace TurnamentManager.Models
         private const int _frameWidth = 150;
         private const int _frameHeight = 60;
 
-        private const int _xShift = 90;
         private const int _yShift = 150;
 
         private const int _lineWidth = 60;
@@ -64,75 +63,76 @@ namespace TurnamentManager.Models
             {
                 var framesList = new List<Position>();
 
-            for (var i = 0; i < _matchesList.Count; i++ )
-            {
-                var match = _matchesList[i];
-                var names = match.Split(' ');
-                
-                var frame = GetFrame(names[0], names[2]);
-                layout.Children.Add(frame, new Point(15, 15 + (_yShift * i)));
-                var position = new Position()
+                for (var i = 0; i < _matchesList.Count; i++)
                 {
-                    X = 15,
-                    Y = 15 + (_yShift * i)
-                };
-                framesList.Add(position);
-            }
-            
-            _frames.Add(framesList);
+                    var match = _matchesList[i];
+                    var names = match.Split(' ');
 
-            var doneGenerating = false;
-
-            while (!doneGenerating)
-            {
-                if (_frames[stage].Count < 2)
-                {
-                    doneGenerating = true;
-                    continue;
-                }
-                
-                var linesList = new List<List<Line>>();
-                for (var i = 0; i < _frames[stage].Count; i++)
-                {
-                    var top = _frames[stage][i];
-                    var bot = _frames[stage][i + 1];
-
-                    var lines = GenerateLine(new[] {top.X, top.Y}, new[] {bot.X, bot.Y});
-                    linesList.Add(lines);
-                    
-                    foreach (var line in lines)
+                    var frame = GetFrame(names[0], names[2]);
+                    layout.Children.Add(frame, new Point(15, 15 + (_yShift * i)));
+                    var position = new Position()
                     {
-                        layout.Children.Add(line);
+                        X = 15,
+                        Y = 15 + (_yShift * i)
+                    };
+                    framesList.Add(position);
+                }
+
+                _frames.Add(framesList);
+
+                var doneGenerating = false;
+
+                while (!doneGenerating)
+                {
+                    if (_frames[stage].Count < 2)
+                    {
+                        doneGenerating = true;
+                        continue;
                     }
 
-                    i++;
+                    var linesList = new List<List<Line>>();
+                    for (var i = 0; i < _frames[stage].Count; i++)
+                    {
+                        var top = _frames[stage][i];
+                        var bot = _frames[stage][i + 1];
+
+                        var lines = GenerateLine(new[] {top.X, top.Y}, new[] {bot.X, bot.Y});
+                        linesList.Add(lines);
+
+                        foreach (var line in lines)
+                        {
+                            layout.Children.Add(line);
+                        }
+
+                        i++;
+                    }
+
+                    var frames = new List<Position>();
+
+                    foreach (var lines in linesList)
+                    {
+                        var frame = GetFrame("", "");
+
+                        layout.Children.Add(frame, new Point(lines[3].X2, lines[3].Y2 - 50));
+
+                        frames.Add(new Position() {X = lines[3].X2, Y = lines[3].Y2 - 50});
+                    }
+
+                    _frames.Add(frames);
+                    stage++;
                 }
 
-                var frames = new List<Position>();
-
-                foreach (var lines in linesList)
+                var scroll = new ScrollView
                 {
-                    var frame = GetFrame("", "");
-                    
-                    layout.Children.Add(frame, new Point(lines[3].X2, lines[3].Y2 - 50));
-                    
-                    frames.Add(new Position(){ X=lines[3].X2, Y=lines[3].Y2 - 50 });
-                }
-                _frames.Add(frames);
-                stage++;
-            }
+                    Orientation = ScrollOrientation.Vertical,
+                    Content = new ScrollView
+                    {
+                        Orientation = ScrollOrientation.Horizontal,
+                        Content = layout,
+                    }
+                };
 
-            var scroll = new ScrollView
-            {
-                Orientation = ScrollOrientation.Vertical,
-                Content = new ScrollView
-                {
-                    Orientation = ScrollOrientation.Horizontal,
-                    Content = layout,
-                }
-            };
-
-            return scroll;
+                return scroll;
             }
             else
             {
@@ -142,13 +142,12 @@ namespace TurnamentManager.Models
                     Content = new ScrollView
                     {
                         Orientation = ScrollOrientation.Horizontal,
-                         //TODO: add error message not enought players to generate spider or idk...
+                        //TODO: add error message not enought players to generate spider or idk...
                     }
                 };
 
                 return scroll;
             }
-            
         }
 
         private Frame GetFrame(string leftName, string rightName)
@@ -161,8 +160,7 @@ namespace TurnamentManager.Models
                 VerticalOptions = LayoutOptions.CenterAndExpand,
                 Text = leftName,
                 FontFamily = "PixL",
-                Padding = new Thickness(0,12),
-                
+                Padding = new Thickness(0, 12),
             };
             var vsImage = new Image
             {
@@ -180,7 +178,7 @@ namespace TurnamentManager.Models
                 VerticalOptions = LayoutOptions.CenterAndExpand,
                 Text = rightName,
                 FontFamily = "PixL",
-                Padding = new Thickness(0,12),
+                Padding = new Thickness(0, 12),
             };
             var frame = new Frame
             {
@@ -196,13 +194,13 @@ namespace TurnamentManager.Models
                 WidthRequest = _frameWidth,
                 HeightRequest = _frameHeight,
             };
-            
-            var tap = new TapGestureRecognizer { Command = TapCommand};
+
+            var tap = new TapGestureRecognizer {Command = TapCommand};
 
             st.Children.Add(addButton1);
             st.Children.Add(vsImage);
             st.Children.Add(addButton2);
-            
+
             frame.Content = st;
 
             return frame;
@@ -219,7 +217,7 @@ namespace TurnamentManager.Models
                 Y2 = top[1] + (_frameHeight / 2) + 20,
                 Stroke = Brush.Aqua
             };
-            
+
             var botLine = new Line
             {
                 X1 = bot[0] + _frameWidth + 40,

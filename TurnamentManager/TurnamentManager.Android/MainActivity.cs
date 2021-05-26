@@ -22,7 +22,7 @@ namespace TurnamentManager.Droid
             AppCompatDelegate.DefaultNightMode = AppCompatDelegate.ModeNightNo;
             base.OnCreate(savedInstanceState);
             
-            
+            Rg.Plugins.Popup.Popup.Init(this);
             //ImageCircleRenderer.Init();
             
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
@@ -37,6 +37,11 @@ namespace TurnamentManager.Droid
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+        
+        public override void OnBackPressed()
+        {
+            Rg.Plugins.Popup.Popup.SendBackPressed(base.OnBackPressed);
         }
     }
 }

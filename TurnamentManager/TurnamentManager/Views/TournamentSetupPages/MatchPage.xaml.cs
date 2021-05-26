@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Rg.Plugins.Popup.Services;
 using TurnamentManager.Models;
+using TurnamentManager.Views.PopOutPages;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -25,6 +27,11 @@ namespace TurnamentManager.Views
         public MatchPage()
         {
             
+        }
+
+        private void Button_OnClicked(object sender, EventArgs e)
+        {
+            PopupNavigation.Instance.PushAsync(new MatchResultsPage());
         }
     }
 }
