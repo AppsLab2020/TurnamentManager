@@ -4,7 +4,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TurnamentManager.Views.TournamentSetupPages.ManualPage">
     <ContentPage.Content>
-        <ScrollView VerticalOptions="FillAndExpand" Orientation="Vertical">
+        <ScrollView VerticalOptions="FillAndExpand" Orientation="Vertical" BackgroundColor="White">
 
             <StackLayout x:Name="StackLayout"
                          HorizontalOptions="Fill"

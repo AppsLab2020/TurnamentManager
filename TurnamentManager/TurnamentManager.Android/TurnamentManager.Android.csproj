@@ -93,7 +93,9 @@
     <AndroidResource Include="Resources\drawable\app_icon.png" />
     <AndroidResource Include="Resources\drawable\app_splash.png" />
     <AndroidResource Include="Resources\drawable\badminton.png" />
+    <AndroidResource Include="Resources\drawable\badminton_yellow_avatar.png" />
     <AndroidResource Include="Resources\drawable\baseball.png" />
+    <AndroidResource Include="Resources\drawable\baseball_avatar.png" />
     <AndroidResource Include="Resources\drawable\basketball_avatar.png" />
     <AndroidResource Include="Resources\drawable\basketball_player.png" />
     <AndroidResource Include="Resources\drawable\basket_ball.png" />
@@ -109,6 +111,7 @@
     <AndroidResource Include="Resources\drawable\girl_img.png" />
     <AndroidResource Include="Resources\drawable\girl_pic_avatar.png" />
     <AndroidResource Include="Resources\drawable\golf.png" />
+    <AndroidResource Include="Resources\drawable\golf_avatar.png" />
     <AndroidResource Include="Resources\drawable\history.png" />
     <AndroidResource Include="Resources\drawable\history_white.png" />
     <AndroidResource Include="Resources\drawable\hockey_player.png" />
@@ -173,12 +176,12 @@
     <AndroidResource Include="Resources\drawable\splash_screen.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\trophy_gif.gif" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\layout\SplashScreen.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\splash_screen1.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>

@@ -98,15 +98,15 @@ namespace TurnamentManager.Models
                 }
                 if (tournament.Style == "Badminton")
                 {
-                    return  SportI = "badminton.png";
+                    return  SportI = "badminton_yellow_avatar.png";
                 }
                 if (tournament.Style == "Baseball")
                 {
-                    return  SportI = "baseball.png";
+                    return  SportI = "baseball_avatar.png";
                 }
                 if (tournament.Style == "Golf")
                 {
-                    return  SportI = "golf.png";
+                    return  SportI = "golf_avatar.png";
                 }
 
 
@@ -173,23 +173,6 @@ namespace TurnamentManager.Models
                 VerticalOptions = LayoutOptions.Center,
                 HorizontalOptions = LayoutOptions.EndAndExpand,
 
-            };
-
-
-            var labelGrig = new Grid
-            {
-                ColumnDefinitions = { new ColumnDefinition{Width = new GridLength(33.33, GridUnitType.Star)}},
-                RowDefinitions = { new RowDefinition{Height = new GridLength(33.33, GridUnitType.Star)}},
-                HorizontalOptions = LayoutOptions.CenterAndExpand,
-                VerticalOptions = LayoutOptions.CenterAndExpand
-            };
-            var imageGrig = new Grid
-            {
-                ColumnDefinitions = { new ColumnDefinition{Width = new GridLength(33.33, GridUnitType.Star)}},
-                RowDefinitions = { new RowDefinition{Height = new GridLength(33.33, GridUnitType.Star)}},
-                HorizontalOptions = LayoutOptions.CenterAndExpand,
-                VerticalOptions = LayoutOptions.CenterAndExpand,
-                
             };
 
             var st = new StackLayout

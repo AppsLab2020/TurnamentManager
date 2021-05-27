@@ -27,7 +27,7 @@ namespace TurnamentManager.Droid
             
             gifImageView = FindViewById<GifImageView>(Resource.Id.gifImageView);
 
-            Stream input = Assets.Open("trophy_gif.gif");
+            Stream input = Assets.Open("splash_screen1.gif");
             byte[] bytes = ConvertFileToByteArray(input);
             gifImageView.SetBytes(bytes);
             gifImageView.StartAnimation();

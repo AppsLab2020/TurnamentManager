@@ -9,8 +9,8 @@
         <animations:ScaleAnimation
             PositionIn="Center"
             PositionOut="Center"
-            ScaleIn="1.2"
-            ScaleOut="0.8"
+            ScaleIn="1.5"
+            ScaleOut="0.6"
             DurationIn="400"
             DurationOut="300"
             EasingIn="SinOut"

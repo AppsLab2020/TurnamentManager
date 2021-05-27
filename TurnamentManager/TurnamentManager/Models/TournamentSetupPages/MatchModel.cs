@@ -51,7 +51,6 @@ namespace TurnamentManager.Models
                 WidthRequest = 5000,
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                BackgroundColor = Color.Red
             };
 
             using var conn = new SQLiteConnection(Path.Combine(App.FolderPath, "tournaments.db3"));
@@ -226,7 +225,7 @@ namespace TurnamentManager.Models
                 X2 = top[0] + _frameWidth + _lineWidth,
                 Y1 = top[1] + (_frameHeight / 2) + 20,
                 Y2 = top[1] + (_frameHeight / 2) + 20,
-                Stroke = Brush.Aqua
+                Stroke = Brush.Black
             };
 
             var botLine = new Line
@@ -235,7 +234,7 @@ namespace TurnamentManager.Models
                 X2 = bot[0] + _frameWidth + _lineWidth,
                 Y1 = bot[1] + (_frameHeight / 2) + 20,
                 Y2 = bot[1] + (_frameHeight / 2) + 20,
-                Stroke = Brush.Aqua
+                Stroke = Brush.Black
             };
 
             var connectingLine = new Line
@@ -244,7 +243,7 @@ namespace TurnamentManager.Models
                 X2 = bot[0] + _frameWidth + _lineWidth,
                 Y1 = top[1] + (_frameHeight / 2) + 20,
                 Y2 = bot[1] + (_frameHeight / 2) + 20,
-                Stroke = Brush.Aqua
+                Stroke = Brush.Black
             };
 
             var lenght = (top[1] + (_frameHeight / 2) + 20 + bot[1] + (_frameHeight / 2) + 20) / 2;
@@ -255,7 +254,7 @@ namespace TurnamentManager.Models
                 X2 = top[0] + _frameWidth + _lineWidth * 3,
                 Y1 = lenght,
                 Y2 = lenght,
-                Stroke = Brush.Aqua
+                Stroke = Brush.Black
             };
 
             lines.Add(topLine);
