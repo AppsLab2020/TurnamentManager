@@ -63,7 +63,7 @@
                                      BackgroundColor="Transparent"
                                      Command="{Binding BasketballCommand}"/>
                         
-                        <ImageButton Source="football_ball.png"
+                        <ImageButton Source="football_ball1.png"
                                      HorizontalOptions="CenterAndExpand" HeightRequest="80" 
                                      Grid.Column="2"
                                      BackgroundColor="Transparent"
@@ -80,12 +80,27 @@
                                      BackgroundColor="Transparent"
                                      Command="{Binding TableFootballCommand}"/>
                     </Grid>
-                    <Grid ColumnDefinitions="33.33*" ColumnSpacing="0.3">
+                    <Grid ColumnDefinitions="33.33*,33.33*,33.33*,33.33*" ColumnSpacing="0.3">
                         <ImageButton Source="ping_pong_racket.png"
                                      HorizontalOptions="CenterAndExpand" HeightRequest="80" 
                                      Grid.Column="0"
                                      BackgroundColor="Transparent"
                                      Command="{Binding PingPongRacketCommand}"/>
+                        <ImageButton Source="badminton.png"
+                                     HorizontalOptions="CenterAndExpand" HeightRequest="80" 
+                                     Grid.Column="1"
+                                     BackgroundColor="Transparent"
+                                     Command="{Binding BadmintonCommand}"/>
+                        <ImageButton Source="baseball.png"
+                                     HorizontalOptions="CenterAndExpand" HeightRequest="80" 
+                                     Grid.Column="2"
+                                     BackgroundColor="Transparent"
+                                     Command="{Binding BaseballCommand}"/>
+                        <ImageButton Source="golf.png"
+                                     HorizontalOptions="CenterAndExpand" HeightRequest="80" 
+                                     Grid.Column="3"
+                                     BackgroundColor="Transparent"
+                                     Command="{Binding GolfCommand}"/>
                     </Grid>
                     </StackLayout>
                 </views:Expander>

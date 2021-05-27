@@ -24,6 +24,12 @@ namespace TurnamentManager.Models
         public ICommand TableFootballCommand { get; }
         public ICommand PoolCommand { get; }
         public ICommand PingPongRacketCommand { get; }
+        
+        public ICommand BadmintonCommand { get; }
+        
+        public ICommand BaseballCommand { get; }
+        
+        public ICommand GolfCommand { get; }
         public ICommand KnockoutCommand { get; }
         public ICommand TeamBasedCommand { get; }
         public ICommand PlayerBasedCommand { get; }
@@ -163,6 +169,9 @@ namespace TurnamentManager.Models
             TableFootballCommand = new Command(TableFootball);
             PoolCommand = new Command(Pool);
             PingPongRacketCommand = new Command(PingPongRacket);
+            BadmintonCommand = new Command(Badminton);
+            BaseballCommand = new Command(Baseball);
+            GolfCommand = new Command(Golf);
             KnockoutCommand = new Command(Knockout);
             TeamBasedCommand = new Command(TeamBased);
             PlayerBasedCommand = new Command(PlayerBased);
@@ -175,7 +184,7 @@ namespace TurnamentManager.Models
 
         private async void SaveData()
         {
-            if (_selectedFormatId == 0 && _selectedStyleId is >= 0 and < 2 && _selectedSportId is >= 0 and <= 5 && !string.IsNullOrEmpty(Name))
+            if (_selectedFormatId == 0 && _selectedStyleId is >= 0 and < 2 && _selectedSportId is >= 0 and <= 8 && !string.IsNullOrEmpty(Name) && _selectedCupId is >= 0 and <=2)
             {
                 var tournament = new Tournament()
                 {
@@ -200,8 +209,12 @@ namespace TurnamentManager.Models
                         3 => "TableFootball",
                         4 => "Pool",
                         5 => "PingPongRacket",
+                        6 => "Badminton",
+                        7 => "Baseball",
+                        8 => "Golf",
                         _ => throw new ArgumentOutOfRangeException()
-                    }
+                    },
+                    Trophy = _selectedCupId
                 };
 
                 using var conn = new SQLiteConnection(Path.Combine(App.FolderPath, "tournaments.db3"));
@@ -253,7 +266,7 @@ namespace TurnamentManager.Models
 
         private void Football()
         {
-            SportImageSource = "football_ball.png";
+            SportImageSource = "football_ball1.png";
             IsSportExpanded = false;
             _selectedSportId = 2;
         }
@@ -276,6 +289,24 @@ namespace TurnamentManager.Models
             SportImageSource = "ping_pong_racket.png";
             IsSportExpanded = false;
             _selectedSportId = 5;
+        } 
+        private void Badminton()
+        {
+            SportImageSource = "badminton.png";
+            IsSportExpanded = false;
+            _selectedSportId = 6;
+        } 
+        private void Baseball()
+        {
+            SportImageSource = "baseball.png";
+            IsSportExpanded = false;
+            _selectedSportId = 7;
+        } 
+        private void Golf()
+        {
+            SportImageSource = "golf.png";
+            IsSportExpanded = false;
+            _selectedSportId = 8;
         } 
 
         private void Knockout()

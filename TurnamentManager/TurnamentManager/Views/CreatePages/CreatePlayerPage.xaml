@@ -32,8 +32,7 @@
                                      Grid.Column="2"
                                      Source="tennis_player.png"
                                      BackgroundColor="Transparent"
-                                     Command="{Binding TennisCommand}"
-                                     />
+                                     Command="{Binding TennisCommand}"/>
                         <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="150"
                                      Grid.Column="3"
                                      Source="pingpong_player.png"

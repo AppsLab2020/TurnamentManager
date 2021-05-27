@@ -18,11 +18,7 @@
                          VerticalOptions="CenterAndExpand"
                          HorizontalOptions="CenterAndExpand"
                          Command="{Binding NavigateCommand}"/>
-            <ImageButton x:Name="SaveButton"
-                         Source="save_bigger.png"
-                         BackgroundColor="Transparent"
-                         HorizontalOptions="CenterAndExpand"
-                         Clicked="SaveButton_OnClicked"/>
+           
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

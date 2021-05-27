@@ -2,6 +2,7 @@
 using TurnamentManager.Views;
 using TurnamentManager.Views.TournamentSetupPages;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.Xaml;
 
 namespace TurnamentManager
@@ -20,6 +21,7 @@ namespace TurnamentManager
             {
                 BarBackgroundColor = Color.FromHex("#D7812A"),
                 BarTextColor = Color.White,
+                
             };
         }
 
