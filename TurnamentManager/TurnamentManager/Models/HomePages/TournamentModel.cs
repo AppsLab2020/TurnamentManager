@@ -20,6 +20,9 @@ namespace TurnamentManager.Models
     {
         public event EventHandler RedrawPlayers;
 
+        public ImageSource SportI;
+
+        public ImageSource TrophyI;
         public Command NextCommand { get; set; }
 
         public int Height
@@ -66,23 +69,97 @@ namespace TurnamentManager.Models
 
         private Frame MakeFrameAsync(Tournament tournament)
         {
-            var avatar = new CircleImage
+
+            ImageSource SetSport()
             {
-                Source = "trophy_avarar.png",
+                if (tournament.Style == "Tennis")
+                {
+                    return  SportI = "tennis_ball.png";
+                }
+                if (tournament.Style == "Basketball")
+                {
+                    return  SportI = "basket_ball.png";
+                }
+                if (tournament.Style == "Football")
+                {
+                    return  SportI = "football_ball1.png";
+                }
+                if (tournament.Style == "TableFootball")
+                {
+                    return  SportI = "table_football.png";
+                }
+                if (tournament.Style == "Pool")
+                {
+                    return  SportI = "pool_ball.png";
+                }
+                if (tournament.Style == "PingPongRacket")
+                {
+                    return  SportI = "ping_pong_racket.png";
+                }
+                if (tournament.Style == "Badminton")
+                {
+                    return  SportI = "badminton.png";
+                }
+                if (tournament.Style == "Baseball")
+                {
+                    return  SportI = "baseball.png";
+                }
+                if (tournament.Style == "Golf")
+                {
+                    return  SportI = "golf.png";
+                }
+
+
+                return SportI;
+            }
+            
+            ImageSource SetTrophy()
+            {
+                if (tournament.Trophy == 0)
+                {
+                    return  TrophyI = "trophy_avarar.png";
+                }
+                if (tournament.Trophy == 1)
+                {
+                    return  TrophyI = "silver_trophy_avatar.png";
+                }
+                if (tournament.Trophy == 2)
+                {
+                    return  TrophyI = "bronze_trophy_avatar.png";
+                }
+
+                return TrophyI;
+            }
+
+            
+            
+            
+            var sport = new CircleImage
+            {
+                Source = SetSport(),
                 Aspect = Aspect.Fill,
                 VerticalOptions = LayoutOptions.CenterAndExpand,
                 HorizontalOptions = LayoutOptions.StartAndExpand,
-                ScaleX = 1,
-                ScaleY = 1,
+                ScaleX = 0.5,
+                ScaleY = 0.5,
             };
             
+            var avatar = new Image
+            {
+                Source = SetTrophy(),
+                Aspect = Aspect.Fill,
+                VerticalOptions = LayoutOptions.EndAndExpand,
+                HorizontalOptions = LayoutOptions.Center,
+                ScaleX = 0.5,
+                ScaleY = 0.5,
+            };
             
             var label = new Label
             {
                 Text = tournament.Name,
                 TextColor = Color.Black,
-                HorizontalOptions = LayoutOptions.CenterAndExpand,
-                VerticalOptions = LayoutOptions.Center,
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.StartAndExpand,
                 FontFamily = "PixL",
             };
 
@@ -98,13 +175,35 @@ namespace TurnamentManager.Models
 
             };
 
+
+            var labelGrig = new Grid
+            {
+                ColumnDefinitions = { new ColumnDefinition{Width = new GridLength(33.33, GridUnitType.Star)}},
+                RowDefinitions = { new RowDefinition{Height = new GridLength(33.33, GridUnitType.Star)}},
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                VerticalOptions = LayoutOptions.CenterAndExpand
+            };
+            var imageGrig = new Grid
+            {
+                ColumnDefinitions = { new ColumnDefinition{Width = new GridLength(33.33, GridUnitType.Star)}},
+                RowDefinitions = { new RowDefinition{Height = new GridLength(33.33, GridUnitType.Star)}},
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                VerticalOptions = LayoutOptions.CenterAndExpand,
+                
+            };
+
             var st = new StackLayout
             {
                 Orientation = StackOrientation.Horizontal,
                 WidthRequest = 300,
                 HeightRequest = 80,
             };
-
+            var middleStackLayout = new StackLayout
+            {
+                Orientation = StackOrientation.Vertical,
+                HorizontalOptions = LayoutOptions.Center
+            };
+            
             var frame = new Frame
             {
                 CornerRadius = 20,
@@ -119,8 +218,13 @@ namespace TurnamentManager.Models
 
             frame.GestureRecognizers.Add(tap);
 
-            st.Children.Add(avatar);
-            st.Children.Add(label);
+            
+            middleStackLayout.Children.Add(label);
+            middleStackLayout.Children.Add(avatar);
+            
+            st.Children.Add(sport);
+            st.Children.Add(middleStackLayout);
+            
             st.Children.Add(imageButton);
             frame.Content = st;
 

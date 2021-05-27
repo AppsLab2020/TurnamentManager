@@ -10,6 +10,8 @@ namespace TurnamentManager.Classes.Tournament
         public string Format { get; set; }
         public string Name { get; set; }
         
+        public int Trophy { get; set; }
+        
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
 

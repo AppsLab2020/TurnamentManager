@@ -18,11 +18,55 @@
             HasBackgroundAnimation="True" />
     </pages:PopupPage.Animation>
 
+    <Frame CornerRadius="20"
+           VerticalOptions="Center"
+           HorizontalOptions="Center">
     <StackLayout
         VerticalOptions="Center"
         HorizontalOptions="Center"
-        Padding="20, 20, 20, 20"
+       
         BackgroundColor="White">
-        <Label Text="Test" />
+        
+        <Grid ColumnDefinitions="33.33*,33.33*, 33.33*" ColumnSpacing="0" >
+        <Label FontSize="Subtitle" FontFamily="PixL" Text="Player1" VerticalOptions="Start" HorizontalOptions="Start" Padding="30,40" Grid.Column="0"/>
+        
+        <Image VerticalOptions="Start" HorizontalOptions="Center" Source="vs_image.png" ScaleX="0.5" ScaleY="0.5" Grid.Column="1"/>
+        
+        <Label FontSize="Subtitle" FontFamily="PixL" Text="Player1" VerticalOptions="Start" HorizontalOptions="End" Padding="30,40"  Grid.Column="2"/>
+        </Grid>
+        <StackLayout Orientation="Vertical" >
+            
+            <Grid ColumnDefinitions="33.33*,33.33*,33.33*,33.33*,33.33*,33.33*,33.33*" ColumnSpacing="0">
+                
+                
+                <Entry WidthRequest="35" HorizontalTextAlignment="Center" Keyboard="Numeric" FontFamily="PixL" Placeholder="0" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Grid.Column="2"/>
+                
+                <Label FontFamily="PixL" Text=":" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="3"/>
+                
+                <Entry WidthRequest="35" HorizontalTextAlignment="Center"  Keyboard="Numeric" FontFamily="PixL" Placeholder="0" VerticalOptions="CenterAndExpand" HorizontalOptions="End" Grid.Column="4" />
+                
+            </Grid>
+            
+            
+            <Grid ColumnDefinitions="33.33*,33.33*,33.33*,33.33*,33.33*,33.33*" ColumnSpacing="0">
+                
+                <Image Source="minus_button.png" ScaleX="0.7" ScaleY="0.7" Grid.Column="0"/>
+                <Image Source="plus_butt.png" ScaleX="0.7" ScaleY="0.7" Grid.Column="1"/>
+                
+                <Label Grid.Column="2"/>
+                <Label Grid.Column="3"/>
+                
+                <Image Source="minus_button.png" ScaleX="0.7" ScaleY="0.7" Grid.Column="4"/>
+                <Image Source="plus_butt.png" ScaleX="0.7" ScaleY="0.7" Grid.Column="5"/>
+            </Grid>
+        </StackLayout>
+       
+        <ImageButton x:Name="SaveButton"
+                     Source="save_bigger.png"
+                     BackgroundColor="Transparent"
+                     HorizontalOptions="CenterAndExpand"
+                     VerticalOptions="End"/>
+       
     </StackLayout>
+    </Frame>
 </pages:PopupPage>

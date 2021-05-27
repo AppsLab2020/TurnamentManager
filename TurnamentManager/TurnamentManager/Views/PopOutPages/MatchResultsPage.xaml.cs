@@ -17,6 +17,10 @@ namespace TurnamentManager.Views.PopOutPages
             InitializeComponent();
         }
         
+        
+        
+        
+        
         protected override bool OnBackButtonPressed()
         {
             return base.OnBackButtonPressed();

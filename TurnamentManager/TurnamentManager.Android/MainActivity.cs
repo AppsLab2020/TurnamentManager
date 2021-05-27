@@ -30,6 +30,7 @@ namespace TurnamentManager.Droid
 
             var folderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             LoadApplication(new App(folderPath));
+            Window.SetStatusBarColor(Android.Graphics.Color.Rgb(215, 129, 42));
             
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
