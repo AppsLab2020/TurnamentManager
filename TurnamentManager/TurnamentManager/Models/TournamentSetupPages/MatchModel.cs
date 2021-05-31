@@ -18,7 +18,7 @@ namespace TurnamentManager.Models
     {
         private Command TapCommand => new Command<string>(OpenPopup);
 
-        private int stage = 0;
+        private int _stage = 0;
 
         private const int _frameWidth = 150;
         private const int _frameHeight = 60;
@@ -70,6 +70,15 @@ namespace TurnamentManager.Models
                 {
                     _matchesList.Add("test : test \n");
                 }
+                
+                foreach (var tournament in tournaments.Where(tournament => tournament.ID == _tournamentId))
+                {
+                    foreach (var match in _matchesList)
+                    {
+                        tournament.ResultsStringList.Add("none : none \n");
+                    }
+                }
+                
                 var framesList = new List<Position>();
 
                 for (var i = 0; i < _matchesList.Count; i++)
@@ -93,17 +102,17 @@ namespace TurnamentManager.Models
 
                 while (!doneGenerating)
                 {
-                    if (_frames[stage].Count < 2)
+                    if (_frames[_stage].Count < 2)
                     {
                         doneGenerating = true;
                         continue;
                     }
 
                     var linesList = new List<List<Line>>();
-                    for (var i = 0; i < _frames[stage].Count; i++)
+                    for (var i = 0; i < _frames[_stage].Count; i++)
                     {
-                        var top = _frames[stage][i];
-                        var bot = _frames[stage][i + 1];
+                        var top = _frames[_stage][i];
+                        var bot = _frames[_stage][i + 1];
 
                         var lines = GenerateLine(new[] {top.X, top.Y}, new[] {bot.X, bot.Y});
                         linesList.Add(lines);
@@ -128,7 +137,7 @@ namespace TurnamentManager.Models
                     }
 
                     _frames.Add(frames);
-                    stage++;
+                    _stage++;
                 }
 
                 var scroll = new ScrollView
@@ -204,7 +213,7 @@ namespace TurnamentManager.Models
                 HeightRequest = _frameHeight,
             };
 
-            var tap = new TapGestureRecognizer {Command = TapCommand, CommandParameter = $"{leftName} : {rightName} \n"};
+            var tap = new TapGestureRecognizer {Command = TapCommand, CommandParameter = $"{leftName} : {rightName}"};
 
             st.Children.Add(addButton1);
             st.Children.Add(vsImage);
@@ -267,7 +276,7 @@ namespace TurnamentManager.Models
         
         private void OpenPopup(string matchString)
         {
-            _navigation.PushPopupAsync(new MatchResultsPage());
+            _navigation.PushPopupAsync(new MatchResultsPage(matchString, _tournamentId));
         }
 
         private bool IsNumberPowerOf2(int num)
