@@ -39,25 +39,22 @@
             <Grid ColumnDefinitions="33.33*,33.33*,33.33*,33.33*,33.33*,33.33*,33.33*" ColumnSpacing="0">
                 
                 
-                <Entry WidthRequest="35" HorizontalTextAlignment="Center" Keyboard="Numeric" FontFamily="PixL" Placeholder="0" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Grid.Column="2"/>
+                <Entry WidthRequest="35" HorizontalTextAlignment="Center" Keyboard="Numeric" FontFamily="PixL" Placeholder="0" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Grid.Column="2" Text="{Binding LeftScore, Mode=TwoWay}"/>
                 
                 <Label FontFamily="PixL" Text=":" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="3"/>
                 
-                <Entry WidthRequest="35" HorizontalTextAlignment="Center"  Keyboard="Numeric" FontFamily="PixL" Placeholder="0" VerticalOptions="CenterAndExpand" HorizontalOptions="End" Grid.Column="4" />
+                <Entry WidthRequest="35" HorizontalTextAlignment="Center"  Keyboard="Numeric" FontFamily="PixL" Placeholder="0" VerticalOptions="CenterAndExpand" HorizontalOptions="End" Grid.Column="4" Text="{Binding RightScore, Mode=TwoWay}"/>
                 
             </Grid>
             
             
             <Grid ColumnDefinitions="33.33*,33.33*,33.33*,33.33*,33.33*,33.33*" ColumnSpacing="0">
                 
-                <ImageButton Source="minus_button.png" ScaleX="0.7" ScaleY="0.7" Grid.Column="0"/>
-                <ImageButton Source="plus_butt.png" ScaleX="0.7" ScaleY="0.7" Grid.Column="1"/>
+                <ImageButton Source="minus_button.png" ScaleX="0.7" ScaleY="0.7" Grid.Column="0" Command="{Binding RemoveLeftCommand}"/>
+                <ImageButton Source="plus_butt.png" ScaleX="0.7" ScaleY="0.7" Grid.Column="1" Command="{Binding AddLeftCommand}"/>
                 
-                <Label Grid.Column="2"/>
-                <Label Grid.Column="3"/>
-                
-                <ImageButton Source="minus_button.png" ScaleX="0.7" ScaleY="0.7" Grid.Column="4"/>
-                <ImageButton Source="plus_butt.png" ScaleX="0.7" ScaleY="0.7" Grid.Column="5"/>
+                <ImageButton Source="minus_button.png" ScaleX="0.7" ScaleY="0.7" Grid.Column="4" Command="{Binding RemoveRightCommand}"/>
+                <ImageButton Source="plus_butt.png" ScaleX="0.7" ScaleY="0.7" Grid.Column="5" Command="{Binding AddRightCommand}"/>
             </Grid>
         </StackLayout>
        
@@ -65,7 +62,8 @@
                      Source="save_bigger.png"
                      BackgroundColor="Transparent"
                      HorizontalOptions="CenterAndExpand"
-                     VerticalOptions="End"/>
+                     VerticalOptions="End"
+                     Command="{Binding SaveCommand}"/>
        
     </StackLayout>
     </Frame>
