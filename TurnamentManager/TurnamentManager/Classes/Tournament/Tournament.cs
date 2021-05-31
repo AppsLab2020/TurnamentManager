@@ -32,6 +32,7 @@ namespace TurnamentManager.Classes.Tournament
         {
             PlayersID = new List<int>();
             GetPlayerIDs();
+            ResultsStringList = new List<string>();
         }
 
         public void CreatePlayerIDString()
@@ -58,21 +59,20 @@ namespace TurnamentManager.Classes.Tournament
         {
             var counter = 0;
             var times = 1;
-            var matches = MatchesString.Split('\n').Length / 2;
+            var matches = MatchesString.Split('\n').Length;
             foreach (var result in ResultsStringList)
             {
-                if (counter / times == matches / times)
+                if (counter == matches / times)
                 {
-                    MatchesString += ";";
+                    ResultsString += ";";
                     times *= 2;
+                    counter = 0;
                 }
 
-                MatchesString += result + "\n";
-                
+                ResultsString += result;
                 counter++;
+                Console.WriteLine();
             }
-
-            Console.WriteLine();
         }
 
         /*private bool isNumberPowerOfTwo(int num)

@@ -8,10 +8,10 @@ namespace TurnamentManager.Views.PopOutPages
     {
         
         
-        public MatchResultsPage(string match, int tournamentId)
+        public MatchResultsPage(string match, int tournamentId, int totalMatches)
         {
             InitializeComponent();
-            var model = new MatchResultModel(match, tournamentId, Navigation);
+            var model = new MatchResultModel(match, tournamentId, Navigation, totalMatches);
             BindingContext = model;
         }
         

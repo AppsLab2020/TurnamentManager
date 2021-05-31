@@ -70,15 +70,7 @@ namespace TurnamentManager.Models
                 {
                     _matchesList.Add("test : test \n");
                 }
-                
-                foreach (var tournament in tournaments.Where(tournament => tournament.ID == _tournamentId))
-                {
-                    foreach (var match in _matchesList)
-                    {
-                        tournament.ResultsStringList.Add("none : none \n");
-                    }
-                }
-                
+
                 var framesList = new List<Position>();
 
                 for (var i = 0; i < _matchesList.Count; i++)
@@ -213,7 +205,7 @@ namespace TurnamentManager.Models
                 HeightRequest = _frameHeight,
             };
 
-            var tap = new TapGestureRecognizer {Command = TapCommand, CommandParameter = $"{leftName} : {rightName}"};
+            var tap = new TapGestureRecognizer {Command = TapCommand, CommandParameter = $"{leftName} : {rightName} "};
 
             st.Children.Add(addButton1);
             st.Children.Add(vsImage);
@@ -276,7 +268,7 @@ namespace TurnamentManager.Models
         
         private void OpenPopup(string matchString)
         {
-            _navigation.PushPopupAsync(new MatchResultsPage(matchString, _tournamentId));
+            _navigation.PushPopupAsync(new MatchResultsPage(matchString, _tournamentId, ((_matchesList.Count * 2) - 1)));
         }
 
         private bool IsNumberPowerOf2(int num)

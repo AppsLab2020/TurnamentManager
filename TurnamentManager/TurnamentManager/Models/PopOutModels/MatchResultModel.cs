@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -50,12 +51,14 @@ namespace TurnamentManager.Models.PopOutModels
         private readonly int _tournamentId;
         private readonly string _match;
         private INavigation _navigation;
+        private int _totalMatches;
 
-        public MatchResultModel(string match, int tournamentId, INavigation navigation)
+        public MatchResultModel(string match, int tournamentId, INavigation navigation, int totalMatches)
         {
             _match = match;
             _tournamentId = tournamentId;
             _navigation = navigation;
+            _totalMatches = totalMatches;
 
             SaveCommand = new Command(Save);
 
@@ -94,9 +97,15 @@ namespace TurnamentManager.Models.PopOutModels
 
             foreach (var tournament in tournaments.Where(tournament => tournament.ID == _tournamentId))
             {
-                for (var i = 0; i < tournament.MatchesString.Split('\n').Length; i++)
+                var matches = tournament.MatchesString.Split('\n').ToList();
+                for (var i = 0; i < _totalMatches; i++)
                 {
-                    if (tournament.MatchesString.Split('\n')[i] == _match)
+                    tournament.ResultsStringList.Add("none : none \n");
+                }
+                
+                for (var i = 0; i < matches.Count; i++)
+                {
+                    if (string.Compare(matches[i],_match) == 1)
                     {
                         tournament.ResultsStringList[i] = $"{LeftScore} : {RightScore} \n";
                     }
