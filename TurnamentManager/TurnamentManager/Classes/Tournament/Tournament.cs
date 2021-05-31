@@ -64,14 +64,13 @@ namespace TurnamentManager.Classes.Tournament
             {
                 if (counter == matches / times)
                 {
-                    ResultsString += ";";
+                    //ResultsString += ";";
                     times *= 2;
                     counter = 0;
                 }
 
                 ResultsString += result;
                 counter++;
-                Console.WriteLine();
             }
         }
 

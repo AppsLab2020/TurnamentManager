@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using Rg.Plugins.Popup.Extensions;
 using Rg.Plugins.Popup.Services;
 using SQLite;
 using TurnamentManager.Classes;
 using TurnamentManager.Classes.Tournament;
+using TurnamentManager.Models.PopOutModels;
 using TurnamentManager.Views.PopOutPages;
 using Xamarin.Forms;
 using Xamarin.Forms.Shapes;
@@ -37,16 +42,28 @@ namespace TurnamentManager.Models
 
         private int currentId = 0;
 
+        private ObservableCollection<string> _leftNamesList { get; set; }
+        private ObservableCollection<string> _rightNamesList { get; set; }
+
         public MatchModel(INavigation navigation, int tournamentId)
         {
             _matchesList = new List<string>();
             _navigation = navigation;
             _tournamentId = tournamentId;
             _frames = new List<List<Position>>();
+
+            _leftNamesList = new ObservableCollection<string>();
+            _rightNamesList = new ObservableCollection<string>();
         }
 
         public ScrollView GetSpider()
         {
+            _stage = 0;
+            _frames.Clear();
+            _matchesList.Clear();
+            _leftNamesList.Clear();
+            _rightNamesList.Clear();
+            currentId = 0;
             var layout = new AbsoluteLayout
             {
                 HeightRequest = 5000,
@@ -73,6 +90,89 @@ namespace TurnamentManager.Models
                     _matchesList.Add("bye : bye \n");
                 }
 
+                for (var i = 0; i < (_matchesList.Count * 2) - 1; i++)
+                {
+                    _leftNamesList.Add("waiting");
+                    _rightNamesList.Add("waiting");
+                }
+
+                for (var i = 0; i < _matchesList.Count; i++)
+                {
+                    _leftNamesList[i] = _matchesList[i].Split(' ')[0];
+                    _rightNamesList[i] = _matchesList[i].Split(' ')[2];
+                }
+
+                foreach (var tournament in tournaments.Where(tournament => tournament.ID == _tournamentId))
+                {
+                    if (string.IsNullOrEmpty(tournament.ResultsString))
+                        continue;
+                    
+                    var results = tournament.ResultsString.Split('\n').ToList();
+                    var stage = 1;
+                    var position = 0;
+                    var counter = 0;
+                    var topMatch = true;
+                    for (var i = 0; i < results.Count; i++)
+                    {
+                        var result = results[i];
+                        if (counter == (_matchesList.Count * 2) - 1)
+                        {
+                            stage++;
+                            position = 0;
+                            counter = 0;
+                            continue;
+                        }
+                        
+                        if(result.Split(' ')[0] == "none")
+                            continue;
+                        
+                        if(i + 1 == results.Count)
+                            continue; //TODO zapis nejako vyhercu asi
+
+                        var left = int.Parse(result.Split(' ')[0]);
+                        var right = int.Parse(result.Split(' ')[2]);
+
+                        if (topMatch)
+                        {
+                            if (left > right)
+                            {
+                                var leftName = _leftNamesList[i];
+                                _leftNamesList[_matchesList.Count / stage + position] = leftName;
+                            }
+                            else if (right > left)
+                            {
+                                var rightName = _rightNamesList[i];
+                                _leftNamesList[_matchesList.Count / stage + position] = rightName;
+                            }
+                            else
+                            {
+                                //TODO remiza
+                            }
+                        }
+                        else
+                        {
+                            if (left > right)
+                            {
+                                var leftName = _leftNamesList[i];
+                                _rightNamesList[_matchesList.Count / stage + position - 1] = leftName;
+                            }
+                            else if (right > left)
+                            {
+                                var rightName = _rightNamesList[i];
+                                _rightNamesList[_matchesList.Count / stage + position - 1] = rightName;
+                            }
+                        }
+
+                        //TODO autopostup cez bye :D
+
+                        if (counter % 2 == 0)
+                            position++;
+
+                        topMatch = !topMatch;
+                        counter++;
+                    }
+                }
+
                 var framesList = new List<Position>();
 
                 for (var i = 0; i < _matchesList.Count; i++)
@@ -80,7 +180,7 @@ namespace TurnamentManager.Models
                     var match = _matchesList[i];
                     var names = match.Split(' ');
 
-                    var frame = GetFrame(names[0], names[2], currentId.ToString());
+                    var frame = GetFrame(_leftNamesList[currentId], _rightNamesList[currentId], currentId.ToString());
                     currentId++;
                     layout.Children.Add(frame, new Point(15, 15 + (_yShift * i)));
                     var position = new Position()
@@ -124,7 +224,7 @@ namespace TurnamentManager.Models
 
                     foreach (var lines in linesList)
                     {
-                        var frame = GetFrame("waiting for result", "waiting for result", currentId.ToString());
+                        var frame = GetFrame(_leftNamesList[currentId], _rightNamesList[currentId], currentId.ToString());
                         currentId++;
 
                         layout.Children.Add(frame, new Point(lines[3].X2, lines[3].Y2 - 50));
@@ -172,8 +272,8 @@ namespace TurnamentManager.Models
                 BackgroundColor = Color.Transparent,
                 HorizontalOptions = LayoutOptions.StartAndExpand,
                 VerticalOptions = LayoutOptions.CenterAndExpand,
-                Text = leftName,
                 FontFamily = "PixL",
+                Text = leftName,
                 Padding = new Thickness(0, 12),
             };
             var vsImage = new Image
@@ -190,8 +290,8 @@ namespace TurnamentManager.Models
                 BackgroundColor = Color.Transparent,
                 HorizontalOptions = LayoutOptions.EndAndExpand,
                 VerticalOptions = LayoutOptions.CenterAndExpand,
-                Text = rightName,
                 FontFamily = "PixL",
+                Text = rightName,
                 Padding = new Thickness(0, 12),
             };
             var frame = new Frame

@@ -186,6 +186,8 @@ namespace TurnamentManager.Models.PopOutModels
 
                 conn.Query<Tournament>($"UPDATE Tournament SET ResultsString='{tournament.ResultsString}' WHERE ID={tournament.ID}");
                 
+                MessagingCenter.Send(this, "redraw");
+                
                 _navigation.PopPopupAsync();
             }
         }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Rg.Plugins.Popup.Services;
 using TurnamentManager.Models;
+using TurnamentManager.Models.PopOutModels;
 using TurnamentManager.Views.PopOutPages;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -22,6 +23,12 @@ namespace TurnamentManager.Views
             BindingContext = _model;
 
             Layout.Children.Add(_model.GetSpider());
+            
+            MessagingCenter.Subscribe<MatchResultModel>(this, "redraw", (sender) =>
+            {
+                Layout.Children.Clear();
+                Layout.Children.Add(_model.GetSpider());
+            });
         }
 
         public MatchPage()
