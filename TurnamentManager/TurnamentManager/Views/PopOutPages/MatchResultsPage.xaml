@@ -50,14 +50,14 @@
             
             <Grid ColumnDefinitions="33.33*,33.33*,33.33*,33.33*,33.33*,33.33*" ColumnSpacing="0">
                 
-                <Image Source="minus_button.png" ScaleX="0.7" ScaleY="0.7" Grid.Column="0"/>
-                <Image Source="plus_butt.png" ScaleX="0.7" ScaleY="0.7" Grid.Column="1"/>
+                <ImageButton Source="minus_button.png" ScaleX="0.7" ScaleY="0.7" Grid.Column="0"/>
+                <ImageButton Source="plus_butt.png" ScaleX="0.7" ScaleY="0.7" Grid.Column="1"/>
                 
                 <Label Grid.Column="2"/>
                 <Label Grid.Column="3"/>
                 
-                <Image Source="minus_button.png" ScaleX="0.7" ScaleY="0.7" Grid.Column="4"/>
-                <Image Source="plus_butt.png" ScaleX="0.7" ScaleY="0.7" Grid.Column="5"/>
+                <ImageButton Source="minus_button.png" ScaleX="0.7" ScaleY="0.7" Grid.Column="4"/>
+                <ImageButton Source="plus_butt.png" ScaleX="0.7" ScaleY="0.7" Grid.Column="5"/>
             </Grid>
         </StackLayout>
        
