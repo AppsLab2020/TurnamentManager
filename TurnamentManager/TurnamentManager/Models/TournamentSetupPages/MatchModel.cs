@@ -35,6 +35,8 @@ namespace TurnamentManager.Models
 
         private INavigation _navigation;
 
+        private int currentId = 0;
+
         public MatchModel(INavigation navigation, int tournamentId)
         {
             _matchesList = new List<string>();
@@ -68,7 +70,7 @@ namespace TurnamentManager.Models
             {
                 while (!IsNumberPowerOf2(_matchesList.Count))
                 {
-                    _matchesList.Add("test : test \n");
+                    _matchesList.Add("bye : bye \n");
                 }
 
                 var framesList = new List<Position>();
@@ -78,7 +80,8 @@ namespace TurnamentManager.Models
                     var match = _matchesList[i];
                     var names = match.Split(' ');
 
-                    var frame = GetFrame(names[0], names[2]);
+                    var frame = GetFrame(names[0], names[2], currentId.ToString());
+                    currentId++;
                     layout.Children.Add(frame, new Point(15, 15 + (_yShift * i)));
                     var position = new Position()
                     {
@@ -121,7 +124,8 @@ namespace TurnamentManager.Models
 
                     foreach (var lines in linesList)
                     {
-                        var frame = GetFrame("", "");
+                        var frame = GetFrame("waiting for result", "waiting for result", currentId.ToString());
+                        currentId++;
 
                         layout.Children.Add(frame, new Point(lines[3].X2, lines[3].Y2 - 50));
 
@@ -160,7 +164,7 @@ namespace TurnamentManager.Models
             }
         }
 
-        private Frame GetFrame(string leftName, string rightName)
+        private Frame GetFrame(string leftName, string rightName, string id)
         {
             var addButton1 = new Label
             {
@@ -205,7 +209,7 @@ namespace TurnamentManager.Models
                 HeightRequest = _frameHeight,
             };
 
-            var tap = new TapGestureRecognizer {Command = TapCommand, CommandParameter = $"{leftName} : {rightName} "};
+            var tap = new TapGestureRecognizer {Command = TapCommand, CommandParameter = $"{leftName} : {rightName} {id}"};
 
             st.Children.Add(addButton1);
             st.Children.Add(vsImage);

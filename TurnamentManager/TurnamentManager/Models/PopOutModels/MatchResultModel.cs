@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
@@ -81,8 +82,9 @@ namespace TurnamentManager.Models.PopOutModels
         private int _totalMatches;
         private string _leftName;
         private string _rightName;
+        private int _matchId;
 
-        public MatchResultModel(string match, int tournamentId, INavigation navigation, int totalMatches)
+        public MatchResultModel(string match, int tournamentId, INavigation navigation, int totalMatches) //TODO: canEdit bool if false plus and minus will not work
         {
             _match = match;
             _tournamentId = tournamentId;
@@ -99,6 +101,37 @@ namespace TurnamentManager.Models.PopOutModels
 
             LeftName = _match.Split(' ')[0];
             RightName = _match.Split(' ')[2];
+            
+            _matchId = int.Parse(_match.Split(' ')[_match.Split(' ').Length - 1]);
+            
+            using var conn = new SQLiteConnection(Path.Combine(App.FolderPath, "tournaments.db3"));
+            conn.CreateTable<Tournament>();
+            var tournaments = conn.Table<Tournament>().ToList();
+
+            foreach (var tournament in tournaments.Where(tournament => tournament.ID == _tournamentId))
+            {
+                if (string.IsNullOrEmpty(tournament.ResultsString))
+                {
+                    LeftScore = 0;
+                    RightScore = 0;
+                }
+                else
+                {
+                    var results = tournament.ResultsString.Split('\n').ToList();
+                    results.RemoveAt(results.Count-1);
+
+                    foreach (var scores in from result in results where result != ";" select result.Split(' '))
+                    {
+                        tournament.ResultsStringList.Add(scores[0] + " : " + scores[2] + " \n");
+                    }
+
+                    if (tournament.ResultsStringList[_matchId].Split(' ')[0] == "none")
+                        return;
+                    
+                    LeftScore = int.Parse(tournament.ResultsStringList[_matchId].Split(' ')[0]);
+                    RightScore = int.Parse(tournament.ResultsStringList[_matchId].Split(' ')[2]);
+                }
+            }
         }
 
         private void AddLeft()
@@ -129,29 +162,30 @@ namespace TurnamentManager.Models.PopOutModels
 
             foreach (var tournament in tournaments.Where(tournament => tournament.ID == _tournamentId))
             {
-                var matches = tournament.MatchesString.Split('\n').ToList();
-                for (var i = 0; i < _totalMatches; i++)
+                if (string.IsNullOrEmpty(tournament.ResultsString))
                 {
-                    tournament.ResultsStringList.Add("none : none \n");
-                }
-
-                for (var i = 0; i < matches.Count; i++)
-                {
-                    if(string.IsNullOrEmpty(matches[i]))
-                        continue;
-                    
-                    var leftName = matches[i].Split(' ')[0];
-                    var rightName = matches[i].Split(' ')[2];
-                    var leftNameTest = _match.Split(' ')[0];
-                    var rightNameTest = _match.Split(' ')[2];
-                    
-                    if (leftName == leftNameTest && rightName == rightNameTest)
+                    for (var i = 0; i < _totalMatches; i++)
                     {
-                        tournament.ResultsStringList[i] = $"{LeftScore} : {RightScore} \n";
+                        tournament.ResultsStringList.Add("none : none \n");
+                    }
+                }
+                else
+                {
+                    var results = tournament.ResultsString.Split('\n').ToList();
+                    results.RemoveAt(results.Count-1);
+
+                    foreach (var scores in from result in results where result != ";" select result.Split(' '))
+                    {
+                        tournament.ResultsStringList.Add(scores[0] + " : " + scores[2] + " \n");
                     }
                 }
 
+                tournament.ResultsStringList[_matchId] = $"{LeftScore} : {RightScore} \n";
+                tournament.ResultsString = "";
                 tournament.MakeResultsString();
+
+                conn.Query<Tournament>($"UPDATE Tournament SET ResultsString='{tournament.ResultsString}' WHERE ID={tournament.ID}");
+                
                 _navigation.PopPopupAsync();
             }
         }
