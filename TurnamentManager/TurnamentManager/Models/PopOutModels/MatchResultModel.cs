@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using Rg.Plugins.Popup.Extensions;
 using SQLite;
 using TurnamentManager.Classes.Tournament;
 using Xamarin.Forms;
@@ -133,16 +134,25 @@ namespace TurnamentManager.Models.PopOutModels
                 {
                     tournament.ResultsStringList.Add("none : none \n");
                 }
-                
+
                 for (var i = 0; i < matches.Count; i++)
                 {
-                    if (string.Equals(matches[i],_match))
+                    if(string.IsNullOrEmpty(matches[i]))
+                        continue;
+                    
+                    var leftName = matches[i].Split(' ')[0];
+                    var rightName = matches[i].Split(' ')[2];
+                    var leftNameTest = _match.Split(' ')[0];
+                    var rightNameTest = _match.Split(' ')[2];
+                    
+                    if (leftName == leftNameTest && rightName == rightNameTest)
                     {
                         tournament.ResultsStringList[i] = $"{LeftScore} : {RightScore} \n";
                     }
                 }
 
                 tournament.MakeResultsString();
+                _navigation.PopPopupAsync();
             }
         }
 
