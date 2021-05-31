@@ -28,11 +28,11 @@
         BackgroundColor="White">
         
         <Grid ColumnDefinitions="33.33*,33.33*, 33.33*" ColumnSpacing="0" >
-        <Label FontSize="Subtitle" FontFamily="PixL" Text="Player1" VerticalOptions="Start" HorizontalOptions="Start" Padding="30,40" Grid.Column="0"/>
+        <Label FontSize="Subtitle" FontFamily="PixL" Text="{Binding LeftName}" VerticalOptions="Start" HorizontalOptions="Start" Padding="30,40" Grid.Column="0"/>
         
         <Image VerticalOptions="Start" HorizontalOptions="Center" Source="vs_image.png" ScaleX="0.5" ScaleY="0.5" Grid.Column="1"/>
         
-        <Label FontSize="Subtitle" FontFamily="PixL" Text="Player1" VerticalOptions="Start" HorizontalOptions="End" Padding="30,40"  Grid.Column="2"/>
+        <Label FontSize="Subtitle" FontFamily="PixL" Text="{Binding RightName}" VerticalOptions="Start" HorizontalOptions="End" Padding="30,40"  Grid.Column="2"/>
         </Grid>
         <StackLayout Orientation="Vertical" >
             

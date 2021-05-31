@@ -45,6 +45,32 @@ namespace TurnamentManager.Models.PopOutModels
             }
         }
 
+        public string LeftName
+        {
+            get => _leftName;
+            set
+            {
+                if (value == _leftName)
+                    return;
+
+                _leftName = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string RightName
+        {
+            get => _rightName;
+            set
+            {
+                if (value == _rightName)
+                    return;
+
+                _rightName = value;
+                OnPropertyChanged();
+            }
+        }
+
         private int _leftScore = 0;
         private int _rightScore = 0;
 
@@ -52,6 +78,8 @@ namespace TurnamentManager.Models.PopOutModels
         private readonly string _match;
         private INavigation _navigation;
         private int _totalMatches;
+        private string _leftName;
+        private string _rightName;
 
         public MatchResultModel(string match, int tournamentId, INavigation navigation, int totalMatches)
         {
@@ -67,6 +95,9 @@ namespace TurnamentManager.Models.PopOutModels
 
             AddRightCommand = new Command(AddRight);
             RemoveRightCommand = new Command(RemoveRight);
+
+            LeftName = _match.Split(' ')[0];
+            RightName = _match.Split(' ')[2];
         }
 
         private void AddLeft()
@@ -105,7 +136,7 @@ namespace TurnamentManager.Models.PopOutModels
                 
                 for (var i = 0; i < matches.Count; i++)
                 {
-                    if (string.Compare(matches[i],_match) == 1)
+                    if (string.Equals(matches[i],_match))
                     {
                         tournament.ResultsStringList[i] = $"{LeftScore} : {RightScore} \n";
                     }
