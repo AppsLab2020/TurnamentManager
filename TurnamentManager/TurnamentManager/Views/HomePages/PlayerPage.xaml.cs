@@ -23,6 +23,8 @@ namespace TurnamentManager.Views
             {
                 await DrawPlayers();
             };
+
+            
         }
         
        private async void Button_OnClicked(object sender, EventArgs e)
