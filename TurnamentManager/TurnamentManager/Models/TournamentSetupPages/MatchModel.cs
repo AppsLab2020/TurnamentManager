@@ -101,17 +101,20 @@ namespace TurnamentManager.Models
                     _leftNamesList[i] = _matchesList[i].Split(' ')[0];
                     _rightNamesList[i] = _matchesList[i].Split(' ')[2];
                 }
+                
+                //TODO: chcek for bye and make them auto lose !
 
                 foreach (var tournament in tournaments.Where(tournament => tournament.ID == _tournamentId))
                 {
                     if (string.IsNullOrEmpty(tournament.ResultsString))
                         continue;
-                    
+
                     var results = tournament.ResultsString.Split('\n').ToList();
                     var stage = 1;
                     var position = 0;
                     var counter = 0;
                     var topMatch = true;
+                    tournament.Finished = false;
                     for (var i = 0; i < results.Count; i++)
                     {
                         var result = results[i];
@@ -122,12 +125,17 @@ namespace TurnamentManager.Models
                             counter = 0;
                             continue;
                         }
-                        
-                        if(result.Split(' ')[0] == "none")
+
+                        if (result.Split(' ')[0] == "none")
                             continue;
-                        
-                        if(i + 1 == results.Count)
+
+                        if (i + 1 == results.Count)
+                        {
+                            if(result.Split(' ')[0] != "none" && result.Split(' ')[2] != "none")
+                                tournament.Finished = true;
+                            
                             continue; //TODO zapis nejako vyhercu asi
+                        }
 
                         var left = int.Parse(result.Split(' ')[0]);
                         var right = int.Parse(result.Split(' ')[2]);
@@ -171,6 +179,8 @@ namespace TurnamentManager.Models
                         topMatch = !topMatch;
                         counter++;
                     }
+                    
+                    conn.Query<Tournament>($"UPDATE Tournament SET Finished='{tournament.Finished}' WHERE ID={_tournamentId}");
                 }
 
                 var framesList = new List<Position>();
@@ -224,7 +234,8 @@ namespace TurnamentManager.Models
 
                     foreach (var lines in linesList)
                     {
-                        var frame = GetFrame(_leftNamesList[currentId], _rightNamesList[currentId], currentId.ToString());
+                        var frame = GetFrame(_leftNamesList[currentId], _rightNamesList[currentId],
+                            currentId.ToString());
                         currentId++;
 
                         layout.Children.Add(frame, new Point(lines[3].X2, lines[3].Y2 - 50));
@@ -309,7 +320,8 @@ namespace TurnamentManager.Models
                 HeightRequest = _frameHeight,
             };
 
-            var tap = new TapGestureRecognizer {Command = TapCommand, CommandParameter = $"{leftName} : {rightName} {id}"};
+            var tap = new TapGestureRecognizer
+                {Command = TapCommand, CommandParameter = $"{leftName} : {rightName} {id}"};
 
             st.Children.Add(addButton1);
             st.Children.Add(vsImage);
@@ -369,10 +381,11 @@ namespace TurnamentManager.Models
 
             return lines;
         }
-        
+
         private void OpenPopup(string matchString)
         {
-            _navigation.PushPopupAsync(new MatchResultsPage(matchString, _tournamentId, ((_matchesList.Count * 2) - 1)));
+            _navigation.PushPopupAsync(new MatchResultsPage(matchString, _tournamentId,
+                ((_matchesList.Count * 2) - 1)));
         }
 
         private bool IsNumberPowerOf2(int num)
@@ -384,9 +397,10 @@ namespace TurnamentManager.Models
             {
                 if (num % 2 != 0)
                     return false;
-                
+
                 num /= 2;
             }
+
             return true;
         }
     }

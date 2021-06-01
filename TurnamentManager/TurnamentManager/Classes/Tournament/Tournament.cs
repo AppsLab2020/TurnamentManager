@@ -13,6 +13,8 @@ namespace TurnamentManager.Classes.Tournament
         
         public int Trophy { get; set; }
         
+        public bool Finished { get; set; }
+        
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
 
@@ -73,21 +75,5 @@ namespace TurnamentManager.Classes.Tournament
                 counter++;
             }
         }
-
-        /*private bool isNumberPowerOfTwo(int num)
-        {
-            {
-                if (num is 0 or 1)
-                    return false;
-
-                while (num != 1)
-                {
-                    if (num%2 != 0)
-                        return false;
-                    num = num/2;
-                }
-                return true;
-            }
-        }*/
     }
 }
