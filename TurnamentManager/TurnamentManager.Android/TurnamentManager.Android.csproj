@@ -131,6 +131,7 @@
     <AndroidResource Include="Resources\drawable\plus_butt.png" />
     <AndroidResource Include="Resources\drawable\pool_ball.png" />
     <AndroidResource Include="Resources\drawable\random_button.png" />
+    <AndroidResource Include="Resources\drawable\reroll_button.png" />
     <AndroidResource Include="Resources\drawable\rugby_player.png" />
     <AndroidResource Include="Resources\drawable\rugby_player_avatar.png" />
     <AndroidResource Include="Resources\drawable\save_bigger.png" />
