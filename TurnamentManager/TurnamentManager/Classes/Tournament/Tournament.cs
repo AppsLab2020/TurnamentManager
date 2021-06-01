@@ -27,6 +27,8 @@ namespace TurnamentManager.Classes.Tournament
         
         public string ResultsString { get; set; }
         
+        public string Winner { get; set; }
+        
         [Ignore]
         public List<string> ResultsStringList { get; set; }
         
