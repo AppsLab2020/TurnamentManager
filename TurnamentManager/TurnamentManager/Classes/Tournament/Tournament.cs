@@ -13,7 +13,7 @@ namespace TurnamentManager.Classes.Tournament
         
         public int Trophy { get; set; }
         
-        public bool Finished { get; set; }
+        public int Finished { get; set; }
         
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }

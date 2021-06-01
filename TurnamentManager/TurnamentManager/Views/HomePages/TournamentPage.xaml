@@ -9,8 +9,7 @@
                              HeightRequest="{Binding Height, Mode=OneWay}">
                
                 </StackLayout>
-                <Grid x:Name="labelGrid" ColumnDefinitions="33.33*" ColumnSpacing="0"/>
-                <Grid x:Name="trophyGrid" ColumnDefinitions="33.33*" ColumnSpacing="0"/>
+                
                 <ImageButton Source="plus_butt.png"
                              x:Name="PlusButton"
                              HorizontalOptions="EndAndExpand"

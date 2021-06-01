@@ -60,7 +60,7 @@ namespace TurnamentManager.Models
 
             Height = tournaments.Count * 80 + 150;
 
-            foreach (var tournament in tournaments)
+            foreach (var tournament in tournaments.Where(tournament => tournament.Finished == 0))
             {
                 var frame = await Task.Run(() => MakeFrameAsync(tournament));
                 frames.Add(frame);
@@ -230,9 +230,6 @@ namespace TurnamentManager.Models
                     _navigation.PushAsync(new MatchPage(id));
                 }
             }
-            
-            
-            
         }
 
         private void RemoveTournament(int id)

@@ -4,15 +4,12 @@
              xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              x:Class="TurnamentManager.Views.HistoryPage">
     <ContentPage.Content>
-        <StackLayout>
-            <forms:AnimationView 
-                x:Name="View"
-                    Animation="trophy.json" 
-                    AutoPlay="True" 
-                    RepeatMode="Infinite"/>
-            
-            <Button Clicked="Button_OnClicked"/>
-            
-        </StackLayout>
+        <ScrollView>
+            <StackLayout Padding="20">
+                <StackLayout x:Name="TournamentLayout"
+                             HeightRequest="{Binding Height, Mode=OneWay}">
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

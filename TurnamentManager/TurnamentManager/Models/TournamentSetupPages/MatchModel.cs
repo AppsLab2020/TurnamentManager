@@ -110,11 +110,12 @@ namespace TurnamentManager.Models
                         continue;
 
                     var results = tournament.ResultsString.Split('\n').ToList();
+                    results.RemoveAt(results.Count - 1);
                     var stage = 1;
                     var position = 0;
                     var counter = 0;
                     var topMatch = true;
-                    tournament.Finished = false;
+                    tournament.Finished = 0;
                     for (var i = 0; i < results.Count; i++)
                     {
                         var result = results[i];
@@ -131,8 +132,8 @@ namespace TurnamentManager.Models
 
                         if (i + 1 == results.Count)
                         {
-                            if(result.Split(' ')[0] != "none" && result.Split(' ')[2] != "none")
-                                tournament.Finished = true;
+                            if((result.Split(' ')[0] != "none" && result.Split(' ')[2] != "none") && (result.Split(' ')[0] != "waiting" && result.Split(' ')[2] != "waiting"))
+                                tournament.Finished = 1;
                             
                             continue; //TODO zapis nejako vyhercu asi
                         }
