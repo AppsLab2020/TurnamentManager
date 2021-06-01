@@ -30,7 +30,7 @@
         <Grid ColumnDefinitions="33.33*,33.33*, 33.33*" ColumnSpacing="0" >
         <Label FontSize="Subtitle" FontFamily="PixL" Text="{Binding LeftName}" VerticalOptions="Start" HorizontalOptions="Start" Padding="30,40" Grid.Column="0"/>
         
-        <Image VerticalOptions="Start" HorizontalOptions="Center" Source="vs_image.png" ScaleX="0.5" ScaleY="0.5" Grid.Column="1"/>
+        <Image BackgroundColor="Transparent" VerticalOptions="Start" HorizontalOptions="Center" Source="vs_image.png" ScaleX="0.5" ScaleY="0.5" Grid.Column="1"/>
         
         <Label FontSize="Subtitle" FontFamily="PixL" Text="{Binding RightName}" VerticalOptions="Start" HorizontalOptions="End" Padding="30,40"  Grid.Column="2"/>
         </Grid>
@@ -50,11 +50,11 @@
             
             <Grid ColumnDefinitions="33.33*,33.33*,33.33*,33.33*,33.33*,33.33*" ColumnSpacing="0">
                 
-                <ImageButton Source="minus_button.png" ScaleX="0.7" ScaleY="0.7" Grid.Column="0" Command="{Binding RemoveLeftCommand}"/>
-                <ImageButton Source="plus_butt.png" ScaleX="0.7" ScaleY="0.7" Grid.Column="1" Command="{Binding AddLeftCommand}"/>
+                <ImageButton BackgroundColor="Transparent" Source="minus_button.png" ScaleX="0.7" ScaleY="0.7" Grid.Column="0" Command="{Binding RemoveLeftCommand}"/>
+                <ImageButton BackgroundColor="Transparent" Source="plus_butt.png" ScaleX="0.7" ScaleY="0.7" Grid.Column="1" Command="{Binding AddLeftCommand}"/>
                 
-                <ImageButton Source="minus_button.png" ScaleX="0.7" ScaleY="0.7" Grid.Column="4" Command="{Binding RemoveRightCommand}"/>
-                <ImageButton Source="plus_butt.png" ScaleX="0.7" ScaleY="0.7" Grid.Column="5" Command="{Binding AddRightCommand}"/>
+                <ImageButton BackgroundColor="Transparent" Source="minus_button.png" ScaleX="0.7" ScaleY="0.7" Grid.Column="4" Command="{Binding RemoveRightCommand}"/>
+                <ImageButton BackgroundColor="Transparent" Source="plus_butt.png" ScaleX="0.7" ScaleY="0.7" Grid.Column="5" Command="{Binding AddRightCommand}"/>
             </Grid>
         </StackLayout>
        
