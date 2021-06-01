@@ -145,6 +145,7 @@ namespace TurnamentManager.Models
                 VerticalOptions = LayoutOptions.EndAndExpand,
                 HorizontalOptions = LayoutOptions.Center,
                 FontFamily = "PixL",
+                TextColor = Color.Black
             };
             
             var label = new Label
