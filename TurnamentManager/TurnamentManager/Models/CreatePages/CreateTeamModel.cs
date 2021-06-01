@@ -55,8 +55,8 @@ namespace TurnamentManager.Models
             }
             else
             {
-                Application.Current.MainPage.DisplayAlert("Chyba",
-                    "Nevyplnili ste vsetky polia alebo ste zadali malo hracov(tym tvoria aspon 2 hraci)", "ok");
+                Application.Current.MainPage.DisplayAlert("Error",
+                    "You didn't fill everything or you set less than 2 players (minimal count of players in team is 2)", "OK");
             }
         }
 

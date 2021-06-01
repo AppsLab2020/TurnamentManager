@@ -106,7 +106,7 @@ namespace TurnamentManager.Models
             }
             else
             {
-                await Application.Current.MainPage.DisplayAlert("Chyba", "Neviplnili ste vsetky parametre", "ok");
+                await Application.Current.MainPage.DisplayAlert("Error", "You didn't fill everything", "OK");
             }
         }
 

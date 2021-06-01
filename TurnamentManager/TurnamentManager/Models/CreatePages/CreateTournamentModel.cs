@@ -225,7 +225,7 @@ namespace TurnamentManager.Models
             }
             else
             {
-                 await Application.Current.MainPage.DisplayAlert("Chyba", "Nevyplnili ste vsetky polia", "ok");
+                 await Application.Current.MainPage.DisplayAlert("Error", "You didn't fill everything", "OK");
             }
         }
 
