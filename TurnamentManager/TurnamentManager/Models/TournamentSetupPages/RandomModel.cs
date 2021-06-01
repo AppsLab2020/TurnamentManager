@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using SQLite;
 using TurnamentManager.Classes.Tournament;
+using TurnamentManager.Views;
 using Xamarin.Forms;
 
 namespace TurnamentManager.Models
@@ -11,6 +12,10 @@ namespace TurnamentManager.Models
     public class RandomModel
     {
         public EventHandler RedrawPlayers;
+        
+        public Command NavigateToNextCommand { get; set; }
+        
+        public Command RedrawCommand { get; set; }
 
         private int _tournamentId;
         private INavigation _navigation;
@@ -22,6 +27,12 @@ namespace TurnamentManager.Models
             _navigation = navigation;
             _tournamentId = tournamentId;
             _matches = "";
+
+            NavigateToNextCommand = new Command(Navigate);
+            RedrawCommand = new Command(() =>
+            {
+                RedrawPlayers?.Invoke(this, EventArgs.Empty);
+            });
         }
 
         public List<Frame> GetRandomDraw()
@@ -56,18 +67,17 @@ namespace TurnamentManager.Models
                 {
                     var rand = random.Next(0, usedPlayers.Count);
 
-                    drawMatches += first ? usedPlayers[rand].ToString() + " : " : usedPlayers[rand].ToString() + " \n";
-
                     lastName = currentName;
 
                     foreach (var player in players.Where(player => player.ID == int.Parse(usedPlayers[rand])))
                     {
                         currentName = player.Name;
                     }
-                    
+
                     if (!first)
                     {
                         matches--;
+                        drawMatches += $"{lastName} : {currentName} \n";
 
                         frames.Add(GenerateFrame(lastName, currentName));
                     }
@@ -136,6 +146,13 @@ namespace TurnamentManager.Models
             frame.Content = st;
 
             return frame;
+        }
+        
+        private void Navigate()
+        {
+            using var conn = new SQLiteConnection(Path.Combine(App.FolderPath, "tournaments.db3"));
+            conn.Query<Tournament>($"UPDATE Tournament SET MatchesString='{_matches}' WHERE ID={_tournamentId}");
+            _navigation.PushAsync(new MatchPage(_tournamentId));
         }
     }
 }

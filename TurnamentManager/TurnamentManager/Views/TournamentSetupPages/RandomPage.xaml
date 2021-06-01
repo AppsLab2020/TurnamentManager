@@ -9,22 +9,25 @@
             <StackLayout x:Name="StackLayout"
                          HorizontalOptions="Fill"
                          HeightRequest="400">
+                
                 <StackLayout x:Name="FrameLayout"
-                             HeightRequest="150"/>
+                             HeightRequest="0" />
+
                 <StackLayout Margin="0">
                     <ImageButton
                         x:Name="Button"
                         Source="done_button.png"
                         HorizontalOptions="CenterAndExpand"
                         BackgroundColor="Transparent"
-                        Command="{Binding RedrawCommand}"/>
-                    
+                        Command="{Binding RedrawCommand}" />
+
                     <ImageButton
                         x:Name="Button2"
                         Source="done_button.png"
                         HorizontalOptions="CenterAndExpand"
                         BackgroundColor="Transparent"
-                        Command="{Binding NavigateToNextCommand}"/>
+                        Command="{Binding NavigateToNextCommand}" />
+
                 </StackLayout>
             </StackLayout>
 

@@ -26,9 +26,9 @@ namespace TurnamentManager.Views.TournamentSetupPages
             _model.RedrawPlayers += (sender, args) =>
             {
                 FrameLayout.Children.Clear();
+                FrameLayout.HeightRequest = 0;
                 foreach (var frame in _model.GetRandomDraw())
                 {
-                    StackLayout.HeightRequest += 180;
                     FrameLayout.HeightRequest += 150;
                     FrameLayout.Children.Add(frame);
                 }
