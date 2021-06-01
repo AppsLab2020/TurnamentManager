@@ -139,14 +139,12 @@ namespace TurnamentManager.Models
                 ScaleY = 0.5,
             };
             
-            var avatar = new Image
+            var winner = new Label
             {
-                Source = SetTrophy(),
-                Aspect = Aspect.Fill,
+                Text = "Winner: Fero",
                 VerticalOptions = LayoutOptions.EndAndExpand,
                 HorizontalOptions = LayoutOptions.Center,
-                ScaleX = 0.5,
-                ScaleY = 0.5,
+                FontFamily = "PixL",
             };
             
             var label = new Label
@@ -198,7 +196,7 @@ namespace TurnamentManager.Models
 
             
             middleStackLayout.Children.Add(label);
-            middleStackLayout.Children.Add(avatar);
+            middleStackLayout.Children.Add(winner);
             
             st.Children.Add(sport);
             st.Children.Add(middleStackLayout);
