@@ -120,12 +120,18 @@
                                     <Image VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Source="{Binding FormatImageSource}" HeightRequest="80"/>
                             </Grid>
                         </views:Expander.Header>
-                        <Grid ColumnDefinitions="33.33*" ColumnSpacing="2">
+                        <Grid ColumnDefinitions="33.33*,33.33*" ColumnSpacing="2">
                             <ImageButton Source="Knockout.png"
                                          HorizontalOptions="CenterAndExpand" HeightRequest="80" 
                                          Grid.Column="0"
                                          BackgroundColor="Transparent"
                                          Command="{Binding KnockoutCommand}"/>
+                            <ImageButton Source="league.png"
+                                         HorizontalOptions="CenterAndExpand" HeightRequest="80" 
+                                         Grid.Column="1"
+                                         BackgroundColor="Transparent"
+                                         Command="{Binding LeagueCommand}"/>
+                            
                         </Grid>
                     </views:Expander>
                 </StackLayout>

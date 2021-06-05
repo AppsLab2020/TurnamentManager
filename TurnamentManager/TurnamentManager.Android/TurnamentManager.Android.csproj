@@ -17,7 +17,7 @@
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v10.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v11.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
     <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
@@ -119,6 +119,7 @@
     <AndroidResource Include="Resources\drawable\hockey_player.png" />
     <AndroidResource Include="Resources\drawable\hockey_player_avatar.png" />
     <AndroidResource Include="Resources\drawable\Knockout.png" />
+    <AndroidResource Include="Resources\drawable\league.png" />
     <AndroidResource Include="Resources\drawable\manual_button.png" />
     <AndroidResource Include="Resources\drawable\minus_button.png" />
     <AndroidResource Include="Resources\drawable\next_button.png" />

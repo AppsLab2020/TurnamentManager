@@ -31,6 +31,7 @@ namespace TurnamentManager.Models
         
         public ICommand GolfCommand { get; }
         public ICommand KnockoutCommand { get; }
+        public ICommand LeagueCommand { get; }
         public ICommand TeamBasedCommand { get; }
         public ICommand PlayerBasedCommand { get; }
 
@@ -173,6 +174,7 @@ namespace TurnamentManager.Models
             BaseballCommand = new Command(Baseball);
             GolfCommand = new Command(Golf);
             KnockoutCommand = new Command(Knockout);
+            LeagueCommand = new Command(League);
             TeamBasedCommand = new Command(TeamBased);
             PlayerBasedCommand = new Command(PlayerBased);
 
@@ -184,13 +186,14 @@ namespace TurnamentManager.Models
 
         private async void SaveData()
         {
-            if (_selectedFormatId == 0 && _selectedStyleId is >= 0 and < 2 && _selectedSportId is >= 0 and <= 8 && !string.IsNullOrEmpty(Name) && _selectedCupId is >= 0 and <=2)
+            if (_selectedFormatId is >= 0 and  < 2 && _selectedStyleId is >= 0 and < 2 && _selectedSportId is >= 0 and <= 8 && !string.IsNullOrEmpty(Name) && _selectedCupId is >= 0 and <=2)
             {
                 var tournament = new Tournament()
                 {
                     Format = _selectedFormatId switch
                     {
                         0 => "Knockout",
+                        1 => "league",
                         //....
                         _ => throw new ArgumentOutOfRangeException()
                     },
@@ -314,6 +317,13 @@ namespace TurnamentManager.Models
             FormatImageSource = "Knockout.png";
             IsFormatExpanded = false;
             _selectedFormatId = 0;
+        }
+
+        private void League()
+        {
+            FormatImageSource = "league.png";
+            IsFormatExpanded = false;
+            _selectedFormatId = 1;
         }
 
         private void TeamBased()
