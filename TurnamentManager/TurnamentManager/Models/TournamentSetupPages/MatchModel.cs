@@ -134,6 +134,9 @@ namespace TurnamentManager.Models
                         {
                             if((result.Split(' ')[0] != "none" && result.Split(' ')[2] != "none") && (result.Split(' ')[0] != "waiting" && result.Split(' ')[2] != "waiting"))
                                 tournament.Finished = 1;
+
+                            
+                            tournament.Winner = int.Parse(result.Split(' ')[0]) > int.Parse(result.Split(' ')[2]) ? _leftNamesList[i] : _rightNamesList[i];
                             
                             continue; //TODO zapis nejako vyhercu asi
                         }
@@ -182,6 +185,9 @@ namespace TurnamentManager.Models
                     }
                     
                     conn.Query<Tournament>($"UPDATE Tournament SET Finished='{tournament.Finished}' WHERE ID={_tournamentId}");
+                    
+                    if (tournament.Finished == 1)
+                        conn.Query<Tournament>($"UPDATE Tournament SET Winner='{tournament.Winner}' WHERE ID={_tournamentId}");
                 }
 
                 var framesList = new List<Position>();
