@@ -7,11 +7,11 @@
              x:Class="TurnamentManager.Views.CreatePlayerPage">
     <ContentPage.Content>
         <StackLayout>
-            <views:Expander IsExpanded="{Binding IsExpanded, Mode=TwoWay}">
+            <views:Expander IsExpanded="{Binding PlayerExpander.IsExpanded, Mode=TwoWay}">
                 <views:Expander.Header>
                     <Grid>
                         <Image 
-                            Source="{Binding PickedImageSource}" 
+                            Source="{Binding PlayerExpander.CurrentImageSource}" 
                             BackgroundColor="Transparent"/>
                     </Grid>
                 </views:Expander.Header>
@@ -22,39 +22,46 @@
                                      Grid.Column="0"
                                      Source="football_player.png"
                                      BackgroundColor="Transparent"
-                                     Command="{Binding FootballCommand}"/>
+                                     Command="{Binding PlayerExpander.Command}"
+                                     CommandParameter="0"/>
                         <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="150"
                                      Grid.Column="1"
                                      Source="rugby_player.png"
                                      BackgroundColor="Transparent"
-                                     Command="{Binding RugbyCommand}"/>
+                                     Command="{Binding PlayerExpander.Command}"
+                                     CommandParameter="1"/>
                         <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="150"
                                      Grid.Column="2"
                                      Source="tennis_player.png"
                                      BackgroundColor="Transparent"
-                                     Command="{Binding TennisCommand}"/>
+                                     Command="{Binding PlayerExpander.Command}"
+                                     CommandParameter="2"/>
                         <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="150"
                                      Grid.Column="3"
                                      Source="pingpong_player.png"
                                      BackgroundColor="Transparent" 
-                                     Command="{Binding PingPongCommand}"/>
+                                     Command="{Binding PlayerExpander.Command}"
+                                     CommandParameter="3"/>
                         <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="150"
                                      Grid.Column="4"
                                      Source="basketball_player.png"
                                      BackgroundColor="Transparent"
-                                     Command="{Binding BasketballCommand}"/>
+                                     Command="{Binding PlayerExpander.Command}"
+                                     CommandParameter="4"/>
                         <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="150"
                                      Grid.Column="5"
                                      Source="girl_img.png"
                                      BackgroundColor="Transparent" 
-                                     Command="{Binding GirlCommand}"/>
+                                     Command="{Binding PlayerExpander.Command}"
+                                     CommandParameter="5"/>
                     </Grid>
                     <Grid ColumnDefinitions="33.33*" ColumnSpacing="0">
                         <ImageButton HorizontalOptions="CenterAndExpand" HeightRequest="150"
                                      Grid.Column="0"
                                      Source="hockey_player.png"
                                      BackgroundColor="Transparent"
-                                     Command="{Binding HockeyCommand}"/>
+                                     Command="{Binding PlayerExpander.Command}"
+                                     CommandParameter="6"/>
                     </Grid>
                 </StackLayout>
             </views:Expander>
